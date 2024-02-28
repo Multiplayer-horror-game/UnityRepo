@@ -22,17 +22,31 @@ namespace Fase1
         }
 
 
-        public void GenerateNoiseChunk(int xChunk, int yChunk)
+        public float[,] GenerateNoiseChunk(int xChunk, int yChunk)
         {
 
             var noiseMap = new float[_vertices,_vertices];
-            for (var x = 0; x <= _vertices; x++)
+            for (int x = 0; x < _vertices; x++)
             {
-                for (var y = 0; y <= _vertices; y++)
+                for (int y = 0; y < _vertices; y++)
                 {
-                    noiseMap[x, y] = (Mathf.PerlinNoise((xChunk * x - xChunk) * _scale + _xOffset, (yChunk * y -yChunk) * _scale + _yOffset) * _heightMultiplier - _heightOffset);
+                    int xPos = (xChunk * _vertices) +  x - xChunk;
+                    int yPos = (yChunk * _vertices) +y - yChunk;
+                    if (xChunk == 0)
+                    {
+                        xPos = x;
+                    }
+                    if (yChunk == 0)
+                    {
+                        yPos = y;
+                    }
+                    
+                    noiseMap[x, y] = Mathf.PerlinNoise(xPos * _scale + _xOffset, yPos * _scale + _yOffset) * _heightMultiplier - _heightOffset;
+
                 }
             }
+
+            return noiseMap;
         }
     }
 }
