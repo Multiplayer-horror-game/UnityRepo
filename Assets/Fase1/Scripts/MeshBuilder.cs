@@ -1,20 +1,23 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 namespace Fase1
 {
-    public class DrawMesh
+    public class MeshBuilder
     {
-        public Mesh CreateMeshChunk(float[,] chunkNoise, Material material, int verticesCount, float physicalSize)
-        {
-            Mesh mesh = new Mesh();
-            
-            List<int> triangles = new();
-            List<Vector3> vertices = new List<Vector3>();
-            List<Vector2> uvs = new List<Vector2>();
-            
-            float uvDistance = physicalSize / verticesCount;
+        private float[,] _chunkNoise;
+        private readonly List<int> _triangles = new();
+        private readonly List<Vector3> _vertices = new List<Vector3>();
+        private readonly List<Vector2> _uvs = new List<Vector2>();
+        private readonly Vector2Int _chunkPosition;
 
+        
+        public MeshBuilder(float[,] chunkNoise, int verticesCount, float physicalSize, Vector2Int chunkPosition)
+        {
+            _chunkPosition = chunkPosition;
+            
+            _chunkNoise = chunkNoise;
+            float uvDistance = physicalSize / verticesCount;
             for (int x = 0; x < verticesCount - 1; x++)
             {
                 for (int y = 0; y < verticesCount - 1 ; y++)
@@ -24,25 +27,14 @@ namespace Fase1
                     
                     for (int k = 0; k < 6; k++)
                     {
-                        vertices.Add(v[k]);
-                        triangles.Add(vertices.Count - 1);
-                        uvs.Add(uv[k]);
+                        _vertices.Add(v[k]);
+                        _triangles.Add(_vertices.Count - 1);
+                        _uvs.Add(uv[k]);
                     }
 
                 }
             }
             
-            mesh.SetVertices(vertices);
-            mesh.SetUVs(0,uvs);
-
-            mesh.SetTriangles(triangles.ToArray(),0, true, 0);
-
-            mesh.RecalculateNormals();
-            mesh.RecalculateBounds();
-            mesh.RecalculateTangents();
-            
-            return mesh;
-
             Vector3[] GetVertices(int x, int y)
             {
                 
@@ -67,6 +59,32 @@ namespace Fase1
             }
         }
         
+
+        public Mesh BuildMesh()
+        {
+            Mesh mesh = new Mesh();
+            
+            mesh.SetVertices(_vertices);
+            mesh.SetUVs(0,_uvs);
+
+            mesh.SetTriangles(_triangles.ToArray(),0, true, 0);
+
+            mesh.RecalculateNormals();
+            mesh.RecalculateBounds();
+            mesh.RecalculateTangents();
+            
+            return mesh;
+        }
+
+        public float[,] GetChunkNoise()
+        {
+            return _chunkNoise;
+        }
+        
+        public Vector2Int GetChunkPosition()
+        {
+            return _chunkPosition;
+        }
         
         
     }
