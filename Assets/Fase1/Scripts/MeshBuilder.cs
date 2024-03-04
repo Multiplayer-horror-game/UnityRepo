@@ -6,18 +6,22 @@ namespace Fase1
     public class MeshBuilder
     {
         private float[,] _chunkNoise;
+        
         private readonly List<int> _triangles = new();
-        private readonly List<Vector3> _vertices = new List<Vector3>();
-        private readonly List<Vector2> _uvs = new List<Vector2>();
+        private readonly List<Vector3> _vertices = new();
+        private readonly List<Vector2> _uvs = new();
+        
         private readonly Vector2Int _chunkPosition;
 
         
         public MeshBuilder(float[,] chunkNoise, int verticesCount, float physicalSize, Vector2Int chunkPosition)
         {
+            _chunkNoise = chunkNoise;
             _chunkPosition = chunkPosition;
             
-            _chunkNoise = chunkNoise;
+            
             float uvDistance = physicalSize / verticesCount;
+            
             for (int x = 0; x < verticesCount - 1; x++)
             {
                 for (int y = 0; y < verticesCount - 1 ; y++)
@@ -39,10 +43,10 @@ namespace Fase1
             {
                 
                 //each corner of the quad
-                Vector3 a = new Vector3(x * uvDistance, chunkNoise[x, y], y * uvDistance);
-                Vector3 b = new Vector3((x + 1) * uvDistance, chunkNoise[x + 1, y], y * uvDistance);
-                Vector3 c = new Vector3(x * uvDistance, chunkNoise[x, y + 1], (y + 1) * uvDistance);
-                Vector3 d = new Vector3((x + 1) * uvDistance, chunkNoise[x + 1, y + 1], (y + 1) * uvDistance);
+                Vector3 a = new Vector3(x * uvDistance, _chunkNoise[x, y], y * uvDistance);
+                Vector3 b = new Vector3((x + 1) * uvDistance, _chunkNoise[x + 1, y], y * uvDistance);
+                Vector3 c = new Vector3(x * uvDistance, _chunkNoise[x, y + 1], (y + 1) * uvDistance);
+                Vector3 d = new Vector3((x + 1) * uvDistance, _chunkNoise[x + 1, y + 1], (y + 1) * uvDistance);
                 
                 return new[] { a, c, d, a, d, b };
             }

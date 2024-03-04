@@ -151,11 +151,11 @@ MonoBehaviour:
   heightMultiplier: 20
   heightOffset: -10
   scale: 0.01
-  physicalSize: 100
+  physicalSize: 1145
   verticesPerChunk: 100
   width: 4
   height: 4
-  renderDistance: 8
+  renderDistance: 6
   multithreading: 1
   chunkPrefab: {fileID: 3459473575477855913, guid: 3f0fa1dcf869df44e83b8a2545e4594b, type: 3}
   mainObject: {fileID: 1706977460}

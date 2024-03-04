@@ -77,7 +77,6 @@ namespace Fase1
         // Update is called once per frame
         void FixedUpdate()
         {
-            Debug.Log(_loadedChunks.Count + " " + _renderList.Count);
             
             if(_meshBuilders.Count > 0)
             {
@@ -125,8 +124,6 @@ namespace Fase1
                     _renderList.Dequeue();
                 }
             }
-            
-            UpdateRenderList();
         }
         
         void GenerateChunkAsync(Vector2Int position)
@@ -188,6 +185,8 @@ namespace Fase1
         {
             Vector2Int position = meshBuilder.GetChunkPosition();
             Mesh mesh = meshBuilder.BuildMesh();
+            
+            Debug.Log(mesh.triangles.Length);
             
             GameObject meshObj = Instantiate(chunkPrefab, new Vector3(position.x*physicalSize - position.x ,0,position.y*physicalSize - position.y), new Quaternion(0,0,0,0));
             meshObj.AddComponent<MeshFilter>().mesh = mesh;
