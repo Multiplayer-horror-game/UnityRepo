@@ -1,19 +1,11 @@
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using UnityEngine;
 using Random = System.Random;
 
 namespace Fase1
 
-/*
- * hello future dami :)
- * omdat je geen zin meer had gisteren heb je dit voor jezelf achtergelaten
- * zorg ervoor dat je een lijst hebt met de chunks die je moet hebben geladen hier moet gewoon alles in
- * dan kan je checken wanneer er eentje is die niet in de lijst staat dat die weg moet
- * en dan natuurlijk de lisjt met de dingen die je wel al in de scene hebt
- * en de queue met de dingen die je nog moet renderen
- * gr je beste vriend dami
- */
 {
     public class WorldGenerator : MonoBehaviour
     {
@@ -22,14 +14,17 @@ namespace Fase1
          
         private NoiseGenerator _noiseGenerator;
         
-        private Dictionary<Vector2Int,GameObject> _loadedChunks = new();
-        private Queue<Vector2Int> _renderList = new();
-        
         private List<Thread> _threads = new();
         
         private Queue<MeshBuilder> _meshBuilders = new();
         
 
+        private Dictionary<Vector2Int,GameObject> _chunks = new();
+
+        private List<Vector2Int> _requestedChunks = new();
+
+        private Queue<Vector2Int> _unInitialized = new();
+         
         [Range(0.1f,500f)]
         public float heightMultiplier = 20f;
 
@@ -44,11 +39,6 @@ namespace Fase1
 
         [Range(6, 100)]
         public int verticesPerChunk;
-
-        [Range(1,20)]
-        public int width;
-        [Range(1,20)]
-        public int height;
         
         [Range(1,20)]
         public int renderDistance = 8;
@@ -70,8 +60,6 @@ namespace Fase1
             _yOffset = rnd.Next(-10000,10000);
             
             _noiseGenerator = new NoiseGenerator(scale, _xOffset, _yOffset, verticesPerChunk, heightMultiplier, heightOffset);
-            
-            UpdateRenderList();
         }
         
         // Update is called once per frame
@@ -97,33 +85,17 @@ namespace Fase1
                 }
             }
             
-            if(_threads.Count < multithreading && _renderList.Count > 0)
+            if(_threads.Count < multithreading && _unInitialized.Count > 0)
             {
-                bool chunkInRange = false;
                 
-                Vector3 position = mainObject.transform.position;
-            
-                Vector2Int chunkPosition = new Vector2Int((int)position.x / physicalSize,(int)position.z / physicalSize);
-                
-                while (!chunkInRange && _renderList.Count > 0)
+                if(_unInitialized.Count > 0)
                 {
-                    Vector2Int chunk = _renderList.Peek();
-                    if (Vector2.Distance(chunk, chunkPosition) <= renderDistance)
-                    {
-                        chunkInRange = true;
-                    }
-                    else
-                    {
-                        _renderList.Dequeue();
-                    }
-                }
-                
-                if(_renderList.Count > 0)
-                {
-                    GenerateChunkAsync(_renderList.Peek());
-                    _renderList.Dequeue();
+                    GenerateChunkAsync(_unInitialized.Peek());
+                    _unInitialized.Dequeue();
                 }
             }
+            
+            UpdateRenderList();
         }
         
         void GenerateChunkAsync(Vector2Int position)
@@ -141,6 +113,7 @@ namespace Fase1
 
         private void UpdateRenderList()
         {
+            
             Vector3 position = mainObject.transform.position;
             
             Vector2Int chunkPosition = new Vector2Int((int)position.x / physicalSize,(int)position.z / physicalSize);
@@ -151,20 +124,33 @@ namespace Fase1
                 {
                     Vector2Int chunk = new Vector2Int(chunkPosition.x + x, chunkPosition.y + y);
                     
-                    if (!_loadedChunks.ContainsKey(chunk) && !_renderList.Contains(chunk))
+                    if (!_requestedChunks.Contains(chunk) && Vector2.Distance(chunk,chunkPosition) <= renderDistance)
                     {
-                        //Debug.Log("Adding chunk to render list" + chunk);
-                        _renderList.Enqueue(chunk);
+                        _requestedChunks.Add(chunk);
+                        _unInitialized.Enqueue(chunk);
                     }
                 }
             }
-            
-            foreach (var chunk in _loadedChunks)
+
+            List<Vector2Int> remove = new();
+            foreach (var chunk in _requestedChunks)
             {
-                if (Vector2.Distance(chunk.Key,chunkPosition) >= renderDistance)
+                if (Vector2.Distance(chunk,chunkPosition) > (renderDistance + 1))
+                {
+                    remove.Add(chunk);
+                }
+            }
+
+            _requestedChunks.RemoveAll(item => remove.Contains(item));
+
+            Dictionary<Vector2Int, GameObject> copy = new(_chunks);
+            
+            foreach (var chunk in copy)
+            {
+                if (!_requestedChunks.Contains(chunk.Key))
                 {
                     Destroy(chunk.Value);
-                    _loadedChunks.Remove(chunk.Key);
+                    _chunks.Remove(chunk.Key);
                 }
             }
             
@@ -186,13 +172,11 @@ namespace Fase1
             Vector2Int position = meshBuilder.GetChunkPosition();
             Mesh mesh = meshBuilder.BuildMesh();
             
-            Debug.Log(mesh.triangles.Length);
-            
             GameObject meshObj = Instantiate(chunkPrefab, new Vector3(position.x*physicalSize - position.x ,0,position.y*physicalSize - position.y), new Quaternion(0,0,0,0));
             meshObj.AddComponent<MeshFilter>().mesh = mesh;
             meshObj.name = "Chunk (" + position.x + "," + position.y + ")";
             
-            _loadedChunks.Add(position,meshObj);
+            _chunks.Add(position,meshObj);
         }
     }
 }
