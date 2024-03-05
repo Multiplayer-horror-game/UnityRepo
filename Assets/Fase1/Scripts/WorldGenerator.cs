@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
+using System.Threading.Tasks;
+using Fase1.MeshComponents;
 using UnityEngine;
 using Random = System.Random;
 
@@ -56,49 +58,48 @@ namespace Fase1
         {
             Random rnd = new Random();
 
+            //generate ranomd seed data
             _xOffset = rnd.Next(-10000,10000);
             _yOffset = rnd.Next(-10000,10000);
             
+            //initialize noise and meshcomponents for the world mesh
             _noiseGenerator = new NoiseGenerator(scale, _xOffset, _yOffset, verticesPerChunk, heightMultiplier, heightOffset);
+            
+            FloorComponent floorComponent = new FloorComponent(_noiseGenerator);
+            MeshBuilder.AddMeshComponent(floorComponent);
         }
         
         // Update is called once per frame
         void FixedUpdate()
         {
             
+            //if there are any meshbuilders in the queue, build them
             if(_meshBuilders.Count > 0)
             {
                 MeshBuilder meshBuilder = _meshBuilders.Dequeue();
-                BuildMesh(meshBuilder);
-            }
-            
-            
-            if(_threads.Count >= multithreading)
-            {
-                foreach (var thread in _threads)
+                while (meshBuilder == null)
                 {
-                    if (!thread.IsAlive)
-                    {
-                        _threads.Remove(thread);
-                        break;
-                    }
                 }
-            }
-            
-            if(_threads.Count < multithreading && _unInitialized.Count > 0)
-            {
                 
-                if(_unInitialized.Count > 0)
-                {
-                    GenerateChunkAsync(_unInitialized.Peek());
-                    _unInitialized.Dequeue();
-                }
+                if(meshBuilder.State == MeshState.Generated) BuildMesh(meshBuilder);
+                else _meshBuilders.Enqueue(meshBuilder);
+            }
+            
+            //remove dead threads
+            _threads.RemoveAll(thread => !thread.IsAlive);
+
+            //if there are any unitialized chunks, start a new thread to generate them
+            while(_threads.Count < multithreading && _unInitialized.Count > 0)
+            {
+                var position = _unInitialized.Dequeue();
+                Task.Run(() => GenerateChunkThread(position));
             }
             
             UpdateRenderList();
         }
         
-        void GenerateChunkAsync(Vector2Int position)
+        //generate a chunk in a new thread
+        void GenerateChunkThread(Vector2Int position)
         {
             ThreadStart threadStart = () =>
             {
@@ -111,13 +112,16 @@ namespace Fase1
             _threads.Add(thread);
         }
 
+        //update the chunks that need to be rendered and unrendered
         private void UpdateRenderList()
         {
-            
+            //check for reference object position
             Vector3 position = mainObject.transform.position;
             
+            //get the chunk position of the reference object
             Vector2Int chunkPosition = new Vector2Int((int)position.x / physicalSize,(int)position.z / physicalSize);
             
+            //check for chunks that need to be rendered
             for (int x = -renderDistance; x < renderDistance; x++)
             {
                 for (int y = -renderDistance; y < renderDistance; y++)
@@ -132,6 +136,7 @@ namespace Fase1
                 }
             }
 
+            //check for chunks that need to be unrendered
             List<Vector2Int> remove = new();
             foreach (var chunk in _requestedChunks)
             {
@@ -141,38 +146,48 @@ namespace Fase1
                 }
             }
 
+            //remove the chunks that need to be unrendered
             _requestedChunks.RemoveAll(item => remove.Contains(item));
 
+            //copy the chunks dictionary to avoid concurrent modification
             Dictionary<Vector2Int, GameObject> copy = new(_chunks);
             
+            
+            //destroy the chunks that need to be unrendered
+            //preformance is better if we destroy over slower time instead of all at once
             foreach (var chunk in copy)
             {
                 if (!_requestedChunks.Contains(chunk.Key))
                 {
                     Destroy(chunk.Value);
+                    
+                    //remove the chunk from the origional dictionary
                     _chunks.Remove(chunk.Key);
                 }
             }
             
         }
         
-        private void GenerateChunk(object objectPosition)
+        private void GenerateChunk(Vector2Int objectPosition)
         {
-            Vector2Int position = (Vector2Int) objectPosition;
             
-            float[,] noise = _noiseGenerator.GenerateNoiseChunk(position.x,position.y);
-            MeshBuilder meshBuilder = new MeshBuilder(noise, verticesPerChunk, physicalSize, position);
+            MeshBuilder meshBuilder = new MeshBuilder(verticesPerChunk, physicalSize, objectPosition);
             
             _meshBuilders.Enqueue(meshBuilder);
         }
         
         // ReSharper disable Unity.PerformanceAnalysis
+        
+        //build the mesh and instantiate the gameobject
+        //cus we are using threads, we need to use the main thread to instantiate the gameobject and create meshes
         private void BuildMesh(MeshBuilder meshBuilder)
         {
+            
             Vector2Int position = meshBuilder.GetChunkPosition();
+            
             Mesh mesh = meshBuilder.BuildMesh();
             
-            GameObject meshObj = Instantiate(chunkPrefab, new Vector3(position.x*physicalSize - position.x ,0,position.y*physicalSize - position.y), new Quaternion(0,0,0,0));
+            GameObject meshObj = Instantiate(chunkPrefab, new Vector3(position.x * physicalSize - (position.x * (physicalSize / 100)) ,0,position.y * physicalSize - (position.y * (physicalSize / 100))), new Quaternion(0,0,0,0));
             meshObj.AddComponent<MeshFilter>().mesh = mesh;
             meshObj.name = "Chunk (" + position.x + "," + position.y + ")";
             
