@@ -67,6 +67,7 @@ namespace Fase1
             
             FloorComponent floorComponent = new FloorComponent(_noiseGenerator);
             MeshBuilder.AddMeshComponent(floorComponent);
+            
         }
         
         // Update is called once per frame
@@ -76,13 +77,12 @@ namespace Fase1
             //if there are any meshbuilders in the queue, build them
             if(_meshBuilders.Count > 0)
             {
-                MeshBuilder meshBuilder = _meshBuilders.Dequeue();
-                while (meshBuilder == null)
+                MeshBuilder meshBuilder = _meshBuilders.Peek();
+                if (meshBuilder != null)
                 {
+                    if(meshBuilder.State == MeshState.Generated) BuildMesh(_meshBuilders.Dequeue());
+                    else _meshBuilders.Enqueue(meshBuilder);
                 }
-                
-                if(meshBuilder.State == MeshState.Generated) BuildMesh(meshBuilder);
-                else _meshBuilders.Enqueue(meshBuilder);
             }
             
             //remove dead threads
@@ -170,7 +170,6 @@ namespace Fase1
         
         private void GenerateChunk(Vector2Int objectPosition)
         {
-            
             MeshBuilder meshBuilder = new MeshBuilder(verticesPerChunk, physicalSize, objectPosition);
             
             _meshBuilders.Enqueue(meshBuilder);
@@ -182,7 +181,6 @@ namespace Fase1
         //cus we are using threads, we need to use the main thread to instantiate the gameobject and create meshes
         private void BuildMesh(MeshBuilder meshBuilder)
         {
-            
             Vector2Int position = meshBuilder.GetChunkPosition();
             
             Mesh mesh = meshBuilder.BuildMesh();

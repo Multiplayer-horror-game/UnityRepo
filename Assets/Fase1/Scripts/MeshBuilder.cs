@@ -23,7 +23,7 @@ namespace Fase1
         {
             _chunkPosition = chunkPosition;
             
-            MeshState state = MeshState.Generating;
+            State = MeshState.Generating;
             foreach (
                 var data in MeshComponents
                     .Select(meshComponent => meshComponent.GenerateMeshData(_chunkPosition, verticesCount, physicalSize))
