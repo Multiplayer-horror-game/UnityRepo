@@ -111,7 +111,7 @@ namespace Fase1
         
         private void DestroyNextChunk()
         {
-            if (destroyC == 100)
+            if (destroyC == 5)
             {
                 if (_destroyList.Count != 0)
                 {
