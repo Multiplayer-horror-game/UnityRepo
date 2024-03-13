@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 25.92049, g: 22.339046, b: 17.460823, a: 1}
+  m_IndirectSpecularColor: {r: 25.9184, g: 22.338682, b: 17.4601, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -148,11 +148,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9532eb3363af41408316bef21ec9f55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  textBasedSeed: gijs
+  seed: 0
   heightMultiplier: 100
   heightOffset: -50
   scale: 0.01
-  physicalSize: 300
-  verticesPerChunk: 100
+  physicalSize: 1000
+  verticesPerChunk: 50
   renderDistance: 5
   multithreading: 1
   chunkPrefab: {fileID: 3459473575477855913, guid: 3f0fa1dcf869df44e83b8a2545e4594b, type: 3}

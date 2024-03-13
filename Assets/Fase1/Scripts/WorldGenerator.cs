@@ -1,10 +1,9 @@
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Fase1.MeshComponents;
 using UnityEngine;
-using Random = System.Random;
+using Random = UnityEngine.Random;
 
 namespace Fase1
 
@@ -13,24 +12,31 @@ namespace Fase1
     {
         private int _xOffset;
         private int _yOffset;
+
+        private int destroyC = 0;
          
         private NoiseGenerator _noiseGenerator;
         
         private List<Thread> _threads = new();
         
         private Queue<MeshBuilder> _meshBuilders = new();
-        
 
         private Dictionary<Vector2Int,GameObject> _chunks = new();
 
         private List<Vector2Int> _requestedChunks = new();
 
         private Queue<Vector2Int> _unInitialized = new();
+
+        private Queue<GameObject> _destroyList = new();
+
+        public string textBasedSeed;
+
+        public int seed;
          
         [Range(0.1f,500f)]
         public float heightMultiplier = 20f;
 
-        [Range(-100f,100f)]
+        [Range(-500f,500f)]
         public float heightOffset = -10f;
 
         [Range(0.001f, 100f)] 
@@ -56,11 +62,15 @@ namespace Fase1
         // Start is called before the first frame update
         void Start()
         {
-            Random rnd = new Random();
+            BezierCurve curve = new BezierCurve();
 
-            //generate ranomd seed data
-            _xOffset = rnd.Next(-10000,10000);
-            _yOffset = rnd.Next(-10000,10000);
+            seed = textBasedSeed.GetHashCode();
+            
+            Random.InitState(seed);
+            
+            //generate random seed data
+            _xOffset = Random.Range(-100000,100000);
+            _yOffset = Random.Range(-100000,100000);
             
             //initialize noise and meshcomponents for the world mesh
             _noiseGenerator = new NoiseGenerator(scale, _xOffset, _yOffset, verticesPerChunk, heightMultiplier, heightOffset);
@@ -73,7 +83,6 @@ namespace Fase1
         // Update is called once per frame
         void FixedUpdate()
         {
-            
             //if there are any meshbuilders in the queue, build them
             if(_meshBuilders.Count > 0)
             {
@@ -96,6 +105,23 @@ namespace Fase1
             }
             
             UpdateRenderList();
+            
+            DestroyNextChunk();
+        }
+        
+        private void DestroyNextChunk()
+        {
+            if (destroyC == 100)
+            {
+                if (_destroyList.Count != 0)
+                {
+                    Destroy(_destroyList.Dequeue());
+                }
+
+                destroyC = 0;
+            }
+
+            destroyC++;
         }
         
         //generate a chunk in a new thread
@@ -159,7 +185,7 @@ namespace Fase1
             {
                 if (!_requestedChunks.Contains(chunk.Key))
                 {
-                    Destroy(chunk.Value);
+                    _destroyList.Enqueue(chunk.Value);
                     
                     //remove the chunk from the origional dictionary
                     _chunks.Remove(chunk.Key);
