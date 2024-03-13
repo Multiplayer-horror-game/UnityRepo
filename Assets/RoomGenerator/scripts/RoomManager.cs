@@ -46,9 +46,9 @@ public class RoomManager : MonoBehaviour
 
                         foreach (Vector2Int pos2 in roomClass.positions)
                         {
-                            if (pos.x + x < gridSize.x && pos.y + y < gridSize.y)
+                            if (pos2.x + x < gridSize.x && pos2.y + y < gridSize.y)
                             {
-                                bakedGrid[pos.x + x, pos.y + y] = false;
+                                bakedGrid[pos2.x + x, pos2.y + y] = false;
                             }
                         }
                         
@@ -60,6 +60,11 @@ public class RoomManager : MonoBehaviour
                 usedRooms.Add(roomClass, new Vector2(x,y));
                 roomsGenerated++;
             }
+        }
+        
+        foreach (var room in usedRooms)
+        {
+             Debug.Log(new Vector3(room.Value.x,0,room.Value.y));
         }
     }
     
