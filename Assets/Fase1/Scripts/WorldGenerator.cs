@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Fase1.MeshComponents;
@@ -19,7 +20,7 @@ namespace Fase1
         
         private List<Thread> _threads = new();
         
-        private Queue<MeshBuilder> _meshBuilders = new();
+        private Dictionary<Vector2Int,MeshBuilder> _meshBuildersDict = new();
 
         private Dictionary<Vector2Int,GameObject> _chunks = new();
 
@@ -28,6 +29,8 @@ namespace Fase1
         private Queue<Vector2Int> _unInitialized = new();
 
         private Queue<GameObject> _destroyList = new();
+        
+        private int _failedCount = 0;
 
         public string textBasedSeed;
 
@@ -84,13 +87,35 @@ namespace Fase1
         void FixedUpdate()
         {
             //if there are any meshbuilders in the queue, build them
-            if(_meshBuilders.Count > 0)
+            if(_meshBuildersDict.Count != 0)
             {
-                MeshBuilder meshBuilder = _meshBuilders.Peek();
+                
+                KeyValuePair<Vector2Int, MeshBuilder> meshBuilderKvp = _meshBuildersDict.First();
+                MeshBuilder meshBuilder = meshBuilderKvp.Value;
+                
+                
                 if (meshBuilder != null)
                 {
-                    if(meshBuilder.State == MeshState.Generated) BuildMesh(_meshBuilders.Dequeue());
-                    else _meshBuilders.Enqueue(meshBuilder);
+                    if (meshBuilder.State == MeshState.Generated)
+                    {
+                        BuildMesh(meshBuilder);
+                        _meshBuildersDict.Remove(meshBuilderKvp.Key);
+                        _failedCount = 0;
+                    }
+                }
+                else
+                {
+                    if (_failedCount > 20)
+                    {
+                        _meshBuildersDict.Remove(meshBuilderKvp.Key);
+                        
+                        MeshBuilder regeneratedBuilder = new MeshBuilder(verticesPerChunk, physicalSize, meshBuilderKvp.Key);
+                        
+                        BuildMesh(regeneratedBuilder);
+                        
+                        _failedCount = 0;
+                    }
+                    _failedCount++;
                 }
             }
             
@@ -107,6 +132,7 @@ namespace Fase1
             UpdateRenderList();
             
             DestroyNextChunk();
+            
         }
         
         private void DestroyNextChunk()
@@ -198,7 +224,7 @@ namespace Fase1
         {
             MeshBuilder meshBuilder = new MeshBuilder(verticesPerChunk, physicalSize, objectPosition);
             
-            _meshBuilders.Enqueue(meshBuilder);
+            _meshBuildersDict.Add(objectPosition,meshBuilder);
         }
         
         // ReSharper disable Unity.PerformanceAnalysis
@@ -208,6 +234,8 @@ namespace Fase1
         private void BuildMesh(MeshBuilder meshBuilder)
         {
             Vector2Int position = meshBuilder.GetChunkPosition();
+            
+            Debug.Log("Building chunk at " + position);
             
             Mesh mesh = meshBuilder.BuildMesh();
             
