@@ -7,7 +7,7 @@ namespace Fase1.MeshComponents
     public class RoadComponent : IMeshComponent
     {
 
-        //private List<Vector2> positions = new();
+        private List<Vector2> _positions = new();
         public MeshComponentData[] GenerateMeshData(Vector2Int chunkPosition, int verticesCount, float physicalSize)
         {
             throw new NotImplementedException();

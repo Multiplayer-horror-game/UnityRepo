@@ -69,8 +69,9 @@ namespace Fase1
         // Start is called before the first frame update
         void Start()
         {
-            RoadComponent roadComponent = new RoadComponent();
-            _positions.AddRange(roadComponent.RenderSpline(new List<Vector2>(){new(0,0),new(0,10),new(10,10),new(10,10),new(20,10),new(20,30),new(38,34),new(20,30),new(100,10),new(20,70),new(20,80),new(20,90),new(20,100)}));
+            //RoadComponent roadComponent = new RoadComponent();
+            //_positions.AddRange(roadComponent.RenderSpline(new List<Vector2>()));
+            
 
             seed = textBasedSeed.GetHashCode();
             
@@ -143,7 +144,7 @@ namespace Fase1
                 Task.Run(() => GenerateChunkThread(position));
             }
             
-            //UpdateRenderList();
+            UpdateRenderList();
             
             DestroyNextChunk();
             
