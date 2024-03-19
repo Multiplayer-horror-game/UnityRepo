@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Fase1.MeshComponents;
@@ -11,31 +10,12 @@ namespace Fase1
 {
     public class WorldGenerator : MonoBehaviour
     {
-        private int _xOffset;
-        private int _yOffset;
-
-        private int destroyC = 0;
-         
-        private NoiseGenerator _noiseGenerator;
-        
-        private List<Thread> _threads = new();
-        
-        private Dictionary<Vector2Int,MeshBuilder> _meshBuildersDict = new();
-
-        private Dictionary<Vector2Int,GameObject> _chunks = new();
-
-        private List<Vector2Int> _requestedChunks = new();
-
-        private Queue<Vector2Int> _unInitialized = new();
-
-        private Queue<GameObject> _destroyList = new();
-        
-        private int _failedCount = 0;
-
+        [Header("Seed")]
         public string textBasedSeed;
 
         public int seed;
          
+        [Header("WorldSettings")]
         [Range(0.1f,500f)]
         public float heightMultiplier = 20f;
 
@@ -51,21 +31,46 @@ namespace Fase1
         [Range(6, 100)]
         public int verticesPerChunk;
         
+        [Header("PerformanceSettings")]
         [Range(1,20)]
         public int renderDistance = 8;
 
         [Range(1,10)]
         public int multithreading = 1;
 
+        [Header("Prefabs")]
         public GameObject chunkPrefab;
 
         public GameObject mainObject;
         
         
+        private int _xOffset;
+        private int _yOffset;
+
+        private int _destroyC;
+         
+        private NoiseGenerator _noiseGenerator;
+        
+        private List<Thread> _threads = new();
+        
+        private Queue<KeyValuePair<Vector2Int, MeshBuilder>> _meshBuilders = new();
+
+        private Dictionary<Vector2Int,GameObject> _chunks = new();
+
+        private List<Vector2Int> _requestedChunks = new();
+
+        private Queue<Vector2Int> _unInitialized = new();
+
+        private Queue<GameObject> _destroyList = new();
+        
+        private int _failedCount;
+        
+        private List<Vector2> _positions = new();
         // Start is called before the first frame update
         void Start()
         {
-            BezierCurve curve = new BezierCurve();
+            RoadComponent roadComponent = new RoadComponent();
+            _positions.AddRange(roadComponent.RenderSpline(new List<Vector2>(){new(0,0),new(0,10),new(10,10),new(10,10),new(20,10),new(20,30),new(38,34),new(20,30),new(100,10),new(20,70),new(20,80),new(20,90),new(20,100)}));
 
             seed = textBasedSeed.GetHashCode();
             
@@ -83,23 +88,32 @@ namespace Fase1
             
         }
         
+        void OnDrawGizmos()
+        {
+            if (_positions.Count != 0)
+            {
+                for (int i = 0; i < _positions.Count - 1; i++)
+                {
+                    Gizmos.DrawLine(_positions[i],_positions[i + 1]);
+                }
+            }
+        }
+        
         // Update is called once per frame
         void FixedUpdate()
         {
             //if there are any meshbuilders in the queue, build them
-            if(_meshBuildersDict.Count != 0)
+            if(_meshBuilders.Count != 0)
             {
                 
-                KeyValuePair<Vector2Int, MeshBuilder> meshBuilderKvp = _meshBuildersDict.First();
-                MeshBuilder meshBuilder = meshBuilderKvp.Value;
+                KeyValuePair<Vector2Int, MeshBuilder> meshBuilderKvp = _meshBuilders.Peek();
                 
-                
-                if (meshBuilder != null)
+                if (meshBuilderKvp.Value != null)
                 {
-                    if (meshBuilder.State == MeshState.Generated)
+                    if (meshBuilderKvp.Value.State == MeshState.Generated)
                     {
-                        BuildMesh(meshBuilder);
-                        _meshBuildersDict.Remove(meshBuilderKvp.Key);
+                        Debug.Log(meshBuilderKvp.Key);
+                        BuildMesh(_meshBuilders.Dequeue().Value);
                         _failedCount = 0;
                     }
                 }
@@ -107,7 +121,7 @@ namespace Fase1
                 {
                     if (_failedCount > 20)
                     {
-                        _meshBuildersDict.Remove(meshBuilderKvp.Key);
+                        _meshBuilders.Dequeue();
                         
                         MeshBuilder regeneratedBuilder = new MeshBuilder(verticesPerChunk, physicalSize, meshBuilderKvp.Key);
                         
@@ -129,7 +143,7 @@ namespace Fase1
                 Task.Run(() => GenerateChunkThread(position));
             }
             
-            UpdateRenderList();
+            //UpdateRenderList();
             
             DestroyNextChunk();
             
@@ -137,17 +151,17 @@ namespace Fase1
         
         private void DestroyNextChunk()
         {
-            if (destroyC == 5)
+            if (_destroyC == 3)
             {
                 if (_destroyList.Count != 0)
                 {
                     Destroy(_destroyList.Dequeue());
                 }
 
-                destroyC = 0;
+                _destroyC = 0;
             }
 
-            destroyC++;
+            _destroyC++;
         }
         
         //generate a chunk in a new thread
@@ -224,7 +238,7 @@ namespace Fase1
         {
             MeshBuilder meshBuilder = new MeshBuilder(verticesPerChunk, physicalSize, objectPosition);
             
-            _meshBuildersDict.Add(objectPosition,meshBuilder);
+            _meshBuilders.Enqueue(new KeyValuePair<Vector2Int, MeshBuilder>(objectPosition,meshBuilder));
         }
         
         // ReSharper disable Unity.PerformanceAnalysis
@@ -234,8 +248,6 @@ namespace Fase1
         private void BuildMesh(MeshBuilder meshBuilder)
         {
             Vector2Int position = meshBuilder.GetChunkPosition();
-            
-            Debug.Log("Building chunk at " + position);
             
             Mesh mesh = meshBuilder.BuildMesh();
             
