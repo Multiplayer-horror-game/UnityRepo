@@ -157,6 +157,7 @@ MonoBehaviour:
   - {fileID: 9128804096745609360, guid: 8301f7c72ef13d7499f11a745674a953, type: 3}
   gridSize: {x: 10, y: 10}
   preferdRooms: 15
+  scale: 10
 --- !u!4 &834411931
 Transform:
   m_ObjectHideFlags: 0

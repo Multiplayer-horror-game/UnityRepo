@@ -18,6 +18,8 @@ public class RoomManager : MonoBehaviour
 
     //final grid layout (not needed for anything rn)
     private bool[,] bakedGrid;
+
+    public int scale;
     void Start()
     {
         bakedGrid = new bool[gridSize.x,gridSize.y];
@@ -35,7 +37,7 @@ public class RoomManager : MonoBehaviour
 
                 int roomNumber = Random.Range(0,rooms.Count);
                 
-                GameObject instantiatedRoom = Instantiate(rooms[roomNumber], new Vector3(x,0,y),new Quaternion());
+                GameObject instantiatedRoom = Instantiate(rooms[roomNumber], new Vector3(x * scale,0,y * scale),new Quaternion());
                 Room roomClass = instantiatedRoom.GetComponent<Room>();
                 
                 foreach (Vector2Int pos in roomClass.positions)
@@ -77,7 +79,7 @@ public class RoomManager : MonoBehaviour
             {
                 for (int y = 0; y < gridSize.y; y++)
                 {
-                    Vector3 center = new Vector3(x, 0, y);
+                    Vector3 center = new Vector3(x * scale, 0, y * scale);
                     Gizmos.DrawWireCube(center, Vector3.one);
                     if (bakedGrid[x, y])
                     {
