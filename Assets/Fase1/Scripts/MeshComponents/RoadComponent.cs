@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.Rendering.HighDefinition;
+using Random = UnityEngine.Random;
 
 namespace Fase1.MeshComponents
 {
@@ -10,25 +12,32 @@ namespace Fase1.MeshComponents
     {
         private GameObject _referenceObject;
         
-        private int _physicalSize;
-        
         private List<Vector2> _mainPositions = new();
 
-        private List<Vector2> _translatedPositions = new();
-
         /// RoadRules
-        private int _NodeDistance = 200;
+        private readonly int _nodeDistance = 200;
 
         private float _lastRotation = 0f;
 
-        private float _maxRotation = 17f;
+        private readonly float _maxRotation = 17f;
+        
+        private NoiseGenerator _noiseGenerator;
+
+        public RoadComponent(GameObject referenceObject, NoiseGenerator noiseGenerator)
+        {
+            _referenceObject = referenceObject;
+            _mainPositions.Add(new Vector2(-100, -100));
+            GenerateNewPositions(100);
+            
+            _noiseGenerator = noiseGenerator;
+        }
 
 
-        
-        
+
+
         public MeshComponentData[] GenerateMeshData(Vector2Int chunkPosition, int verticesCount, float physicalSize)
         {
-            throw new NotImplementedException();
+            return null;
         }
         
         public List<Vector2> RenderSpline(List<Vector2> positions) {
@@ -53,11 +62,21 @@ namespace Fase1.MeshComponents
         {
             for (int i = 0; i < count; i++)
             {
-                _mainPositions.Add();
+                Vector2 lastPos = _mainPositions.Last();
+                GenerateNewPosition(lastPos);
+            }
+            
+            //the actual calculation
+            void GenerateNewPosition(Vector2 lastPos)
+            {
+                float rotation = Random.Range(-_maxRotation, _maxRotation);
+                Vector2 newPos = new Vector2(lastPos.x + _nodeDistance * Mathf.Cos(rotation + _lastRotation), lastPos.y + _nodeDistance * Mathf.Sin(rotation + _lastRotation));
+                
+                _lastRotation = rotation;
+                _mainPositions.Add(newPos);
             }
         }
         
-        //
         
         
     }

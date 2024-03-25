@@ -69,10 +69,6 @@ namespace Fase1
         // Start is called before the first frame update
         void Start()
         {
-            RoadComponent roadComponent = new RoadComponent();
-            _positions.AddRange(roadComponent.RenderSpline(new List<Vector2>(){new Vector2(0,0),new Vector2(0,10),new Vector2(10,10)}));
-            _positions.AddRange(roadComponent.RenderSpline(new List<Vector2>(){new Vector2(10,10),new Vector2(15,10),new Vector2(20,20),new Vector2(30,12)}));
-            
 
             seed = textBasedSeed.GetHashCode();
             
@@ -87,6 +83,9 @@ namespace Fase1
             
             FloorComponent floorComponent = new FloorComponent(_noiseGenerator);
             MeshBuilder.AddMeshComponent(floorComponent);
+            
+            RoadComponent roadComponent = new RoadComponent(mainObject, _noiseGenerator);
+            MeshBuilder.AddMeshComponent(roadComponent);
             
         }
         
