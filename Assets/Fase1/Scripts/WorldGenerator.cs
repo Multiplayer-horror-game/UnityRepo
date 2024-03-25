@@ -69,8 +69,9 @@ namespace Fase1
         // Start is called before the first frame update
         void Start()
         {
-            //RoadComponent roadComponent = new RoadComponent();
-            //_positions.AddRange(roadComponent.RenderSpline(new List<Vector2>()));
+            RoadComponent roadComponent = new RoadComponent();
+            _positions.AddRange(roadComponent.RenderSpline(new List<Vector2>(){new Vector2(0,0),new Vector2(0,10),new Vector2(10,10)}));
+            _positions.AddRange(roadComponent.RenderSpline(new List<Vector2>(){new Vector2(10,10),new Vector2(15,10),new Vector2(20,20),new Vector2(30,12)}));
             
 
             seed = textBasedSeed.GetHashCode();
@@ -113,7 +114,6 @@ namespace Fase1
                 {
                     if (meshBuilderKvp.Value.State == MeshState.Generated)
                     {
-                        Debug.Log(meshBuilderKvp.Key);
                         BuildMesh(_meshBuilders.Dequeue().Value);
                         _failedCount = 0;
                     }
