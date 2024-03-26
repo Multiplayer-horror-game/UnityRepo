@@ -37,7 +37,17 @@ namespace Fase1.MeshComponents
 
         public MeshComponentData[] GenerateMeshData(Vector2Int chunkPosition, int verticesCount, float physicalSize)
         {
+            
             return null;
+        }
+
+        private void UpdateSplinePositions()
+        {
+            
+            foreach (var pos in _mainPositions)
+            {
+                float distance = Vector3.Distance(new Vector3(pos.x,0,pos.y),_referenceObject.transform.position);
+            }
         }
         
         public List<Vector2> RenderSpline(List<Vector2> positions) {
@@ -70,14 +80,14 @@ namespace Fase1.MeshComponents
             void GenerateNewPosition(Vector2 lastPos)
             {
                 float rotation = Random.Range(-_maxRotation, _maxRotation);
-                Vector2 newPos = new Vector2(lastPos.x + _nodeDistance * Mathf.Cos(rotation + _lastRotation), lastPos.y + _nodeDistance * Mathf.Sin(rotation + _lastRotation));
+                Vector2 newPos = new Vector2(
+                    lastPos.x + _nodeDistance * Mathf.Cos(rotation + _lastRotation),
+                    lastPos.y + _nodeDistance * Mathf.Sin(rotation + _lastRotation)
+                    );
                 
-                _lastRotation = rotation;
+                _lastRotation = rotation + _lastRotation;
                 _mainPositions.Add(newPos);
             }
         }
-        
-        
-        
     }
 }
