@@ -25,15 +25,17 @@ public class RoomManager : MonoBehaviour
         bakedGrid = new bool[gridSize.x,gridSize.y];
 
         bool noSpace = false;
+        
         int roomsGenerated = 0;
         while (!noSpace && roomsGenerated != preferdRooms)
         {
             int x = Random.Range(0, gridSize.x);
             int y = Random.Range(0, gridSize.y);
-            
 
             if (!bakedGrid[x, y])
             {
+                
+                Debug.Log((x) + "," + (y));
 
                 int roomNumber = Random.Range(0,rooms.Count);
                 
@@ -42,25 +44,37 @@ public class RoomManager : MonoBehaviour
                 
                 foreach (Vector2Int pos in roomClass.positions)
                 {
-                    if (!(pos.x + x < gridSize.x && pos.y + y < gridSize.y))
+                    if (!(pos.x + x < gridSize.x && pos.y + y < gridSize.y) || !(pos.x + x >= 0 && pos.y + y >= 0))
                     {
-                        Destroy(instantiatedRoom);
-
-                        foreach (Vector2Int pos2 in roomClass.positions)
-                        {
-                            if (pos2.x + x < gridSize.x && pos2.y + y < gridSize.y)
-                            {
-                                bakedGrid[pos2.x + x, pos2.y + y] = false;
-                            }
-                        }
-                        
-                        continue;
+                        DestroyRoom();
+                        break;
                     }
+                    
+                    if(bakedGrid[pos.x + x, pos.y + y])
+                    {
+                        DestroyRoom();
+                        break;
+                    }
+                    
                     bakedGrid[pos.x + x, pos.y + y] = true;
                 }
 
                 usedRooms.Add(roomClass, new Vector2(x,y));
                 roomsGenerated++;
+
+                void DestroyRoom()
+                {
+                    Destroy(instantiatedRoom);
+
+                    foreach (Vector2Int pos2 in roomClass.positions)
+                    {
+                        if ((pos2.x + x < gridSize.x && pos2.y + y < gridSize.y) && (pos2.x + x >= 0 && pos2.y + y >= 0))
+                        {
+                            Debug.Log("Removing " + (pos2.x + x) + "," + (pos2.y + y));
+                            bakedGrid[pos2.x + x, pos2.y + y] = false;
+                        }
+                    }
+                }
             }
         }
         
@@ -90,10 +104,5 @@ public class RoomManager : MonoBehaviour
                 }
             }
         }
-    }
-    
-    void Update()
-    {
-        
     }
 }
