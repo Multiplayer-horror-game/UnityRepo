@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 262.3616, g: 325.0784, b: 430.26373, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 834411931}
   - component: {fileID: 834411930}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: MapGenerator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -152,12 +152,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd7142233efd7074eaef1bd313850993, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rooms:
-  - {fileID: 6397016147536417385, guid: f8698565543b3f34c97ac03194e555b1, type: 3}
-  - {fileID: 9128804096745609360, guid: 8301f7c72ef13d7499f11a745674a953, type: 3}
   gridSize: {x: 10, y: 10}
-  preferdRooms: 15
-  scale: 10
+  rooms:
+  - mandatory: 1
+    maxAmount: 1
+    room: {fileID: 8196699506616702464, guid: 2520d07c4c56ad24fb4b040ed8988890, type: 3}
+  hallways:
+  - hallway: {fileID: 0}
+    directions:
+      north: 0
+      east: 0
+      south: 0
+      west: 0
+  scale: 1
 --- !u!4 &834411931
 Transform:
   m_ObjectHideFlags: 0

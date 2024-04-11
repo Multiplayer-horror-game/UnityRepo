@@ -265,6 +265,12 @@ MonoBehaviour:
   - {x: 1, y: -2}
   - {x: 2, y: -1}
   - {x: 2, y: -2}
+  doorPositions:
+  - {x: 0, y: 0}
+  hallwayPositions:
+  - {x: -1, y: 0}
+  - {x: -1, y: 1}
+  - {x: -1, y: -1}
 --- !u!1 &8887298395445295223
 GameObject:
   m_ObjectHideFlags: 0

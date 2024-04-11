@@ -5,14 +5,54 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="27cd5f9d-8e39-41c9-a720-9ee5603f8a3c" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/RoomGenerator/Prefabs/Hallways.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/RoomGenerator/Prefabs/Hallways/Intersection hallway.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/RoomGenerator/Prefabs/Hallways/Intersection hallway.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/RoomGenerator/Prefabs/Hallways/Straight Hallway.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/RoomGenerator/Prefabs/Hallways/Straight Hallway.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/RoomGenerator/Prefabs/Hallways/T Split hallway.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/RoomGenerator/Prefabs/Hallways/T Split hallway.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/RoomGenerator/Prefabs/Hallways/Turn hallway.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/RoomGenerator/Prefabs/Hallways/Turn hallway.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/RoomGenerator/Prefabs/MainRooms.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/RoomGenerator/Prefabs/MainRooms/Cafetaria.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/RoomGenerator/Prefabs/MainRooms/Cafetaria.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/RoomGenerator/Prefabs/MainRooms/Cubicles.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/RoomGenerator/Prefabs/MainRooms/Cubicles.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/RoomGenerator/Prefabs/MainRooms/ExtraOffices.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/RoomGenerator/Prefabs/MainRooms/ExtraOffices.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/RoomGenerator/Prefabs/MainRooms/FilingRoom.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/RoomGenerator/Prefabs/MainRooms/FilingRoom.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/RoomGenerator/Prefabs/MainRooms/MainOffice.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/RoomGenerator/Prefabs/MainRooms/MainOffice.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/RoomGenerator/Prefabs/MainRooms/Reception.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/RoomGenerator/Prefabs/MainRooms/Reception.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/RoomGenerator/Prefabs/MainRooms/Stairs.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/RoomGenerator/Prefabs/MainRooms/Stairs.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/RoomGenerator/Prefabs/MainRooms/Toilets.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/RoomGenerator/Prefabs/MainRooms/Toilets.prefab.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.UnityRepo/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.UnityRepo/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/HDRPDefaultResources/HDRenderPipelineGlobalSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/HDRPDefaultResources/HDRenderPipelineGlobalSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RoomGenerator/Prefabs/Room1.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RoomGenerator/Prefabs/Room1.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RoomGenerator/Prefabs/Room2x1.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RoomGenerator/Prefabs/Room2x1.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/HDRPDefaultResources/DefaultHDRPAsset.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/HDRPDefaultResources/DefaultHDRPAsset.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/RoomGenerator/Prefabs/Cafetaria.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/RoomGenerator/Prefabs/Cafetaria.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/RoomGenerator/Prefabs/Cubicles.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/RoomGenerator/Prefabs/Cubicles.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/RoomGenerator/Prefabs/ExtraOffices.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/RoomGenerator/Prefabs/ExtraOffices.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/RoomGenerator/Prefabs/FilingRoom.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/RoomGenerator/Prefabs/FilingRoom.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/RoomGenerator/Prefabs/MainOffice.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/RoomGenerator/Prefabs/MainOffice.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/RoomGenerator/Prefabs/Reception.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/RoomGenerator/Prefabs/Reception.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/RoomGenerator/Prefabs/Stairs.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/RoomGenerator/Prefabs/Stairs.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/RoomGenerator/Prefabs/Toilets.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/RoomGenerator/Prefabs/Toilets.prefab.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/RoomGenerator/RoomGenerator.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/RoomGenerator/RoomGenerator.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/RoomGenerator/scripts/Room.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/RoomGenerator/scripts/Room.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/RoomGenerator/scripts/RoomManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/RoomGenerator/scripts/RoomManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,27 +74,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;RoomGenerator&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "RoomGenerator",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;rider.external.source.directories&quot;: [
-      &quot;C:\\Users\\jetty\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\DecompilerCache&quot;,
-      &quot;C:\\Users\\jetty\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\SourcesCache&quot;,
-      &quot;C:\\Users\\jetty\\AppData\\Local\\Symbols\\src&quot;
+  "keyToStringList": {
+    "rider.external.source.directories": [
+      "C:\\Users\\damia\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\DecompilerCache",
+      "C:\\Users\\damia\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\SourcesCache",
+      "C:\\Users\\damia\\AppData\\Local\\Symbols\\src"
     ]
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2022.3.21f1\Editor\Unity.exe" />
@@ -105,6 +145,7 @@
       <workItem from="1710357166063" duration="5000" />
       <workItem from="1710357216053" duration="9000" />
       <workItem from="1710357666840" duration="305000" />
+      <workItem from="1712734193081" duration="8290000" />
     </task>
     <servers />
   </component>
