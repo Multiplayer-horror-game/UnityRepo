@@ -100,9 +100,9 @@ namespace RoomGenerator.scripts
             {
                 if (pos.x + position.x < gridSize.x && pos.y + position.y < gridSize.y && pos.x + position.x >= 0 && pos.y + position.y >= 0)
                 {
-                    if (bakedGrid[pos.x + position.x, pos.y + position.y] == 0)
+                    if (bakedGrid[pos.x + position.x, pos.y + position.y] != 0)
                     {
-                        return true;
+                        return false;
                     }
                 }
             }
