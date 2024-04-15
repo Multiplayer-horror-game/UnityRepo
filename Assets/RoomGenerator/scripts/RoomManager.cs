@@ -31,7 +31,23 @@ namespace RoomGenerator.scripts
         {
             bakedGrid = new int[gridSize.x, gridSize.y];
 
-            RoomProperties[] mandatoryRooms = Array.FindAll(rooms, room => room.mandatory);
+            RoomProperties[] staticRooms = Array.FindAll(rooms, room => room.isStatic);
+
+            RoomProperties[] mandatoryRooms = Array.FindAll(rooms, room => room.mandatory && !room.isStatic);
+
+            foreach (var room in staticRooms)
+            {
+                if(!CheckPositions(room.gameObject.GetComponent<Room>(), room.staticPosition))
+                {
+                    Debug.LogError("je hebt iets doms gedaan. " + room.gameObject.name + " kan helemaal niet op positie " + room.staticPosition);
+                    continue;
+                }
+
+                SetGridPositions(room.gameObject.GetComponent<Room>(), room.staticPosition);
+
+                GameObject instantiatedRoom = Instantiate(room.gameObject, new Vector3(room.staticPosition.x, 0, room.staticPosition.y), new Quaternion());
+            }
+
 
             foreach (var room in mandatoryRooms)
             {
@@ -40,7 +56,7 @@ namespace RoomGenerator.scripts
 
                 int failsafe = 0;
                 
-                while (!CheckPositions(room.room.GetComponent<Room>(), new Vector2Int(x, y)) && failsafe < 100)
+                while (!CheckPositions(room.gameObject.GetComponent<Room>(), new Vector2Int(x, y)) && failsafe < 100)
                 {
                     x = Random.Range(0, gridSize.x);
                     y = Random.Range(0, gridSize.y);
@@ -53,9 +69,9 @@ namespace RoomGenerator.scripts
                     return;
                 }
                 
-                SetGridPositions(room.room.GetComponent<Room>(), new Vector2Int(x, y));
+                SetGridPositions(room.gameObject.GetComponent<Room>(), new Vector2Int(x, y));
                 
-                GameObject instantiatedRoom = Instantiate(room.room, new Vector3(x,0,y),new Quaternion());
+                GameObject instantiatedRoom = Instantiate(room.gameObject, new Vector3(x,0,y),new Quaternion());
                 Room roomClass = instantiatedRoom.GetComponent<Room>();
                 
                 List<Vector2Int> realizedPositions = new List<Vector2Int>();
@@ -68,7 +84,16 @@ namespace RoomGenerator.scripts
                 roomClass.positions = realizedPositions;
                 
             }
-            
+            for (int x = 0; x < gridSize.x; x++)
+            {
+                for (int y = 0; y < gridSize.y; y++)
+                {
+                    if (bakedGrid[x,y] == 0)
+                    {
+                        bakedGrid[x, y] = 2;
+                    }
+                }
+            }
         }
 
         private bool CheckPositions(Room room, Vector2Int position)
@@ -163,7 +188,10 @@ namespace RoomGenerator.scripts
     {
         public bool mandatory;
         public int maxAmount;
-        public GameObject room;
+        public GameObject gameObject;
+
+        public bool isStatic;
+        public Vector2Int staticPosition;
     }
     
     [Serializable]
