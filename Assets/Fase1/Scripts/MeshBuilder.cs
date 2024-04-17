@@ -18,18 +18,31 @@ namespace Fase1
         
         private readonly Vector2Int _chunkPosition;
         
+        private readonly float physicalSize = 200;
+        private readonly int verticesCount = 100;
+        
         
         public MeshBuilder(int verticesCount, float physicalSize, Vector2Int chunkPosition)
         {
             _chunkPosition = chunkPosition;
             
+            this.verticesCount = verticesCount;
+            this.physicalSize = physicalSize;
+            
+        }
+
+        public void Start()
+        {
             State = MeshState.Generating;
+            
             foreach (
                 var data in MeshComponents
                     .Select(meshComponent => meshComponent.GenerateMeshData(_chunkPosition, verticesCount, physicalSize))
                     .SelectMany(meshComponentData => meshComponentData)
-                )
+            )
             {
+                if(data.Empty) continue;
+                
                 _vertices.AddRange(data.Vertices);
                     
                 _uvs.AddRange(data.Uvs);

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -11,123 +12,231 @@ namespace Fase1.MeshComponents
         private GameObject _referenceObject;
         
         private Dictionary<Vector2,float> _mainPositions = new();
+        public IReadOnlyDictionary<Vector2,float> Nodes => _mainPositions;
+        
+        private Dictionary<Vector2,float> _renderedPositions = new();
+        
+        public IReadOnlyDictionary<Vector2,float> RenderedNodes => _renderedPositions;
 
         /// RoadRules
         private readonly int _nodeDistance = 200;
 
         private float _lastRotation = 0f;
 
-        private readonly float _maxRotation = 17f;
+        private readonly float _maxRotation = 0.4f;
+        
+        private readonly float _smoothness = 60f;
+        
         
         private NoiseGenerator _noiseGenerator;
+
+        private List<Color> _colors = new List<Color>();
+        
+        private int lastColorIndex = 0;
 
         public RoadComponent(GameObject referenceObject, NoiseGenerator noiseGenerator)
         {
             _referenceObject = referenceObject;
-            _mainPositions.Add(new Vector2(-100,-100), 0f);
+            
+            _colors.Add(Color.red);
+            _colors.Add(Color.blue);
+            _colors.Add(Color.green);
+            _colors.Add(Color.yellow);
+            _colors.Add(Color.cyan);
+            _colors.Add(Color.magenta);
+            _colors.Add(Color.black);
+            _colors.Add(Color.white);
+            _colors.Add(Color.gray);
+            
+            _mainPositions.Add(new Vector2(1,1),0);
+            
             GenerateNewPositions(100);
-            
-            _noiseGenerator = noiseGenerator;
-        }
 
-        public MeshComponentData[] GenerateMeshData(Vector2Int chunkPosition, int verticesCount, float physicalSize)
-        {
-            float[,] noise = _noiseGenerator.GenerateNoiseChunk(chunkPosition.x, chunkPosition.y);
-
-            Vector2 startChunk = new Vector2(chunkPosition.x * physicalSize, chunkPosition.y * physicalSize);
-            Vector2 endChunk = new Vector2((chunkPosition.x + 1) * physicalSize, (chunkPosition.y + 1) * physicalSize);
-
-            List<Vector2> positions = new List<Vector2>();
-            
-            foreach (var pos in _mainPositions.Keys)
+            for (int i = 0; i < _mainPositions.Count - 1; i++)
             {
-                if (pos.x > startChunk.x && pos.x < endChunk.x && pos.y > startChunk.y && pos.y < endChunk.y)
-                {
-                    positions.Add(pos);
-                }
+                RenderRoadPiece(_mainPositions.ElementAt(i),_mainPositions.ElementAt(i + 1));
             }
             
-            List<Vector2> spline = RenderSpline(positions);
+            _noiseGenerator = noiseGenerator;
             
+        }
+        
+        public MeshComponentData[] GenerateMeshData(Vector2Int chunkPosition, int verticesCount, float physicalSize)
+        {
+            //get the corners of the chunk
+            OperatableVector2 chunkCorner0 = new Vector2(chunkPosition.x * physicalSize, chunkPosition.y * physicalSize);
+            OperatableVector2 chunkCorner1 = new Vector2(chunkPosition.x * physicalSize + physicalSize, chunkPosition.y * physicalSize + physicalSize);
+            
+            //check all the road nodes in the chunk
+            DubbelList<Vector2,float> nodes = GetRenderedRoadNodes(chunkCorner0,chunkCorner1);
+            
+            //if none return empty mesh
+            if(nodes.Count == 0) return new[] { new MeshComponentData(null,null,null,true) };
+            
+            Color randomColor = _colors[lastColorIndex];
+            lastColorIndex = (lastColorIndex + 1) % _colors.Count;
+
+            for (int i = 0; i < nodes.Count - 1; i++)
+            {
+                Debug.DrawLine(new Vector3(nodes.FirstValue[i].x, 0, nodes.FirstValue[i].y),
+                    new Vector3(nodes.FirstValue[i + 1].x, 0, nodes.FirstValue[i + 1].y), randomColor , 1000f);
+            }
+            
+            //generate the mesh
             List<int> triangles = new List<int>();
             List<Vector3> vertices = new List<Vector3>();
             List<Vector2> uvs = new List<Vector2>();
             
-            //calculate the vertices ,triangles and uvs
-            for (int x = 0; x < verticesCount - 1; x++)
+            for (int i = 0; i < nodes.Count - 1; i++)
             {
-                for (int y = 0; y < verticesCount - 1 ; y++)
+                Vector3[] v;
+                if (i == 0)
                 {
-                    Vector3[] v = GetVertices(x,y);
-                    Vector2[] uv = GetUvs();
-                    
-                    for (int k = 0; k < 6; k++)
-                    {
-                        vertices.Add(v[k]);
-                        triangles.Add(vertices.Count - 1);
-                        uvs.Add(uv[k]);
-                    }
+                     v = GetVertices(nodes.GetPair(i),nodes.GetPair(i + 1));
+                }
+                else
+                {
+                    v = GetVertices(nodes.GetPair(i - 1), nodes.GetPair(i), nodes.GetPair(i + 1));
+                }
 
+                Vector2[] uv = GetUvs();
+                
+                for (int k = 0; k < 6; k++)
+                {
+                    vertices.Add(v[k]);
+                    triangles.Add(vertices.Count - 1);
+                    uvs.Add(uv[k]);
                 }
             }
             
-            Vector3[] GetVertices(int x, int y)
-            {
-                
-                //each corner of the quad
-                Vector3 a = new Vector3(x, noise[x, y], y);
-                Vector3 b = new Vector3((x + 1), noise[x + 1, y], y);
-                Vector3 c = new Vector3(x, noise[x, y + 1], (y + 1));
-                Vector3 d = new Vector3((x + 1), noise[x + 1, y + 1], (y + 1));
-                
-                return new[] { a, c, d, a, d, b };
-            }
+            Dictionary<int,List<int>> combinedTriangles = new Dictionary<int, List<int>> {{0,triangles}};
 
-            Vector2[] GetUvs()
-            {
-                //corners of the UVs
-                Vector2 uv00 = new Vector2(0f, 0f);
-                Vector2 uv10 = new Vector2(1f, 0f);
-                Vector2 uv01 = new Vector2(1f, 1f);
-                Vector2 uv11 = new Vector2(1f, 1f);
-                
-                return new[] { uv00, uv10, uv01, uv10, uv11, uv01 };
-            }
-
-
-
-            //hardcoded the material index 0-0
-            Dictionary<int, List<int>> combinedTriangles = new Dictionary<int, List<int>> { { 1, triangles } };
-
-            return new[] { new MeshComponentData(combinedTriangles, vertices, uvs) };
-
+            return new[] { new MeshComponentData(combinedTriangles,vertices,uvs) };
         }
 
-        private void UpdateSplinePositions()
+
+
+        private void RenderRoadPiece(KeyValuePair<Vector2,float> a, KeyValuePair<Vector2,float> b)
         {
+            Vector2[] aTranslated = TranslateNode(a);
+            Vector2[] bTranslated = TranslateNode(b);
             
-            foreach (var pos in _mainPositions.Keys)
-            {
-                float distance = Vector3.Distance(new Vector3(pos.x,0,pos.y),_referenceObject.transform.position);
+            List<Vector2> nodes = new() {aTranslated[1],aTranslated[2],bTranslated[0],bTranslated[1]};
+            
+            for (float t = 0; t <= 1f; t += 0.01f) {
+                Vector2 point = BezierCurve.CalculateBezierPoint(t, nodes.ToArray());
+                float rotation = BezierCurve.CalculateCoordinate1D(t, new []{a.Value,b.Value});
+                
+                if (!_renderedPositions.ContainsKey(point))
+                {
+                    _renderedPositions.Add(point,rotation);
+                }
             }
+            
+            
         }
         
-        public Dictionary<Vector2,float> RenderSpline(Dictionary<Vector2,float> positions) {
-            // Number of points on the curve
-            List<Vector2> nodes = new List<Vector2>();
-
-            int pos = positions.Count - 1;
+        //translate to renderable spline positions
+        private Vector2[] TranslateNode(KeyValuePair<Vector2,float> node)
+        {
+            Vector2[] nodes = new Vector2[3];
+            nodes[1] = node.Key;
             
-            for (float t = 0; t <= 1f; t += 0.001f) {
-                Vector2 point = BezierCurve.CalculateBezierPoint(t, positions.Keys.ToArray());
-                float rotation = BezierCurve.CalculateCoordinate(t,0, positions.Values.ToArray());
-                
-                
-                nodes.Add(point);
+            nodes[0] = new Vector2(
+                node.Key.x - _smoothness * Mathf.Cos(node.Value),
+                node.Key.y - _smoothness * Mathf.Sin(node.Value)
+            );
+            
+            nodes[2] = new Vector2(
+                node.Key.x + _smoothness * Mathf.Cos(node.Value),
+                node.Key.y + _smoothness * Mathf.Sin(node.Value)
+            );
+            
+            return nodes;
+        }
+        
+        private Vector3[] GetVertices(KeyValuePair<Vector2,float> a, KeyValuePair<Vector2,float> b, KeyValuePair<Vector2,float> c)
+        {
+            //each corner of the quad
+            Vector2 middleAB = new Vector2((a.Key.x + b.Key.x) / 2, (a.Key.y + b.Key.y) / 2);
+            Vector2 middleBC = new Vector2((c.Key.x + b.Key.x) / 2, (c.Key.y + b.Key.y) / 2);
+            
+            float a1X = middleAB.x + 10 * Mathf.Cos(b.Value);
+            float a1Y = middleAB.y + 10 * Mathf.Sin(b.Value);
+            Vector3 a1 = new Vector3(a1X, 0, a1Y);
+            
+            float b1X = middleAB.x - 10 * Mathf.Cos(b.Value);
+            float b1Y = middleAB.y - 10 * Mathf.Sin(b.Value);
+            Vector3 b1 = new Vector3(b1X, 0, b1Y);
+            
+            float c1X = middleBC.x + 10 * Mathf.Cos(b.Value);
+            float c1Y = middleBC.y + 10 * Mathf.Sin(b.Value);
+            Vector3 c1 = new Vector3(c1X, 0, c1Y);
+            
+            float d1X = middleBC.x - 10 * Mathf.Cos(b.Value);
+            float d1Y = middleBC.y - 10 * Mathf.Sin(b.Value);
+            Vector3 d1 = new Vector3(d1X, 0, d1Y);
+            
+           // Debug.Log(a1 + " : " + b1 + " : " + c1 + " : " + d1);
+            
+            //return new[] { a1, d1, c1, a1, b1, d1 };
+            return new[] { a1, c1, d1, a1, d1, b1 };
+        }
+        
+        private Vector3[] GetVertices(KeyValuePair<Vector2,float> b, KeyValuePair<Vector2,float> c)
+        {
+            //each corner of the quad
+            Vector2 middleAB = b.Key;
+            Vector2 middleBC = new Vector2((c.Key.x + b.Key.x) / 2, (c.Key.y + b.Key.y) / 2);
+            
+            float a1X = middleAB.x + 10 * Mathf.Cos(b.Value);
+            float a1Y = middleAB.y + 10 * Mathf.Sin(b.Value);
+            Vector3 a1 = new Vector3(a1X, 0, a1Y);
+            
+            float b1X = middleAB.x - 10 * Mathf.Cos(b.Value);
+            float b1Y = middleAB.y - 10 * Mathf.Sin(b.Value);
+            Vector3 b1 = new Vector3(b1X, 0, b1Y);
+            
+            float c1X = middleBC.x + 10 * Mathf.Cos(b.Value);
+            float c1Y = middleBC.y + 10 * Mathf.Sin(b.Value);
+            Vector3 c1 = new Vector3(c1X, 0, c1Y);
+            
+            float d1X = middleBC.x - 10 * Mathf.Cos(b.Value);
+            float d1Y = middleBC.y - 10 * Mathf.Sin(b.Value);
+            Vector3 d1 = new Vector3(d1X, 0, d1Y);
+            
+            //return new[] { a1, c1, d1, a1, d1, b1 };
+            return new[] { a1, c1, d1, a1, d1, b1 };
+        }
+        
+        Vector2[] GetUvs()
+        {
+            //corners of the UVs
+            Vector2 uv00 = new Vector2(0f, 0f);
+            Vector2 uv10 = new Vector2(1f, 0f);
+            Vector2 uv01 = new Vector2(1f, 1f);
+            Vector2 uv11 = new Vector2(1f, 1f);
+            
+            return new[] { uv00, uv10, uv01, uv10, uv11, uv01 };
+        }
+        
+        private DubbelList<Vector2,float> GetRenderedRoadNodes(OperatableVector2 chunkCorner0, OperatableVector2 chunkCorner1)
+        {
+            DubbelList<Vector2,float> nodes = new();
+            foreach (KeyValuePair<Vector2,float> node in _renderedPositions)
+            {
+                if (node.Key >= chunkCorner0 && node.Key <= chunkCorner1)
+                {
+                    nodes.Add(node.Key,node.Value);
+                }
             }
 
-            return nodes;
+            if (nodes.Count == 0) return nodes;
 
+            int last = _renderedPositions.Keys.ToList().IndexOf(nodes.Last().Key);
+            if (last + 1 < _renderedPositions.Count) nodes.Add(_renderedPositions.ElementAt(last + 1).Key,_renderedPositions.ElementAt(last + 1).Value);
+
+            return nodes;
         }
 
         //based on the reference object randomly generate the road in front 
@@ -140,17 +249,18 @@ namespace Fase1.MeshComponents
             }
             
             //the actual calculation
-            void GenerateNewPosition(Vector2 lastPos)
-            {
-                _lastRotation = Random.Range(-_maxRotation, _maxRotation) + _lastRotation;
+        }
+        
+        private void GenerateNewPosition(Vector2 lastPos)
+        {
+            _lastRotation = Random.Range(-_maxRotation, _maxRotation) + _lastRotation;
                 
-                Vector2 newPos = new Vector2(
-                    lastPos.x + _nodeDistance * Mathf.Cos(_lastRotation),
-                    lastPos.y + _nodeDistance * Mathf.Sin(_lastRotation)
-                    );
+            Vector2 newPos = new Vector2(
+                lastPos.x + _nodeDistance * Mathf.Cos(_lastRotation),
+                lastPos.y + _nodeDistance * Mathf.Sin(_lastRotation)
+            );
                 
-                _mainPositions.Add(newPos,_lastRotation);
-            }
+            _mainPositions.Add(newPos,_lastRotation);
         }
     }
 }

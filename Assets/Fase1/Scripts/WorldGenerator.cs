@@ -1,7 +1,10 @@
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Fase1.MeshComponents;
+using UnityEditor.Rendering;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -65,8 +68,9 @@ namespace Fase1
         
         private int _failedCount;
         
-        private List<Vector2> _positions = new();
-        // Start is called before the first frame update
+        private RoadComponent _roadComponent;
+        
+        
         void Start()
         {
 
@@ -82,22 +86,35 @@ namespace Fase1
             _noiseGenerator = new NoiseGenerator(scale, _xOffset, _yOffset, verticesPerChunk, heightMultiplier, heightOffset);
             
             FloorComponent floorComponent = new FloorComponent(_noiseGenerator);
-            MeshBuilder.AddMeshComponent(floorComponent);
+            //MeshBuilder.AddMeshComponent(floorComponent);
             
-            RoadComponent roadComponent = new RoadComponent(mainObject, _noiseGenerator);
-            MeshBuilder.AddMeshComponent(roadComponent);
+            _roadComponent = new RoadComponent(mainObject, _noiseGenerator);
+            MeshBuilder.AddMeshComponent(_roadComponent);
+            
+            OperatableVector2 chunkCorner0 = new Vector2(0,0);
+            OperatableVector2 chunkCorner1 = new Vector2(physicalSize,physicalSize);
+            
+            OperatableVector2 random = new Vector2(2000,1000);
+            
+            if(chunkCorner0 <= random && chunkCorner1 >= random)
+            {
+                Debug.Log("true");
+            }
             
         }
         
         void OnDrawGizmos()
         {
-            if (_positions.Count != 0)
-            {
-                for (int i = 0; i < _positions.Count - 1; i++)
-                {
-                    Gizmos.DrawLine(_positions[i],_positions[i + 1]);
-                }
-            }
+            if(_roadComponent == null) return;
+            
+            Gizmos.color = Color.green;
+            new List<Vector2>(_roadComponent.RenderedNodes.Keys).ForEach(point => Gizmos.DrawSphere(new Vector3(point.x,0,point.y), 0.1f));
+            
+            
+            Gizmos.color = Color.red;
+            new List<Vector2>(_roadComponent.Nodes.Keys).ForEach(point => Gizmos.DrawSphere(new Vector3(point.x,0,point.y), 0.5f));
+            
+            
         }
         
         // Update is called once per frame
@@ -121,12 +138,13 @@ namespace Fase1
                 {
                     if (_failedCount > 20)
                     {
-                        _meshBuilders.Dequeue();
+                        //_meshBuilders.Dequeue();
                         
-                        MeshBuilder regeneratedBuilder = new MeshBuilder(verticesPerChunk, physicalSize, meshBuilderKvp.Key);
+                        //MeshBuilder regeneratedBuilder = new MeshBuilder(verticesPerChunk, physicalSize, meshBuilderKvp.Key);
                         
-                        BuildMesh(regeneratedBuilder);
+                        //BuildMesh(regeneratedBuilder);
                         
+                        //Debug.Log("Failed to generate chunk at: " + meshBuilderKvp.Key);
                         _failedCount = 0;
                     }
                     _failedCount++;
@@ -137,15 +155,23 @@ namespace Fase1
             _threads.RemoveAll(thread => !thread.IsAlive);
 
             //if there are any unitialized chunks, start a new thread to generate them
-            while(_threads.Count < multithreading && _unInitialized.Count > 0)
+            ThreadStart threadStart = () =>
             {
-                var position = _unInitialized.Dequeue();
-                Task.Run(() => GenerateChunkThread(position));
-            }
+                while (_threads.Count < multithreading && _unInitialized.Count > 0)
+                {
+                    var position = _unInitialized.Dequeue();
+                    GenerateChunkThread(position);
+                }
+            };
+            
+            Thread thread = new Thread(threadStart);
+            thread.Start();
             
             UpdateRenderList();
             
             DestroyNextChunk();
+            
+            // Debug.Log("chunks:"  +_chunks.Count + " requested:" + _requestedChunks.Count + " uninit:" + _unInitialized.Count + " meshbuilders:" + _meshBuilders.Count + " threads:" + _threads.Count + " destroylist:" + _destroyList.Count);
             
         }
         
@@ -167,9 +193,13 @@ namespace Fase1
         //generate a chunk in a new thread
         void GenerateChunkThread(Vector2Int position)
         {
+            MeshBuilder meshBuilder = new MeshBuilder(verticesPerChunk, physicalSize, position);
+            
+            _meshBuilders.Enqueue(new KeyValuePair<Vector2Int, MeshBuilder>(meshBuilder.GetChunkPosition(),meshBuilder));
+            
             ThreadStart threadStart = () =>
             {
-                GenerateChunk(position);
+                meshBuilder.Start();
             };
 
             Thread thread = new Thread(threadStart);
@@ -234,13 +264,6 @@ namespace Fase1
             
         }
         
-        private void GenerateChunk(Vector2Int objectPosition)
-        {
-            MeshBuilder meshBuilder = new MeshBuilder(verticesPerChunk, physicalSize, objectPosition);
-            
-            _meshBuilders.Enqueue(new KeyValuePair<Vector2Int, MeshBuilder>(objectPosition,meshBuilder));
-        }
-        
         // ReSharper disable Unity.PerformanceAnalysis
         
         //build the mesh and instantiate the gameobject
@@ -257,5 +280,6 @@ namespace Fase1
             
             _chunks.Add(position,meshObj);
         }
+        
     }
 }

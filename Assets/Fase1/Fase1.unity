@@ -160,7 +160,7 @@ MonoBehaviour:
   physicalSize: 1000
   verticesPerChunk: 100
   renderDistance: 3
-  multithreading: 1
+  multithreading: 10
   chunkPrefab: {fileID: 3459473575477855913, guid: 3f0fa1dcf869df44e83b8a2545e4594b,
     type: 3}
   mainObject: {fileID: 1706977460}

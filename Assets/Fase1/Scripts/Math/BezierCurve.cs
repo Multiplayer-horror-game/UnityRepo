@@ -38,7 +38,7 @@ namespace Fase1
             return result;
         }
         
-        public static double CalculateCoordinate1D(float t, int axis, float[] nodes){
+        public static float CalculateCoordinate1D(float t,  float[] nodes){
             double result = 0;
             int n = nodes.Length - 1;
 
@@ -51,7 +51,7 @@ namespace Fase1
                 result += term;
             }
 
-            return result;
+            return (float) result;
         }
 
         public static double CalculateBinomialCoefficient(int n, int k) {
