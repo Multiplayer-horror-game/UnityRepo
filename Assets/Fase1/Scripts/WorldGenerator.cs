@@ -5,6 +5,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Fase1.MeshComponents;
 using UnityEditor.Rendering;
+using Fase1.ScriptableObjects;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -45,6 +46,9 @@ namespace Fase1
         public GameObject chunkPrefab;
 
         public GameObject mainObject;
+
+        [Header("ScriptableObject")] 
+        public NatureObjects natureObjects;
         
         
         private int _xOffset;
@@ -101,6 +105,12 @@ namespace Fase1
                 Debug.Log("true");
             }
             
+            //RoadComponent roadComponent = new RoadComponent(mainObject, _noiseGenerator);
+            //MeshBuilder.AddMeshComponent(roadComponent);
+
+            NatureComponent natureComponent = new NatureComponent(_noiseGenerator,natureObjects);
+            MeshBuilder.AddChildren(natureComponent);
+
         }
         
         void OnDrawGizmos()
@@ -265,6 +275,13 @@ namespace Fase1
         }
         
         // ReSharper disable Unity.PerformanceAnalysis
+        private void GenerateChunk(Vector2Int objectPosition)
+        {
+            MeshBuilder meshBuilder = new MeshBuilder(verticesPerChunk, physicalSize, objectPosition);
+            
+            _meshBuilders.Enqueue(new KeyValuePair<Vector2Int, MeshBuilder>(objectPosition,meshBuilder));
+        }
+        
         
         //build the mesh and instantiate the gameobject
         //cus we are using threads, we need to use the main thread to instantiate the gameobject and create meshes
@@ -278,8 +295,16 @@ namespace Fase1
             meshObj.AddComponent<MeshFilter>().mesh = mesh;
             meshObj.name = "Chunk (" + position.x + "," + position.y + ")";
             
+            //last meshbuilder operation to add children to the gameobject (trees,stones,etc)
+            meshBuilder.ChildOperation(this,meshObj);
+            
             _chunks.Add(position,meshObj);
         }
         
+
+        public void ForceInstantiate(GameObject parent, GameObject child, Vector3 position, Quaternion rotation)
+        {
+            Instantiate(child, position, rotation, parent.transform).transform.localPosition = position;
+        }
     }
 }

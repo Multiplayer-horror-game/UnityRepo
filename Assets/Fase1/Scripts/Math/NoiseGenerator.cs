@@ -1,37 +1,43 @@
+using Fase1.Math;
 using UnityEngine;
 
 namespace Fase1
 {
     public class NoiseGenerator
     {
-        private readonly float _scale;
-        private readonly int _xOffset;
-        private readonly int _yOffset;
-        private readonly int _vertices;
-        private readonly float _heightMultiplier;
-        private readonly float _heightOffset;
+        protected float Scale;
+        protected int xOffset;
+        protected int yOffset;
+        protected int vertices;
+        protected float heightMultiplier;
+        protected float heightOffset;
 
         public NoiseGenerator(float scale, int xOffset, int yOffset, int vertices, float heightMultiplier, float heightOffset)
         {
-            this._vertices = vertices;
-            this._yOffset = yOffset;
-            this._xOffset = xOffset;
-            this._scale = scale;
-            this._heightMultiplier = heightMultiplier;
-            this._heightOffset = heightOffset;
+            this.vertices = vertices;
+            this.yOffset = yOffset;
+            this.xOffset = xOffset;
+            this.Scale = scale;
+            this.heightMultiplier = heightMultiplier;
+            this.heightOffset = heightOffset;
         }
-
 
         public float[,] GenerateNoiseChunk(int xChunk, int yChunk)
         {
+            return GenerateNoiseChunk(xChunk, yChunk, this.xOffset, this.yOffset);
+        }
 
-            var noiseMap = new float[_vertices,_vertices];
-            for (int x = 0; x < _vertices; x++)
+
+        public float[,] GenerateNoiseChunk(int xChunk, int yChunk, float _xOffset, float _yOffset)
+        {
+
+            var noiseMap = new float[vertices,vertices];
+            for (int x = 0; x < vertices; x++)
             {
-                for (int y = 0; y < _vertices; y++)
+                for (int y = 0; y < vertices; y++)
                 {
-                    int xPos = (xChunk * _vertices) +  x - xChunk;
-                    int yPos = (yChunk * _vertices) +y - yChunk;
+                    int xPos = (xChunk * vertices) +  x - xChunk;
+                    int yPos = (yChunk * vertices) +y - yChunk;
                     if (xChunk == 0)
                     {
                         xPos = x;
@@ -41,12 +47,17 @@ namespace Fase1
                         yPos = y;
                     }
                     
-                    noiseMap[x, y] = Mathf.PerlinNoise(xPos * _scale + _xOffset, yPos * _scale + _yOffset) * _heightMultiplier - _heightOffset;
+                    noiseMap[x, y] = Mathf.PerlinNoise(xPos * Scale + _xOffset, yPos * Scale + _yOffset) * heightMultiplier - heightOffset;
 
                 }
             }
 
             return noiseMap;
+        }
+        
+        public NatureNoiseGenerator ConvertToNatureNoiseGenerator()
+        {
+            return new NatureNoiseGenerator(Scale,xOffset, yOffset,vertices, heightMultiplier, heightOffset);
         }
     }
 }

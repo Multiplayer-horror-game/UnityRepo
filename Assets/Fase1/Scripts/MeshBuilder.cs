@@ -10,6 +10,8 @@ namespace Fase1
         public MeshState State { get; private set; } = MeshState.NotGenerated;
         
         private static readonly List<IMeshComponent> MeshComponents = new();
+
+        private static readonly List<IChunkComponent> ChunkComponents = new();
         
         private readonly List<Vector3> _vertices = new();
         private readonly List<Vector2> _uvs = new();
@@ -77,6 +79,14 @@ namespace Fase1
             return mesh;
         }
         
+        public void ChildOperation(WorldGenerator worldGenerator, GameObject gameObject)
+        {
+            foreach (var component in ChunkComponents)
+            {
+                component.ImplementChildren(worldGenerator, gameObject,_chunkPosition.x,_chunkPosition.y);
+            }
+        }
+        
         public Vector2Int GetChunkPosition()
         {
             return _chunkPosition;
@@ -86,8 +96,14 @@ namespace Fase1
         {
             MeshComponents.Add(meshComponent);
         }
-        
+
+        public static void AddChildren(IChunkComponent component)
+        {
+            ChunkComponents.Add(component);
+        }
+
     }
+    
     
     public enum MeshState
     {

@@ -21,7 +21,7 @@ namespace Fase1
 
             for (int i = 0; i <= n; i++) {
                 double binomialCoefficient = CalculateBinomialCoefficient(n, i);
-                double term = binomialCoefficient * MathF.Pow(1 - t, n - i) * Math.Pow(t, i);
+                double term = binomialCoefficient * MathF.Pow(1 - t, n - i) * System.Math.Pow(t, i);
 
                 double coordinate = axis switch
                 {
