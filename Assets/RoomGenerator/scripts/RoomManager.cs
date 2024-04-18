@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using RoomGenerator.scripts.Structs;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -7,6 +8,7 @@ namespace RoomGenerator.scripts
 {
     public class RoomManager : MonoBehaviour
     {
+        private MazeGenerator _mazeGenerator = new MazeGenerator();
 
         //size of the world grid
         public Vector2Int gridSize = new Vector2Int(10, 10);
@@ -22,7 +24,8 @@ namespace RoomGenerator.scripts
         //final grid layout 
         //0 - empty
         //1 - room
-        //2 - hallway
+        //2 - requested hallway
+        //3 - hallway
         private int[,] bakedGrid;
 
         public int scale;
@@ -84,6 +87,8 @@ namespace RoomGenerator.scripts
                 roomClass.positions = realizedPositions;
                 
             }
+            
+            
             for (int x = 0; x < gridSize.x; x++)
             {
                 for (int y = 0; y < gridSize.y; y++)
@@ -94,6 +99,10 @@ namespace RoomGenerator.scripts
                     }
                 }
             }
+            
+            _mazeGenerator.GenerateHallways(bakedGrid, gridSize.x);
+            
+            
         }
 
         private bool CheckPositions(Room room, Vector2Int position)
@@ -123,12 +132,16 @@ namespace RoomGenerator.scripts
         {
             foreach (Vector2Int pos in room.hallwayPositions)
             {
-                if (pos.x + position.x < gridSize.x && pos.y + position.y < gridSize.y && pos.x + position.x >= 0 && pos.y + position.y >= 0)
+                if (!(pos.x + position.x < gridSize.x && pos.y + position.y < gridSize.y) || !(pos.x + position.x >= 0 && pos.y + position.y >= 0))
                 {
-                    if (bakedGrid[pos.x + position.x, pos.y + position.y] != 0)
-                    {
-                        return false;
-                    }
+                    Debug.Log("Hallway out of bounds at " + position);
+                    return false;
+                }
+                
+                if (bakedGrid[pos.x + position.x, pos.y + position.y] != 0)
+                {
+                    Debug.Log("Hallway overlaps at " + position);
+                    return false;
                 }
             }
             
@@ -181,34 +194,5 @@ namespace RoomGenerator.scripts
                 }
             }
         }
-    }
-
-    [Serializable]
-    public struct RoomProperties
-    {
-        public bool mandatory;
-        public int maxAmount;
-        public GameObject gameObject;
-
-        public bool isStatic;
-        public Vector2Int staticPosition;
-    }
-    
-    [Serializable]
-    public struct HallwayProperties
-    {
-        public GameObject hallway;
-        
-        //north east south west
-        public Directions directions;
-    }
-
-    [Serializable]
-    public struct Directions
-    {
-        public bool north;
-        public bool east;
-        public bool south;
-        public bool west;
     }
 }
