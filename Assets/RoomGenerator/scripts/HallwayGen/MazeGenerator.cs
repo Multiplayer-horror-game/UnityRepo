@@ -69,6 +69,8 @@ public class MazeGenerator
                 {
                     //get a random room from the list of possible rooms
                     int numb = Random.Range(0, canVisit.Count - 1);
+                    
+                    Debug.Log(numb + " possible numbers:" + sortedCanVisit.Count);
 
                     Vector2Int pos;
 
@@ -79,6 +81,7 @@ public class MazeGenerator
                     }
                     catch
                     {
+                        Debug.Log("Error");
                         pos = sortedCanVisit[0];
                     }
                     
@@ -137,7 +140,6 @@ public class MazeGenerator
             foreach (var hallwayOption in _hallwayOptions)
             {
                 //dami cracky way of operating with custom structs check the Directions.cs for more info XD
-                Debug.Log(pos + " , " + dir);
                 CompareResult compareResult = Directions.Compare(dir, hallwayOption.directions);
                 if (compareResult.result)
                 {

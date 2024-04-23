@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd7142233efd7074eaef1bd313850993, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gridSize: {x: 10, y: 10}
+  gridSize: {x: 20, y: 20}
   rooms:
   - mandatory: 1
     maxAmount: 1
@@ -170,9 +170,9 @@ MonoBehaviour:
   - hallway: {fileID: 5887218930670201626, guid: e252172e117a7234ab8ad67cdaa5c82f,
       type: 3}
     directions:
-      north: 1
+      north: 0
       east: 0
-      south: 0
+      south: 1
       west: 0
   - hallway: {fileID: 3773942070036627943, guid: c3dcbff823b02bf4f9f2724c0c0445ad,
       type: 3}
@@ -191,10 +191,10 @@ MonoBehaviour:
   - hallway: {fileID: 1232488872479379525, guid: a22c550d15fd7d548857a51c8df0d709,
       type: 3}
     directions:
-      north: 1
+      north: 0
       east: 1
       south: 1
-      west: 0
+      west: 1
   - hallway: {fileID: 4130774199336624032, guid: 13af72f66a765ba41b8caefcafe5da35,
       type: 3}
     directions:

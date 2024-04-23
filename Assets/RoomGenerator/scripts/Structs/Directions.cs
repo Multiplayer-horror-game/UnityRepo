@@ -19,6 +19,15 @@ namespace RoomGenerator.scripts.Structs
             south = east;
             east = temp;
         }
+        
+        private void RotateMinus90deg()
+        {
+            bool temp = north;
+            north = east;
+            east = south;
+            south = west;
+            west = temp;
+        }
 
         private void Rotate180deg()
         {
@@ -58,7 +67,7 @@ namespace RoomGenerator.scripts.Structs
                     };
                 }
 
-                c.Rotate90deg();
+                c.RotateMinus90deg();
                 rotation += 90;
             }
 
