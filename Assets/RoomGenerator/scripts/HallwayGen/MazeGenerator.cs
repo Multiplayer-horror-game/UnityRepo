@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using RoomGenerator.scripts;
 using RoomGenerator.scripts.Structs;
 using UnityEngine;
 
@@ -10,10 +11,21 @@ public class MazeGenerator
     private List<Vector2Int> stack = new();
     private int visited = 0;
     
-
     public Vector2Int size = new Vector2Int(10, 10);
 
     public Vector2Int _currentPosition = new Vector2Int(0,0);
+    
+    //list with the objects that can be used as hallways
+    private HallwayProperties[] _hallwayOptions;
+    
+    private RoomManager _roomManager;
+    
+    //constructor
+    public MazeGenerator(HallwayProperties[] hallwayProperties, RoomManager roomManager)
+    {
+        _hallwayOptions = hallwayProperties;
+        _roomManager = roomManager;
+    }
     
     //Generate the hallways using the data from a roomManager
     public void GenerateHallways(int[,] bakedGrid, int size)
@@ -46,13 +58,12 @@ public class MazeGenerator
                 
                 if (sortedCanVisit.Count > 0)
                 {
-                    Debug.Log("Visitable rooms: " + sortedCanVisit.Count);
-
+                    //get a random room from the list of possible rooms
                     int numb = Random.Range(0, canVisit.Count - 1);
-                    Debug.Log("Random number: " + numb);
 
                     Vector2Int pos;
 
+                    //try to get the position from the list, if it fails, get the first position
                     try
                     {
                         pos = sortedCanVisit[numb];
@@ -101,6 +112,28 @@ public class MazeGenerator
                     }
                 }
             }
+        }
+        
+        //so after doing all the calculations
+        //it will loop through all the hallways and add gameobjects to the scene
+        foreach (var keyValuePair in _hallways)
+        {
+            
+            Directions dir = keyValuePair.Value;
+            Vector2Int pos = keyValuePair.Key;
+
+            //loop through all the hallway options to get the fitting one
+            foreach (var hallwayOption in _hallwayOptions)
+            {
+                //dami cracky way of operating with custom structs check the Directions.cs for more info XD
+                CompareResult result = dir == hallwayOption.directions;
+                if (result.result)
+                {
+                    _roomManager.AddHallway(hallwayOption.hallway, pos, Quaternion.Euler(0, result.rotation, 0));
+                    break;
+                }
+            }
+            
         }
     }
     
@@ -182,4 +215,5 @@ public class MazeGenerator
 
         return canVisit;
     }
+    
 }

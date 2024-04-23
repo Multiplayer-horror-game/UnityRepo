@@ -8,7 +8,7 @@ namespace RoomGenerator.scripts
 {
     public class RoomManager : MonoBehaviour
     {
-        private MazeGenerator _mazeGenerator = new MazeGenerator();
+        private MazeGenerator _mazeGenerator;
 
         //size of the world grid
         public Vector2Int gridSize = new Vector2Int(10, 10);
@@ -29,9 +29,12 @@ namespace RoomGenerator.scripts
         private int[,] bakedGrid;
 
         public int scale;
-
+        
         void Start()
         {
+            new MazeGenerator(hallways,this);
+                
+                
             bakedGrid = new int[gridSize.x, gridSize.y];
 
             RoomProperties[] staticRooms = Array.FindAll(rooms, room => room.isStatic);
@@ -194,5 +197,11 @@ namespace RoomGenerator.scripts
                 }
             }
         }
+
+        public void AddHallway(GameObject hallwayObject, Vector2Int pos, Quaternion dir)
+        {
+            GameObject hallway = Instantiate(hallwayObject, new Vector3(pos.x, 0, pos.y), dir);
+        }
+
     }
 }
