@@ -1,8 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using RoomGenerator.scripts;
 using RoomGenerator.scripts.Structs;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class MazeGenerator
 {
@@ -38,8 +40,15 @@ public class MazeGenerator
             if (!GetNewStartingPoint(bakedGrid, size)) done = true;
             
             bakedGrid[_currentPosition.x, _currentPosition.y] = 3;
-            _hallways.Add(_currentPosition, new Directions()); //err here
-            
+            try
+            {
+                _hallways.Add(_currentPosition, new Directions()); //err here
+            }
+            catch (Exception ignored)
+            {
+                // ignored
+            }
+
             bool canContinue = true;
             while (canContinue)
             {
@@ -114,6 +123,8 @@ public class MazeGenerator
             }
         }
         
+        Debug.Log(_hallways.Count);
+        
         //so after doing all the calculations
         //it will loop through all the hallways and add gameobjects to the scene
         foreach (var keyValuePair in _hallways)
@@ -126,14 +137,14 @@ public class MazeGenerator
             foreach (var hallwayOption in _hallwayOptions)
             {
                 //dami cracky way of operating with custom structs check the Directions.cs for more info XD
-                CompareResult result = dir == hallwayOption.directions;
-                if (result.result)
+                Debug.Log(pos + " , " + dir);
+                CompareResult compareResult = Directions.Compare(dir, hallwayOption.directions);
+                if (compareResult.result)
                 {
-                    _roomManager.AddHallway(hallwayOption.hallway, pos, Quaternion.Euler(0, result.rotation, 0));
+                    _roomManager.AddHallway(hallwayOption.hallway, pos, Quaternion.Euler(0, compareResult.rotation, 0));
                     break;
                 }
             }
-            
         }
     }
     

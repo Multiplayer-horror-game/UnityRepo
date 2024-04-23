@@ -42,14 +42,14 @@ namespace RoomGenerator.scripts.Structs
         }
 
         //calculate if the directions are the same also check if rotation is needed
-        public static CompareResult operator ==(Directions a, Directions b)
+        public static CompareResult Compare(Directions a, Directions b)
         {
             Directions c = a.Copy();
             int rotation = 0;
 
             for (int i = 0; i < 4; i++)
             {
-                if (CompareDirections(c, b))
+                if (c == b)
                 {
                     return new CompareResult
                     {
@@ -69,16 +69,19 @@ namespace RoomGenerator.scripts.Structs
             };
         }
         
-        public static CompareResult operator !=(Directions a, Directions b)
-        {
-            CompareResult res = a == b;
-            res.result = !res.result;
-            return res;
-        }
-        
-        private static bool CompareDirections(Directions a, Directions b)
+        public static bool operator ==(Directions a, Directions b)
         {
             return a.north == b.north && a.east == b.east && a.south == b.south && a.west == b.west;
+        }
+        
+        public static bool operator !=(Directions a, Directions b)
+        {
+            return !(a == b);
+        }
+
+        public static implicit operator string(Directions dir)
+        {
+            return "(" + dir.north + "," + dir.east + "," + dir.south + "," + dir.west + ")";
         }
         
     }

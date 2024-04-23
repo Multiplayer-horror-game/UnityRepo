@@ -32,7 +32,7 @@ namespace RoomGenerator.scripts
         
         void Start()
         {
-            new MazeGenerator(hallways,this);
+            _mazeGenerator = new MazeGenerator(hallways,this);
                 
                 
             bakedGrid = new int[gridSize.x, gridSize.y];
@@ -120,12 +120,11 @@ namespace RoomGenerator.scripts
                 
                 if(bakedGrid[pos.x + position.x,pos.y + position.y] != 0)
                 {
-                    Debug.Log("Room overlaps at " + position);
+
                     return false;
                 }
             }
-
-            Debug.Log("Room placed at " + position);
+            
             
             return CheckHallwaySpace(room, position);
         }
@@ -137,13 +136,13 @@ namespace RoomGenerator.scripts
             {
                 if (!(pos.x + position.x < gridSize.x && pos.y + position.y < gridSize.y) || !(pos.x + position.x >= 0 && pos.y + position.y >= 0))
                 {
-                    Debug.Log("Hallway out of bounds at " + position);
+
                     return false;
                 }
                 
                 if (bakedGrid[pos.x + position.x, pos.y + position.y] != 0)
                 {
-                    Debug.Log("Hallway overlaps at " + position);
+
                     return false;
                 }
             }
@@ -200,6 +199,7 @@ namespace RoomGenerator.scripts
 
         public void AddHallway(GameObject hallwayObject, Vector2Int pos, Quaternion dir)
         {
+            Debug.Log("Adding hallway at " + pos + " with rotation " + dir.eulerAngles.y);
             GameObject hallway = Instantiate(hallwayObject, new Vector3(pos.x, 0, pos.y), dir);
         }
 

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 262.3616, g: 325.0784, b: 430.26373, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -167,11 +167,40 @@ MonoBehaviour:
     isStatic: 1
     staticPosition: {x: 4, y: 0}
   hallways:
-  - hallway: {fileID: 0}
+  - hallway: {fileID: 5887218930670201626, guid: e252172e117a7234ab8ad67cdaa5c82f,
+      type: 3}
     directions:
-      north: 0
+      north: 1
       east: 0
       south: 0
+      west: 0
+  - hallway: {fileID: 3773942070036627943, guid: c3dcbff823b02bf4f9f2724c0c0445ad,
+      type: 3}
+    directions:
+      north: 1
+      east: 1
+      south: 1
+      west: 1
+  - hallway: {fileID: 5239228406373521330, guid: 8d78f4c1d94030c47a45e2ff13b184fe,
+      type: 3}
+    directions:
+      north: 1
+      east: 0
+      south: 1
+      west: 0
+  - hallway: {fileID: 1232488872479379525, guid: a22c550d15fd7d548857a51c8df0d709,
+      type: 3}
+    directions:
+      north: 1
+      east: 1
+      south: 1
+      west: 0
+  - hallway: {fileID: 4130774199336624032, guid: 13af72f66a765ba41b8caefcafe5da35,
+      type: 3}
+    directions:
+      north: 0
+      east: 1
+      south: 1
       west: 0
   scale: 1
 --- !u!4 &834411931
