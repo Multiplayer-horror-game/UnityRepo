@@ -10,11 +10,11 @@ namespace RoomGenerator.scripts
     {
         private MazeGenerator _mazeGenerator;
 
-        //size of the world grid
+        //_size of the world grid
         public Vector2Int gridSize = new Vector2Int(10, 10);
     
         //room and offset
-        private Dictionary<Room,Vector2> usedRooms = new ();
+        private Dictionary<Room,Vector2Int> usedRooms = new ();
     
 
         public RoomProperties[] rooms;
@@ -105,7 +105,54 @@ namespace RoomGenerator.scripts
             
             _mazeGenerator.GenerateHallways(bakedGrid, gridSize.x);
             
-            
+        }
+
+        private void ModifyHallways()
+        {
+            foreach (var keyValuePair in usedRooms)
+            {
+                Room room = keyValuePair.Key;
+                Vector2Int position = keyValuePair.Value;
+
+                foreach (var door in room.doors)
+                {
+                    if(door.directions.north)
+                    {
+                        Directions dir = _mazeGenerator.GetHallway(position + new Vector2Int(door.position.x, door.position.y) + new Vector2Int(1,0));
+                        
+                        dir.south = true;
+                        
+                        _mazeGenerator.SetHallway(position + new Vector2Int(door.position.x, door.position.y) + new Vector2Int(1,0), dir);
+                    }
+                    
+                    if(door.directions.east)
+                    {
+                        Directions dir = _mazeGenerator.GetHallway(position + new Vector2Int(door.position.x, door.position.y) + new Vector2Int(0,1));
+                        
+                        dir.west = true;
+                        
+                        _mazeGenerator.SetHallway(position + new Vector2Int(door.position.x, door.position.y) + new Vector2Int(0,1), dir);
+                    }
+                    
+                    if(door.directions.south)
+                    {
+                        Directions dir = _mazeGenerator.GetHallway(position + new Vector2Int(door.position.x, door.position.y) + new Vector2Int(-1,0));
+                        
+                        dir.north = true;
+                        
+                        _mazeGenerator.SetHallway(position + new Vector2Int(door.position.x, door.position.y) + new Vector2Int(-1,0), dir);
+                    }
+                    
+                    if(door.directions.west)
+                    {
+                        Directions dir = _mazeGenerator.GetHallway(position + new Vector2Int(door.position.x, door.position.y) + new Vector2Int(0,-1));
+                        
+                        dir.east = true;
+                        
+                        _mazeGenerator.SetHallway(position + new Vector2Int(door.position.x, door.position.y) + new Vector2Int(0,-1), dir);
+                    }
+                }
+            }
         }
 
         private bool CheckPositions(Room room, Vector2Int position)
@@ -199,7 +246,6 @@ namespace RoomGenerator.scripts
 
         public void AddHallway(GameObject hallwayObject, Vector2Int pos, Quaternion dir)
         {
-            Debug.Log("Adding hallway at " + pos + " with rotation " + dir.eulerAngles.y);
             GameObject hallway = Instantiate(hallwayObject, new Vector3(pos.x, 0, pos.y), dir);
         }
 

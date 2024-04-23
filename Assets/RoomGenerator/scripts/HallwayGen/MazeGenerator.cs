@@ -13,7 +13,7 @@ public class MazeGenerator
     private List<Vector2Int> stack = new();
     private int visited = 0;
     
-    public Vector2Int size = new Vector2Int(10, 10);
+    public Vector2Int _size = new Vector2Int(10, 10);
 
     public Vector2Int _currentPosition = new Vector2Int(0,0);
     
@@ -32,6 +32,7 @@ public class MazeGenerator
     //Generate the hallways using the data from a roomManager
     public void GenerateHallways(int[,] bakedGrid, int size)
     {
+        _size = new Vector2Int(size, size);
         
         bool done = false;
         while (!done)
@@ -68,9 +69,7 @@ public class MazeGenerator
                 if (sortedCanVisit.Count > 0)
                 {
                     //get a random room from the list of possible rooms
-                    int numb = Random.Range(0, canVisit.Count - 1);
-                    
-                    Debug.Log(numb + " possible numbers:" + sortedCanVisit.Count);
+                    int numb = Random.Range(0, canVisit.Count);
 
                     Vector2Int pos;
 
@@ -81,7 +80,6 @@ public class MazeGenerator
                     }
                     catch
                     {
-                        Debug.Log("Error");
                         pos = sortedCanVisit[0];
                     }
                     
@@ -125,7 +123,10 @@ public class MazeGenerator
                 }
             }
         }
-        
+    }
+
+    public void InitializeRooms()
+    {
         Debug.Log(_hallways.Count);
         
         //so after doing all the calculations
@@ -210,14 +211,14 @@ public class MazeGenerator
                 canVisit.Add(new Vector2Int(_currentPosition.x, _currentPosition.y - 1));
             }
         }
-        if (_currentPosition.x < size.x - 1)
+        if (_currentPosition.x < _size.x - 1)
         {
             if (!stack.Contains(new Vector2Int(_currentPosition.x + 1, _currentPosition.y)))
             {
                 canVisit.Add(new Vector2Int(_currentPosition.x + 1, _currentPosition.y));
             }
         }
-        if (_currentPosition.y < size.y - 1)
+        if (_currentPosition.y < _size.y - 1)
         {
             if (!stack.Contains(new Vector2Int(_currentPosition.x, _currentPosition.y + 1)))
             {
@@ -227,6 +228,16 @@ public class MazeGenerator
         
 
         return canVisit;
+    }
+
+    public void SetHallway(Vector2Int pos, Directions dir)
+    {
+        _hallways.Add(pos, dir);
+    }
+    
+    public Directions GetHallway(Vector2Int pos)
+    {
+        return _hallways[pos];
     }
     
 }

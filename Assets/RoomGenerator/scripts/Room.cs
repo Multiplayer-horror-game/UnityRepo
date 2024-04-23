@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using RoomGenerator.scripts.Structs;
 using UnityEngine;
 
 namespace RoomGenerator.scripts
@@ -11,9 +12,4 @@ namespace RoomGenerator.scripts
     
     }
     
-    public struct Door
-    {
-        public Vector2Int position;
-        public Vector2Int direction;
-    }
 }
