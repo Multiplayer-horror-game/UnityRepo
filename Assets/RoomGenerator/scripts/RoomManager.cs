@@ -48,10 +48,22 @@ namespace RoomGenerator.scripts
                     Debug.LogError("je hebt iets doms gedaan. " + room.gameObject.name + " kan helemaal niet op positie " + room.staticPosition);
                     continue;
                 }
-
+                
                 SetGridPositions(room.gameObject.GetComponent<Room>(), room.staticPosition);
 
                 GameObject instantiatedRoom = Instantiate(room.gameObject, new Vector3(room.staticPosition.x, 0, room.staticPosition.y), new Quaternion());
+                Room roomClass = instantiatedRoom.GetComponent<Room>();
+                
+                List<Vector2Int> realizedPositions = new List<Vector2Int>();
+                
+                foreach (Vector2Int roomClassPosition in roomClass.positions)
+                {
+                    realizedPositions.Add(new Vector2Int(roomClassPosition.x + room.staticPosition.x, roomClassPosition.y + room.staticPosition.y));
+                }
+                
+                roomClass.positions = realizedPositions;
+                
+                usedRooms.Add(roomClass, new Vector2Int(room.staticPosition.x, room.staticPosition.y));
             }
 
 
@@ -89,6 +101,7 @@ namespace RoomGenerator.scripts
                 
                 roomClass.positions = realizedPositions;
                 
+                usedRooms.Add(roomClass, new Vector2Int(x, y));
             }
             
             
@@ -105,6 +118,9 @@ namespace RoomGenerator.scripts
             
             _mazeGenerator.GenerateHallways(bakedGrid, gridSize.x);
             
+            ModifyHallways(); 
+            
+            _mazeGenerator.InitializeRooms();
         }
 
         private void ModifyHallways()
@@ -116,40 +132,45 @@ namespace RoomGenerator.scripts
 
                 foreach (var door in room.doors)
                 {
+                    Debug.Log(door.directions);
                     if(door.directions.north)
                     {
-                        Directions dir = _mazeGenerator.GetHallway(position + new Vector2Int(door.position.x, door.position.y) + new Vector2Int(1,0));
-                        
-                        dir.south = true;
-                        
-                        _mazeGenerator.SetHallway(position + new Vector2Int(door.position.x, door.position.y) + new Vector2Int(1,0), dir);
-                    }
-                    
-                    if(door.directions.east)
-                    {
+                        Debug.Log("north" + position);
                         Directions dir = _mazeGenerator.GetHallway(position + new Vector2Int(door.position.x, door.position.y) + new Vector2Int(0,1));
                         
-                        dir.west = true;
+                        dir.south = true;
                         
                         _mazeGenerator.SetHallway(position + new Vector2Int(door.position.x, door.position.y) + new Vector2Int(0,1), dir);
                     }
                     
+                    if(door.directions.east)
+                    {
+                        Debug.Log("east" + position);
+                        Directions dir = _mazeGenerator.GetHallway(position + new Vector2Int(door.position.x, door.position.y) + new Vector2Int(1,0));
+                        
+                        dir.west = true;
+                        
+                        _mazeGenerator.SetHallway(position + new Vector2Int(door.position.x, door.position.y) + new Vector2Int(1,0), dir);
+                    }
+                    
                     if(door.directions.south)
                     {
-                        Directions dir = _mazeGenerator.GetHallway(position + new Vector2Int(door.position.x, door.position.y) + new Vector2Int(-1,0));
+                        Debug.Log("south" + position);
+                        Directions dir = _mazeGenerator.GetHallway(position + new Vector2Int(door.position.x, door.position.y) + new Vector2Int(0,-1));
                         
                         dir.north = true;
                         
-                        _mazeGenerator.SetHallway(position + new Vector2Int(door.position.x, door.position.y) + new Vector2Int(-1,0), dir);
+                        _mazeGenerator.SetHallway(position + new Vector2Int(door.position.x, door.position.y) + new Vector2Int(0,-1), dir);
                     }
                     
                     if(door.directions.west)
                     {
-                        Directions dir = _mazeGenerator.GetHallway(position + new Vector2Int(door.position.x, door.position.y) + new Vector2Int(0,-1));
+                        Debug.Log("west" + position);
+                        Directions dir = _mazeGenerator.GetHallway(position + new Vector2Int(door.position.x, door.position.y) + new Vector2Int(-1,0));
                         
                         dir.east = true;
                         
-                        _mazeGenerator.SetHallway(position + new Vector2Int(door.position.x, door.position.y) + new Vector2Int(0,-1), dir);
+                        _mazeGenerator.SetHallway(position + new Vector2Int(door.position.x, door.position.y) + new Vector2Int(-1,0), dir);
                     }
                 }
             }

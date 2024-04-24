@@ -232,6 +232,8 @@ public class MazeGenerator
 
     public void SetHallway(Vector2Int pos, Directions dir)
     {
+        _hallways.Remove(pos);
+        
         _hallways.Add(pos, dir);
     }
     

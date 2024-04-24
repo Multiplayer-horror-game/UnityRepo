@@ -5,11 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="27cd5f9d-8e39-41c9-a720-9ee5603f8a3c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/RoomGenerator/scripts/Structs/Door.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/RoomGenerator/scripts/Structs/Door.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.UnityRepo/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.UnityRepo/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/RoomGenerator/Prefabs/MainRooms/Cafetaria.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/RoomGenerator/Prefabs/MainRooms/Cafetaria.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/RoomGenerator/Prefabs/MainRooms/Reception.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/RoomGenerator/Prefabs/MainRooms/Reception.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/RoomGenerator/RoomGenerator.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/RoomGenerator/RoomGenerator.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/RoomGenerator/scripts/HallwayGen/MazeGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/RoomGenerator/scripts/HallwayGen/MazeGenerator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RoomGenerator/scripts/Room.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/RoomGenerator/scripts/Room.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/RoomGenerator/scripts/RoomManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/RoomGenerator/scripts/RoomManager.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -32,30 +32,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;RoomGenerator&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "RoomGenerator",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;rider.external.source.directories&quot;: [
-      &quot;C:\\Users\\jetty\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\DecompilerCache&quot;,
-      &quot;C:\\Users\\jetty\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\SourcesCache&quot;,
-      &quot;C:\\Users\\jetty\\AppData\\Local\\Symbols\\src&quot;
+  "keyToStringList": {
+    "rider.external.source.directories": [
+      "C:\\Users\\damia\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\DecompilerCache",
+      "C:\\Users\\damia\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\SourcesCache",
+      "C:\\Users\\damia\\AppData\\Local\\Symbols\\src"
     ]
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="D:\dami\Unity\2022.3.21f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2022.3.21f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-projectPath C:\Users\damia\UnityRepo -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="C:\Users\damia\UnityRepo" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -63,7 +63,7 @@
       <method v="2" />
     </configuration>
     <configuration name="Unit Tests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="D:\dami\Unity\2022.3.21f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2022.3.21f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath C:\Users\damia\UnityRepo -testResults Logs/results.xml -testPlatform EditMode -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="C:\Users\damia\UnityRepo" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -112,6 +112,7 @@
       <workItem from="1713858498061" duration="4427000" />
       <workItem from="1713880111854" duration="2458000" />
       <workItem from="1713910140840" duration="2899000" />
+      <workItem from="1713945146803" duration="2288000" />
     </task>
     <servers />
   </component>

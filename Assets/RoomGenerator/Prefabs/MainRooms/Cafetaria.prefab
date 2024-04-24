@@ -265,8 +265,13 @@ MonoBehaviour:
   - {x: 1, y: -2}
   - {x: 2, y: -1}
   - {x: 2, y: -2}
-  doorPositions:
-  - {x: 0, y: 0}
+  doors:
+  - position: {x: 0, y: 0}
+    directions:
+      north: 0
+      east: 0
+      south: 0
+      west: 1
   hallwayPositions:
   - {x: -1, y: 0}
   - {x: -1, y: 1}
