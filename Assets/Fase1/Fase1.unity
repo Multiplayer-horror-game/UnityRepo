@@ -158,7 +158,7 @@ MonoBehaviour:
   heightOffset: -50
   scale: 0.01
   physicalSize: 1000
-  verticesPerChunk: 100
+  verticesPerChunk: 65
   renderDistance: 3
   multithreading: 10
   chunkPrefab: {fileID: 3459473575477855913, guid: 3f0fa1dcf869df44e83b8a2545e4594b,

@@ -18,7 +18,7 @@ namespace Fase1.MeshComponents
             float[,] noise = _noiseGenerator.GenerateNoiseChunk(chunkPosition.x, chunkPosition.y);
             
             //distance between each vertex
-            float vDistance = physicalSize / verticesCount + 40 / verticesCount;
+            float vDistance = physicalSize / (verticesCount - 1);
             
             List<int> triangles = new List<int>();
             List<Vector3> vertices = new List<Vector3>();

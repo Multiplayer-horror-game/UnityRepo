@@ -89,7 +89,7 @@ namespace Fase1
             //initialize noise and meshcomponents for the world mesh
             _noiseGenerator = new NoiseGenerator(scale, _xOffset, _yOffset, verticesPerChunk, heightMultiplier, heightOffset);
             
-            FloorComponent floorComponent = new FloorComponent(_noiseGenerator);
+            //FloorComponent floorComponent = new FloorComponent(_noiseGenerator);
             //MeshBuilder.AddMeshComponent(floorComponent);
             
             _roadComponent = new RoadComponent(mainObject, _noiseGenerator);
@@ -104,12 +104,9 @@ namespace Fase1
             {
                 Debug.Log("true");
             }
-            
-            //RoadComponent roadComponent = new RoadComponent(mainObject, _noiseGenerator);
-            //MeshBuilder.AddMeshComponent(roadComponent);
 
-            NatureComponent natureComponent = new NatureComponent(_noiseGenerator,natureObjects);
-            MeshBuilder.AddChildren(natureComponent);
+            //NatureComponent natureComponent = new NatureComponent(_noiseGenerator,natureObjects);
+            //MeshBuilder.AddChildren(natureComponent);
 
         }
         
@@ -291,7 +288,7 @@ namespace Fase1
             
             Mesh mesh = meshBuilder.BuildMesh();
             
-            GameObject meshObj = Instantiate(chunkPrefab, new Vector3(position.x * physicalSize - (position.x * (physicalSize / 100)) ,0,position.y * physicalSize - (position.y * (physicalSize / 100))), new Quaternion(0,0,0,0));
+            GameObject meshObj = Instantiate(chunkPrefab, new Vector3(position.x * physicalSize ,0,position.y * physicalSize), new Quaternion(0,0,0,0));
             meshObj.AddComponent<MeshFilter>().mesh = mesh;
             meshObj.name = "Chunk (" + position.x + "," + position.y + ")";
             

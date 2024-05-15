@@ -33,6 +33,8 @@ namespace Fase1.MeshComponents
         private List<Color> _colors = new List<Color>();
         
         private int lastColorIndex = 0;
+        
+        private float _physicalSize = 1000f;
 
         public RoadComponent(GameObject referenceObject, NoiseGenerator noiseGenerator)
         {
@@ -63,6 +65,8 @@ namespace Fase1.MeshComponents
         
         public MeshComponentData[] GenerateMeshData(Vector2Int chunkPosition, int verticesCount, float physicalSize)
         {
+            _physicalSize = physicalSize;
+            
             //get the corners of the chunk
             OperatableVector2 chunkCorner0 = new Vector2(chunkPosition.x * physicalSize, chunkPosition.y * physicalSize);
             OperatableVector2 chunkCorner1 = new Vector2(chunkPosition.x * physicalSize + physicalSize, chunkPosition.y * physicalSize + physicalSize);
@@ -78,8 +82,8 @@ namespace Fase1.MeshComponents
 
             for (int i = 0; i < nodes.Count - 1; i++)
             {
-                Debug.DrawLine(new Vector3(nodes.FirstValue[i].x, 0, nodes.FirstValue[i].y),
-                    new Vector3(nodes.FirstValue[i + 1].x, 0, nodes.FirstValue[i + 1].y), randomColor , 1000f);
+                Debug.DrawLine(new Vector3(nodes.FirstValue[i].x, _noiseGenerator.GetNoiseValue(nodes.FirstValue[i].x,nodes.FirstValue[i].x), nodes.FirstValue[i].y),
+                    new Vector3(nodes.FirstValue[i + 1].x, _noiseGenerator.GetNoiseValue(nodes.FirstValue[i + 1].x,nodes.FirstValue[i + 1].x), nodes.FirstValue[i + 1].y), randomColor , 1000f);
             }
             
             //generate the mesh
@@ -92,11 +96,11 @@ namespace Fase1.MeshComponents
                 Vector3[] v;
                 if (i == 0)
                 {
-                     v = GetVertices(nodes.GetPair(i),nodes.GetPair(i + 1));
+                     v = GetVertices(nodes.GetPair(i),nodes.GetPair(i + 1), chunkPosition);
                 }
                 else
                 {
-                    v = GetVertices(nodes.GetPair(i - 1), nodes.GetPair(i), nodes.GetPair(i + 1));
+                    v = GetVertices(nodes.GetPair(i - 1), nodes.GetPair(i), nodes.GetPair(i + 1), chunkPosition);
                 }
 
                 Vector2[] uv = GetUvs();
@@ -155,57 +159,67 @@ namespace Fase1.MeshComponents
             return nodes;
         }
         
-        private Vector3[] GetVertices(KeyValuePair<Vector2,float> a, KeyValuePair<Vector2,float> b, KeyValuePair<Vector2,float> c)
+        private Vector3[] GetVertices(KeyValuePair<Vector2,float> a, KeyValuePair<Vector2,float> b, KeyValuePair<Vector2,float> c, Vector2Int chunk)
         {
             //each corner of the quad
-            Vector2 middleAB = new Vector2((a.Key.x + b.Key.x) / 2, (a.Key.y + b.Key.y) / 2);
-            Vector2 middleBC = new Vector2((c.Key.x + b.Key.x) / 2, (c.Key.y + b.Key.y) / 2);
+            Vector2 middleAB = new Vector2((a.Key.x + b.Key.x) / 2, (a.Key.y + b.Key.y) / 2) - new Vector2(chunk.x * _physicalSize, chunk.y * _physicalSize);
+            Vector2 middleBC = new Vector2((c.Key.x + b.Key.x) / 2, (c.Key.y + b.Key.y) / 2) - new Vector2(chunk.x * _physicalSize, chunk.y * _physicalSize);
             
+            //x and z position
             float a1X = middleAB.x + 10 * Mathf.Cos(b.Value);
-            float a1Y = middleAB.y + 10 * Mathf.Sin(b.Value);
-            Vector3 a1 = new Vector3(a1X, 0, a1Y);
+            float a1Z = middleAB.y + 10 * Mathf.Sin(b.Value);
+            // y position
+            float a1Y = _noiseGenerator.GetNoiseValue(a1X,a1Z);
+            //combine
+            Vector3 a1 = new Vector3(a1X, a1Y, a1Z);
             
             float b1X = middleAB.x - 10 * Mathf.Cos(b.Value);
-            float b1Y = middleAB.y - 10 * Mathf.Sin(b.Value);
-            Vector3 b1 = new Vector3(b1X, 0, b1Y);
+            float b1Z = middleAB.y - 10 * Mathf.Sin(b.Value);
+            float b1Y = _noiseGenerator.GetNoiseValue(b1X,b1Z);
+            Vector3 b1 = new Vector3(b1X, b1Y, b1Z);
             
             float c1X = middleBC.x + 10 * Mathf.Cos(b.Value);
-            float c1Y = middleBC.y + 10 * Mathf.Sin(b.Value);
-            Vector3 c1 = new Vector3(c1X, 0, c1Y);
+            float c1Z = middleBC.y + 10 * Mathf.Sin(b.Value);
+            float c1Y = _noiseGenerator.GetNoiseValue(c1X,c1Z);
+            Vector3 c1 = new Vector3(c1X, c1Y, c1Z);
             
             float d1X = middleBC.x - 10 * Mathf.Cos(b.Value);
-            float d1Y = middleBC.y - 10 * Mathf.Sin(b.Value);
-            Vector3 d1 = new Vector3(d1X, 0, d1Y);
+            float d1Z = middleBC.y - 10 * Mathf.Sin(b.Value);
+            float d1Y = _noiseGenerator.GetNoiseValue(d1X,d1Z);
+            Vector3 d1 = new Vector3(d1X, d1Y, d1Z);
             
-           // Debug.Log(a1 + " : " + b1 + " : " + c1 + " : " + d1);
-            
-            //return new[] { a1, d1, c1, a1, b1, d1 };
             return new[] { a1, c1, d1, a1, d1, b1 };
         }
         
-        private Vector3[] GetVertices(KeyValuePair<Vector2,float> b, KeyValuePair<Vector2,float> c)
+        private Vector3[] GetVertices(KeyValuePair<Vector2,float> b, KeyValuePair<Vector2,float> c,Vector2Int chunk)
         {
             //each corner of the quad
-            Vector2 middleAB = b.Key;
-            Vector2 middleBC = new Vector2((c.Key.x + b.Key.x) / 2, (c.Key.y + b.Key.y) / 2);
+            Vector2 middleAB = b.Key - new Vector2(chunk.x * _physicalSize, chunk.y * _physicalSize);
+            Vector2 middleBC = new Vector2((c.Key.x + b.Key.x) / 2, (c.Key.y + b.Key.y) / 2) - new Vector2(chunk.x * _physicalSize, chunk.y * _physicalSize);
             
+            //x and z position
             float a1X = middleAB.x + 10 * Mathf.Cos(b.Value);
-            float a1Y = middleAB.y + 10 * Mathf.Sin(b.Value);
-            Vector3 a1 = new Vector3(a1X, 0, a1Y);
+            float a1Z = middleAB.y + 10 * Mathf.Sin(b.Value);
+            // y position
+            float a1Y = _noiseGenerator.GetNoiseValue(a1X,a1Z);
+            //combine
+            Vector3 a1 = new Vector3(a1X, a1Y, a1Z);
             
             float b1X = middleAB.x - 10 * Mathf.Cos(b.Value);
-            float b1Y = middleAB.y - 10 * Mathf.Sin(b.Value);
-            Vector3 b1 = new Vector3(b1X, 0, b1Y);
+            float b1Z = middleAB.y - 10 * Mathf.Sin(b.Value);
+            float b1Y = _noiseGenerator.GetNoiseValue(b1X,b1Z);
+            Vector3 b1 = new Vector3(b1X, b1Y, b1Z);
             
             float c1X = middleBC.x + 10 * Mathf.Cos(b.Value);
-            float c1Y = middleBC.y + 10 * Mathf.Sin(b.Value);
-            Vector3 c1 = new Vector3(c1X, 0, c1Y);
+            float c1Z = middleBC.y + 10 * Mathf.Sin(b.Value);
+            float c1Y = _noiseGenerator.GetNoiseValue(c1X,c1Z);
+            Vector3 c1 = new Vector3(c1X, c1Y, c1Z);
             
             float d1X = middleBC.x - 10 * Mathf.Cos(b.Value);
-            float d1Y = middleBC.y - 10 * Mathf.Sin(b.Value);
-            Vector3 d1 = new Vector3(d1X, 0, d1Y);
+            float d1Z = middleBC.y - 10 * Mathf.Sin(b.Value);
+            float d1Y = _noiseGenerator.GetNoiseValue(d1X,d1Z);
+            Vector3 d1 = new Vector3(d1X, d1Y, d1Z);
             
-            //return new[] { a1, c1, d1, a1, d1, b1 };
             return new[] { a1, c1, d1, a1, d1, b1 };
         }
         
@@ -234,7 +248,16 @@ namespace Fase1.MeshComponents
             if (nodes.Count == 0) return nodes;
 
             int last = _renderedPositions.Keys.ToList().IndexOf(nodes.Last().Key);
-            if (last + 1 < _renderedPositions.Count) nodes.Add(_renderedPositions.ElementAt(last + 1).Key,_renderedPositions.ElementAt(last + 1).Value);
+            if (last + 1 < _renderedPositions.Count)
+            {
+                Debug.Log("add extra node");
+                nodes.Add(_renderedPositions.ElementAt(last + 1).Key,_renderedPositions.ElementAt(last + 1).Value);
+            }
+
+            if (last + 2 < _renderedPositions.Count)
+            {
+                nodes.Add(_renderedPositions.ElementAt(last + 2).Key,_renderedPositions.ElementAt(last + 2).Value);
+            }
 
             return nodes;
         }

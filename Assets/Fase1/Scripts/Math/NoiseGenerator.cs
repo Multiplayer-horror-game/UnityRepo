@@ -28,7 +28,7 @@ namespace Fase1
         }
 
 
-        public float[,] GenerateNoiseChunk(int xChunk, int yChunk, float _xOffset, float _yOffset)
+        private float[,] GenerateNoiseChunk(int xChunk, int yChunk, float _xOffset, float _yOffset)
         {
 
             var noiseMap = new float[vertices,vertices];
@@ -53,6 +53,12 @@ namespace Fase1
             }
 
             return noiseMap;
+        }
+
+        public float GetNoiseValue(float x, float y)
+        {
+            
+            return Mathf.PerlinNoise(x * Scale + xOffset, y * Scale + yOffset) * heightMultiplier - heightOffset;
         }
         
         public NatureNoiseGenerator ConvertToNatureNoiseGenerator()
