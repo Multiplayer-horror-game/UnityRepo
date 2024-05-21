@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 262.3616, g: 325.0784, b: 430.26373, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -156,10 +156,10 @@ MonoBehaviour:
   seed: 0
   heightMultiplier: 100
   heightOffset: -50
-  scale: 0.01
+  scale: 0.1
   physicalSize: 1000
-  verticesPerChunk: 65
-  renderDistance: 3
+  verticesPerChunk: 50
+  renderDistance: 2
   multithreading: 10
   chunkPrefab: {fileID: 3459473575477855913, guid: 3f0fa1dcf869df44e83b8a2545e4594b,
     type: 3}

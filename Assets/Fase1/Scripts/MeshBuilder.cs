@@ -38,20 +38,38 @@ namespace Fase1
             State = MeshState.Generating;
             
             foreach (
-                var data in MeshComponents
+                var componentData in MeshComponents
                     .Select(meshComponent => meshComponent.GenerateMeshData(_chunkPosition, verticesCount, physicalSize))
                     .SelectMany(meshComponentData => meshComponentData)
             )
             {
-                if(data.Empty) continue;
-                
-                _vertices.AddRange(data.Vertices);
-                    
-                _uvs.AddRange(data.Uvs);
-
-                foreach (var triangle in data.Triangles)
+                if (componentData.Empty)
                 {
-                    _triangles.Add(triangle.Key,triangle.Value);
+                    Dictionary<int,List<int>> fake = componentData.Triangles;
+                    _triangles.Add(fake.First().Key,fake.First().Value);
+                    continue;
+                }
+                
+                _vertices.AddRange(componentData.Vertices);
+                    
+                _uvs.AddRange(componentData.Uvs);
+                
+                int totalTriangles = 0;
+                if(_triangles.Count != 0)
+                {
+                    totalTriangles = _triangles.Values.Sum(triangle => triangle.Count);
+                }
+
+                foreach (var triangle in componentData.Triangles)
+                {
+                    List<int> triangleList = new List<int>();
+                    
+                    foreach (var triangleIndex in triangle.Value)
+                    {
+                        triangleList.Add(triangleIndex + totalTriangles);
+                    }
+                    
+                    _triangles.Add(triangle.Key,triangleList);
                 }
             }
             
@@ -63,13 +81,14 @@ namespace Fase1
         {
             Mesh mesh = new Mesh();
             
+            mesh.subMeshCount = _triangles.Count;
             
             mesh.SetVertices(_vertices);
             mesh.SetUVs(0,_uvs);
             
             foreach (KeyValuePair<int, List<int>> entry in _triangles)
             {
-                mesh.SetTriangles(entry.Value.ToArray(),entry.Key, true, 0);  
+                mesh.SetTriangles(entry.Value.ToArray(),entry.Key, true);  
             }
 
             mesh.RecalculateNormals();

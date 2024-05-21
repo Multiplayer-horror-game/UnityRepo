@@ -75,15 +75,20 @@ namespace Fase1.MeshComponents
             DubbelList<Vector2,float> nodes = GetRenderedRoadNodes(chunkCorner0,chunkCorner1);
             
             //if none return empty mesh
-            if(nodes.Count == 0) return new[] { new MeshComponentData(null,null,null,true) };
+            if(nodes.Count == 0) return new[] { new MeshComponentData(new Dictionary<int, List<int>> {{1,new List<int>()}},null,null,true) };
             
             Color randomColor = _colors[lastColorIndex];
             lastColorIndex = (lastColorIndex + 1) % _colors.Count;
 
+            //float[,] chunk = _noiseGenerator.GenerateNoiseChunk(chunkPosition.x,chunkPosition.y);
             for (int i = 0; i < nodes.Count - 1; i++)
             {
-                Debug.DrawLine(new Vector3(nodes.FirstValue[i].x, _noiseGenerator.GetNoiseValue(nodes.FirstValue[i].x,nodes.FirstValue[i].x), nodes.FirstValue[i].y),
-                    new Vector3(nodes.FirstValue[i + 1].x, _noiseGenerator.GetNoiseValue(nodes.FirstValue[i + 1].x,nodes.FirstValue[i + 1].x), nodes.FirstValue[i + 1].y), randomColor , 1000f);
+                Debug.DrawLine(
+                    new Vector3(nodes.FirstValue[i].x, _noiseGenerator.GetNoiseValue(nodes.FirstValue[i].x,nodes.FirstValue[i].y), nodes.FirstValue[i].y),
+                    new Vector3(nodes.FirstValue[i + 1].x, _noiseGenerator.GetNoiseValue(nodes.FirstValue[i + 1].x,nodes.FirstValue[i + 1].y), nodes.FirstValue[i + 1].y),
+                    randomColor,
+                    1000f
+                    );
             }
             
             //generate the mesh
@@ -113,7 +118,7 @@ namespace Fase1.MeshComponents
                 }
             }
             
-            Dictionary<int,List<int>> combinedTriangles = new Dictionary<int, List<int>> {{0,triangles}};
+            Dictionary<int,List<int>> combinedTriangles = new Dictionary<int, List<int>> {{1,triangles}};
 
             return new[] { new MeshComponentData(combinedTriangles,vertices,uvs) };
         }
@@ -250,7 +255,6 @@ namespace Fase1.MeshComponents
             int last = _renderedPositions.Keys.ToList().IndexOf(nodes.Last().Key);
             if (last + 1 < _renderedPositions.Count)
             {
-                Debug.Log("add extra node");
                 nodes.Add(_renderedPositions.ElementAt(last + 1).Key,_renderedPositions.ElementAt(last + 1).Value);
             }
 

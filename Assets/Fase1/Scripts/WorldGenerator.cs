@@ -89,8 +89,8 @@ namespace Fase1
             //initialize noise and meshcomponents for the world mesh
             _noiseGenerator = new NoiseGenerator(scale, _xOffset, _yOffset, verticesPerChunk, heightMultiplier, heightOffset);
             
-            //FloorComponent floorComponent = new FloorComponent(_noiseGenerator);
-            //MeshBuilder.AddMeshComponent(floorComponent);
+            FloorComponent floorComponent = new FloorComponent(_noiseGenerator);
+            MeshBuilder.AddMeshComponent(floorComponent);
             
             _roadComponent = new RoadComponent(mainObject, _noiseGenerator);
             MeshBuilder.AddMeshComponent(_roadComponent);
@@ -105,8 +105,8 @@ namespace Fase1
                 Debug.Log("true");
             }
 
-            //NatureComponent natureComponent = new NatureComponent(_noiseGenerator,natureObjects);
-            //MeshBuilder.AddChildren(natureComponent);
+            NatureComponent natureComponent = new NatureComponent(_noiseGenerator,natureObjects);
+            MeshBuilder.AddChildren(natureComponent);
 
         }
         
@@ -294,6 +294,7 @@ namespace Fase1
             
             //last meshbuilder operation to add children to the gameobject (trees,stones,etc)
             meshBuilder.ChildOperation(this,meshObj);
+            
             
             _chunks.Add(position,meshObj);
         }
