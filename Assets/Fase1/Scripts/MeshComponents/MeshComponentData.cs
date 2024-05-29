@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Fase1.MeshComponents
 {
-    public class MeshComponentData
+    public struct MeshComponentData
     {
 
         public readonly bool Empty;
@@ -16,6 +16,7 @@ namespace Fase1.MeshComponents
             Triangles = triangles;
             Vertices = vertices;
             Uvs = uvs;
+            Empty = false;
         }
         
         public MeshComponentData(Dictionary<int,List<int>> triangles, List<Vector3> vertices, List<Vector2> uvs, bool empty)

@@ -174,24 +174,24 @@ namespace Fase1.MeshComponents
             float a1X = middleAB.x + 10 * Mathf.Cos(b.Value);
             float a1Z = middleAB.y + 10 * Mathf.Sin(b.Value);
             // y position
-            float a1Y = _noiseGenerator.GetNoiseValue(a1X,a1Z);
+            float a1Y = _noiseGenerator.GetNoiseValue(a1X + (chunk.x * _physicalSize),a1Z + (chunk.y * _physicalSize));
             //combine
-            Vector3 a1 = new Vector3(a1X, a1Y, a1Z);
+            Vector3 a1 = new Vector3(a1X, a1Y + 1f, a1Z);
             
             float b1X = middleAB.x - 10 * Mathf.Cos(b.Value);
             float b1Z = middleAB.y - 10 * Mathf.Sin(b.Value);
-            float b1Y = _noiseGenerator.GetNoiseValue(b1X,b1Z);
-            Vector3 b1 = new Vector3(b1X, b1Y, b1Z);
+            float b1Y = _noiseGenerator.GetNoiseValue(b1X + (chunk.x * _physicalSize),b1Z + (chunk.y * _physicalSize));
+            Vector3 b1 = new Vector3(b1X, b1Y + 1f, b1Z);
             
             float c1X = middleBC.x + 10 * Mathf.Cos(b.Value);
             float c1Z = middleBC.y + 10 * Mathf.Sin(b.Value);
-            float c1Y = _noiseGenerator.GetNoiseValue(c1X,c1Z);
-            Vector3 c1 = new Vector3(c1X, c1Y, c1Z);
+            float c1Y = _noiseGenerator.GetNoiseValue(c1X + (chunk.x * _physicalSize),c1Z + (chunk.y * _physicalSize));
+            Vector3 c1 = new Vector3(c1X, c1Y + 1f, c1Z);
             
             float d1X = middleBC.x - 10 * Mathf.Cos(b.Value);
             float d1Z = middleBC.y - 10 * Mathf.Sin(b.Value);
-            float d1Y = _noiseGenerator.GetNoiseValue(d1X,d1Z);
-            Vector3 d1 = new Vector3(d1X, d1Y, d1Z);
+            float d1Y = _noiseGenerator.GetNoiseValue(d1X + (chunk.x * _physicalSize),d1Z + (chunk.y * _physicalSize));
+            Vector3 d1 = new Vector3(d1X, d1Y + 1f, d1Z);
             
             return new[] { a1, c1, d1, a1, d1, b1 };
         }
@@ -206,24 +206,24 @@ namespace Fase1.MeshComponents
             float a1X = middleAB.x + 10 * Mathf.Cos(b.Value);
             float a1Z = middleAB.y + 10 * Mathf.Sin(b.Value);
             // y position
-            float a1Y = _noiseGenerator.GetNoiseValue(a1X,a1Z);
+            float a1Y = _noiseGenerator.GetNoiseValue(a1X + (chunk.x * _physicalSize),a1Z + (chunk.y * _physicalSize));
             //combine
-            Vector3 a1 = new Vector3(a1X, a1Y, a1Z);
+            Vector3 a1 = new Vector3(a1X, a1Y + 1f, a1Z);
             
             float b1X = middleAB.x - 10 * Mathf.Cos(b.Value);
             float b1Z = middleAB.y - 10 * Mathf.Sin(b.Value);
-            float b1Y = _noiseGenerator.GetNoiseValue(b1X,b1Z);
-            Vector3 b1 = new Vector3(b1X, b1Y, b1Z);
+            float b1Y = _noiseGenerator.GetNoiseValue(b1X + (chunk.x * _physicalSize),b1Z + (chunk.y * _physicalSize));
+            Vector3 b1 = new Vector3(b1X, b1Y + 1f, b1Z);
             
             float c1X = middleBC.x + 10 * Mathf.Cos(b.Value);
             float c1Z = middleBC.y + 10 * Mathf.Sin(b.Value);
-            float c1Y = _noiseGenerator.GetNoiseValue(c1X,c1Z);
-            Vector3 c1 = new Vector3(c1X, c1Y, c1Z);
+            float c1Y = _noiseGenerator.GetNoiseValue(c1X + (chunk.x * _physicalSize),c1Z + (chunk.y * _physicalSize));
+            Vector3 c1 = new Vector3(c1X, c1Y + 1f, c1Z);
             
             float d1X = middleBC.x - 10 * Mathf.Cos(b.Value);
             float d1Z = middleBC.y - 10 * Mathf.Sin(b.Value);
-            float d1Y = _noiseGenerator.GetNoiseValue(d1X,d1Z);
-            Vector3 d1 = new Vector3(d1X, d1Y, d1Z);
+            float d1Y = _noiseGenerator.GetNoiseValue(d1X + (chunk.x * _physicalSize),d1Z + (chunk.y * _physicalSize));
+            Vector3 d1 = new Vector3(d1X, d1Y + 1f, d1Z);
             
             return new[] { a1, c1, d1, a1, d1, b1 };
         }
