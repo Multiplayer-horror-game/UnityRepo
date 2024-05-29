@@ -16,9 +16,27 @@ MonoBehaviour:
   enable:
     m_OverrideState: 1
     m_Value: 1
-  triangleSize:
+  minGridSize:
     m_OverrideState: 0
-    m_Value: 30
+    m_Value: 50
+  maxGridSize:
+    m_OverrideState: 0
+    m_Value: 2500
+  elevationTransition:
+    m_OverrideState: 0
+    m_Value: 1000
+  numLevelOfDetails:
+    m_OverrideState: 0
+    m_Value: 3
+  maxTessellationFactor:
+    m_OverrideState: 0
+    m_Value: 10
+  tessellationFactorFadeStart:
+    m_OverrideState: 0
+    m_Value: 150
+  tessellationFactorFadeRange:
+    m_OverrideState: 0
+    m_Value: 1850
   ambientProbeDimmer:
     m_OverrideState: 0
     m_Value: 1
@@ -116,7 +134,7 @@ MonoBehaviour:
     m_Value: 0.15
   m_SampleCount:
     m_OverrideState: 0
-    m_Value: 10
+    m_Value: 8
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -209,12 +227,6 @@ MonoBehaviour:
       customValue: 100
       additiveValue: 0
       multiplyValue: 1
-  sunInitialRotation:
-    m_OverrideState: 0
-    m_Value: -Infinity
-  lockSun:
-    m_OverrideState: 0
-    m_Value: 0
   enableBackplate:
     m_OverrideState: 0
     m_Value: 0
@@ -557,16 +569,16 @@ MonoBehaviour:
     m_Value: 0
   m_MaximumRadiusInPixels:
     m_OverrideState: 0
-    m_Value: 40
+    m_Value: 32
   m_BilateralUpsample:
     m_OverrideState: 0
-    m_Value: 1
+    m_Value: 0
   m_DirectionCount:
     m_OverrideState: 0
     m_Value: 2
   m_RayLength:
     m_OverrideState: 0
-    m_Value: 1
+    m_Value: 3
   m_SampleCount:
     m_OverrideState: 0
     m_Value: 2
@@ -659,6 +671,7 @@ MonoBehaviour:
   m_Name: HDShadowSettings
   m_EditorClassIdentifier: 
   active: 1
+  interCascadeBorders: 1
   maxShadowDistance:
     m_OverrideState: 1
     m_Value: 150
@@ -679,10 +692,10 @@ MonoBehaviour:
     m_Value: 0.3
   cascadeShadowBorder0:
     m_OverrideState: 1
-    m_Value: 0.13333334
+    m_Value: 0.06905067
   cascadeShadowBorder1:
     m_OverrideState: 1
-    m_Value: 0.06666666
+    m_Value: 0.05086228
   cascadeShadowBorder2:
     m_OverrideState: 0
     m_Value: 0
