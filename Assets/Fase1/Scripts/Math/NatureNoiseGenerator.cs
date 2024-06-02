@@ -33,7 +33,7 @@ namespace Fase1.Math
             {
                 for (int y = 0; y < vertices; y++)
                 {
-                    result.Add(new Vector3((x + Random.Range(-0.2f,0.2f)) * vDistance,height[x,y],(y + Random.Range(-0.2f,0.2f)) * vDistance), Random.Range(0,359));
+                    result.Add(new Vector3((x + Random.Range(-0.8f,0.8f)) * vDistance,height[x,y] - 2,(y + Random.Range(-0.8f,0.8f)) * vDistance), Random.Range(0,359));
                 }
             }
             

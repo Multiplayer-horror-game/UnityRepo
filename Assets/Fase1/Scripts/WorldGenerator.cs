@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
@@ -6,6 +7,8 @@ using System.Threading.Tasks;
 using Fase1.MeshComponents;
 using UnityEditor.Rendering;
 using Fase1.ScriptableObjects;
+using Fase1.Scripts.Math;
+using Unity.VisualScripting;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -70,14 +73,18 @@ namespace Fase1
 
         private Queue<GameObject> _destroyList = new();
         
-        private int _failedCount;
-        
         private RoadComponent _roadComponent;
         
+        // The WorldObject Variables
+        private HeatSortedQueue<NatureObject> _objectList = new();
+        
+        private List<Thread> _natureThreads = new();
+        
+        private List<GameObject> _existingTrees = new();
         
         void Start()
         {
-
+            
             seed = textBasedSeed.GetHashCode();
             
             Random.InitState(seed);
@@ -123,10 +130,34 @@ namespace Fase1
             
             
         }
-        
+
+        private void Update()
+        {
+            
+            //if there are any objects in the object list, instantiate them
+            if (_objectList.Count != 0)
+            {
+                GameObject obj = _objectList.Dequeue().Value.Instantiate(this);
+                _existingTrees.Add(obj);
+            }
+        }
+
         // Update is called once per frame
         void FixedUpdate()
         {
+            
+            //execute threads
+            int smallPercentage = _natureThreads.Count / 200;
+            
+            for (int i = 0; i < smallPercentage; i++)
+            {
+                if(_natureThreads.Count != 0)
+                {
+                    _natureThreads[0].Start();
+                    _natureThreads.RemoveAt(0);
+                }
+            }
+            
             //if there are any meshbuilders in the queue, build them
             if(_meshBuilders.Count != 0)
             {
@@ -138,25 +169,10 @@ namespace Fase1
                     if (meshBuilderKvp.Value.State == MeshState.Generated)
                     {
                         BuildMesh(_meshBuilders.Dequeue().Value);
-                        _failedCount = 0;
                     }
-                }
-                else
-                {
-                    if (_failedCount > 20)
-                    {
-                        //_meshBuilders.Dequeue();
-                        
-                        //MeshBuilder regeneratedBuilder = new MeshBuilder(verticesPerChunk, physicalSize, meshBuilderKvp.Key);
-                        
-                        //BuildMesh(regeneratedBuilder);
-                        
-                        //Debug.Log("Failed to generate chunk at: " + meshBuilderKvp.Key);
-                        _failedCount = 0;
-                    }
-                    _failedCount++;
                 }
             }
+            
             
             //remove dead threads
             _threads.RemoveAll(thread => !thread.IsAlive);
@@ -178,8 +194,6 @@ namespace Fase1
             
             DestroyNextChunk();
             
-            // Debug.Log("chunks:"  +_chunks.Count + " requested:" + _requestedChunks.Count + " uninit:" + _unInitialized.Count + " meshbuilders:" + _meshBuilders.Count + " threads:" + _threads.Count + " destroylist:" + _destroyList.Count);
-            
         }
         
         private void DestroyNextChunk()
@@ -188,6 +202,7 @@ namespace Fase1
             {
                 if (_destroyList.Count != 0)
                 {
+                    RemoveNatureObjectsByParent(_destroyList.Peek());
                     Destroy(_destroyList.Dequeue());
                 }
 
@@ -268,15 +283,6 @@ namespace Fase1
                     _chunks.Remove(chunk.Key);
                 }
             }
-            
-        }
-        
-        // ReSharper disable Unity.PerformanceAnalysis
-        private void GenerateChunk(Vector2Int objectPosition)
-        {
-            MeshBuilder meshBuilder = new MeshBuilder(verticesPerChunk, physicalSize, objectPosition);
-            
-            _meshBuilders.Enqueue(new KeyValuePair<Vector2Int, MeshBuilder>(objectPosition,meshBuilder));
         }
         
         
@@ -300,9 +306,50 @@ namespace Fase1
         }
         
 
-        public void ForceInstantiate(GameObject parent, GameObject child, Vector3 position, Quaternion rotation)
+        public GameObject ForceInstantiate(GameObject parent, GameObject child, Vector3 position, Quaternion rotation)
         {
-            Instantiate(child, position, rotation, parent.transform).transform.localPosition = position;
+            GameObject obj = Instantiate(child, position, rotation, parent.transform);
+            obj.transform.localPosition = position;
+            
+            return obj;
+        }
+        
+        public void RequestNatureObject(NatureObject natureObject)
+        {
+            _natureThreads.Add(new Thread(() => CheckNatureObjectHeat(natureObject)));
+        }
+
+        private void CheckNatureObjectHeat(NatureObject natureObject)
+        {
+            List<Vector2> nodes = _roadComponent.RenderedNodes.Keys.ToList();
+            Vector2 closestVector = natureObject.CheckDistance(new Vector3(nodes[0].x,0,nodes[0].y));
+            
+            foreach (var node in nodes)
+            {
+                Vector2 distanceVector = natureObject.CheckDistance(new Vector3(node.x,0,node.y));
+                if (distanceVector.magnitude <= closestVector.magnitude)
+                {
+                    closestVector = distanceVector;
+                }
+                else
+                {
+                    break;
+                }
+            }
+            
+            float distance = Mathf.Abs(closestVector.magnitude);
+            
+            if(distance > 300) return;
+
+            //then the -distance will be clamped between 0 and 100
+            int heat = (int) Mathf.Abs(-distance + 300) / 3;
+            
+            _objectList.Enqueue(heat, natureObject);
+        }
+        
+        public void RemoveNatureObjectsByParent(GameObject parent)
+        {
+            _objectList.GetValues().RemoveAll(natureObject => natureObject.Value.GetParent() == parent);
         }
     }
 }

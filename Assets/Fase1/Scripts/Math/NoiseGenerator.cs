@@ -58,7 +58,7 @@ namespace Fase1
         public float GetNoiseValue(float x, float y)
         {
             
-            return Mathf.PerlinNoise(x * Scale / 20 + xOffset, y * Scale / 20 + yOffset) * heightMultiplier - heightOffset;
+            return Mathf.PerlinNoise(x * Scale / 10 + xOffset, y * Scale / 10 + yOffset) * heightMultiplier - heightOffset;
         }
         
         public NatureNoiseGenerator ConvertToNatureNoiseGenerator()

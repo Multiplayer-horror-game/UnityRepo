@@ -52,7 +52,7 @@ namespace Fase1.MeshComponents
             
             _mainPositions.Add(new Vector2(1,1),0);
             
-            GenerateNewPositions(100);
+            GenerateNewPositions(50);
 
             for (int i = 0; i < _mainPositions.Count - 1; i++)
             {

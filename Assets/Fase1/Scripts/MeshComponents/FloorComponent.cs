@@ -60,10 +60,10 @@ namespace Fase1.MeshComponents
                 //corners of the UVs
                 Vector2 uv00 = new Vector2(0f, 0f);
                 Vector2 uv10 = new Vector2(1f, 0f);
-                Vector2 uv01 = new Vector2(1f, 1f);
+                Vector2 uv01 = new Vector2(0f, 1f);
                 Vector2 uv11 = new Vector2(1f, 1f);
                 
-                return new[] { uv00, uv10, uv01, uv10, uv11, uv01 };
+                return new[] { uv00, uv10, uv11, uv00, uv11, uv01 };
             }
             
             //hardcoded the material index 0-0

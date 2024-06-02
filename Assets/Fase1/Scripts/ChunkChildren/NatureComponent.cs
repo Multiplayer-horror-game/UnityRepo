@@ -20,7 +20,7 @@ namespace Fase1.MeshComponents
             
             foreach (var position in objectPositions)
             {
-                worldGenerator.ForceInstantiate(parent,ReturnRandomObject(),position.Key,Quaternion.Euler(0,position.Value,0));  
+                worldGenerator.RequestNatureObject(new NatureObject(parent,position.Key,position.Value,ReturnRandomObject()));
             }
             
         }
