@@ -236,7 +236,7 @@ namespace Fase1.MeshComponents
             Vector2 uv01 = new Vector2(1f, 1f);
             Vector2 uv11 = new Vector2(1f, 1f);
             
-            return new[] { uv00, uv10, uv01, uv10, uv11, uv01 };
+            return new[] { uv00, uv10, uv11, uv00, uv11, uv01 };
         }
         
         private DubbelList<Vector2,float> GetRenderedRoadNodes(OperatableVector2 chunkCorner0, OperatableVector2 chunkCorner1)

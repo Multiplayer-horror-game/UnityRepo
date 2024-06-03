@@ -80,8 +80,6 @@ namespace Fase1
         
         private List<Thread> _natureThreads = new();
         
-        private List<GameObject> _existingTrees = new();
-        
         void Start()
         {
             
@@ -94,7 +92,7 @@ namespace Fase1
             _yOffset = Random.Range(-100000,100000);
             
             //initialize noise and meshcomponents for the world mesh
-            _noiseGenerator = new NoiseGenerator(scale, _xOffset, _yOffset, verticesPerChunk, heightMultiplier, heightOffset);
+            _noiseGenerator = new NoiseGenerator(scale, _xOffset, _yOffset, verticesPerChunk, heightMultiplier, heightOffset, physicalSize);
             
             FloorComponent floorComponent = new FloorComponent(_noiseGenerator);
             MeshBuilder.AddMeshComponent(floorComponent);
@@ -112,8 +110,8 @@ namespace Fase1
                 Debug.Log("true");
             }
 
-            NatureComponent natureComponent = new NatureComponent(_noiseGenerator,natureObjects);
-            MeshBuilder.AddChildren(natureComponent);
+            //NatureComponent natureComponent = new NatureComponent(_noiseGenerator,natureObjects);
+            //MeshBuilder.AddChildren(natureComponent);
 
         }
         
@@ -138,7 +136,6 @@ namespace Fase1
             if (_objectList.Count != 0)
             {
                 GameObject obj = _objectList.Dequeue().Value.Instantiate(this);
-                _existingTrees.Add(obj);
             }
         }
 

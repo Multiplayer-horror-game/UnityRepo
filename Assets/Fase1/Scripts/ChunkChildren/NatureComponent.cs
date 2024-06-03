@@ -16,7 +16,7 @@ namespace Fase1.MeshComponents
         
         public void ImplementChildren(WorldGenerator worldGenerator, GameObject parent, int xChunk, int yChunk)
         {
-            Dictionary<Vector3,float> objectPositions = _generator.GenerateObjectOffsets(xChunk,yChunk,worldGenerator.physicalSize);
+            Dictionary<Vector3,float> objectPositions = _generator.GenerateObjectOffsets(xChunk,yChunk);
             
             foreach (var position in objectPositions)
             {
