@@ -110,8 +110,8 @@ namespace Fase1
                 Debug.Log("true");
             }
 
-            //NatureComponent natureComponent = new NatureComponent(_noiseGenerator,natureObjects);
-            //MeshBuilder.AddChildren(natureComponent);
+            NatureComponent natureComponent = new NatureComponent(_noiseGenerator,natureObjects);
+            MeshBuilder.AddChildren(natureComponent);
 
         }
         
@@ -135,7 +135,7 @@ namespace Fase1
             //if there are any objects in the object list, instantiate them
             if (_objectList.Count != 0)
             {
-                GameObject obj = _objectList.Dequeue().Value.Instantiate(this);
+                _objectList.Dequeue().Value.Instantiate(this);
             }
         }
 

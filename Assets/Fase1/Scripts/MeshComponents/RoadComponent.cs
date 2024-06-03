@@ -25,7 +25,7 @@ namespace Fase1.MeshComponents
 
         private readonly float _maxRotation = 0.4f;
         
-        private readonly float _smoothness = 60f;
+        private readonly float _smoothness = 100f;
         
         
         private NoiseGenerator _noiseGenerator;
@@ -233,7 +233,7 @@ namespace Fase1.MeshComponents
             //corners of the UVs
             Vector2 uv00 = new Vector2(0f, 0f);
             Vector2 uv10 = new Vector2(1f, 0f);
-            Vector2 uv01 = new Vector2(1f, 1f);
+            Vector2 uv01 = new Vector2(0f, 1f);
             Vector2 uv11 = new Vector2(1f, 1f);
             
             return new[] { uv00, uv10, uv11, uv00, uv11, uv01 };
