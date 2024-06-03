@@ -52,6 +52,11 @@ namespace Fase1
 
         [Header("ScriptableObject")] 
         public NatureObjects natureObjects;
+
+        [Header("NatureSettings")]
+        public int natureThreadCount = 0;
+        
+        public int TreeDistance = 200;
         
         
         private int _xOffset;
@@ -131,6 +136,7 @@ namespace Fase1
 
         private void Update()
         {
+            natureThreadCount = _natureThreads.Count;
             
             //if there are any objects in the object list, instantiate them
             if (_objectList.Count != 0)
@@ -144,7 +150,7 @@ namespace Fase1
         {
             
             //execute threads
-            int smallPercentage = _natureThreads.Count / 200;
+            int smallPercentage = _natureThreads.Count / 300;
             
             for (int i = 0; i < smallPercentage; i++)
             {
@@ -336,10 +342,10 @@ namespace Fase1
             
             float distance = Mathf.Abs(closestVector.magnitude);
             
-            if(distance > 300) return;
+            if(distance > TreeDistance) return;
 
             //then the -distance will be clamped between 0 and 100
-            int heat = (int) Mathf.Abs(-distance + 300) / 3;
+            int heat = (int) Mathf.Abs(-distance + TreeDistance) / (TreeDistance / 100);
             
             _objectList.Enqueue(heat, natureObject);
         }
@@ -347,6 +353,11 @@ namespace Fase1
         public void RemoveNatureObjectsByParent(GameObject parent)
         {
             _objectList.GetValues().RemoveAll(natureObject => natureObject.Value.GetParent() == parent);
+        }
+        
+        public RoadComponent GetRoadComponent()
+        {
+            return _roadComponent;
         }
     }
 }
