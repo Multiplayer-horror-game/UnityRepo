@@ -38,20 +38,18 @@ namespace Fase1
             return result;
         }
         
-        public static float CalculateCoordinate1D(float t,  float[] nodes){
+        public static double CalculateCoordinate1D(float t,  float[] nodes){
             double result = 0;
             int n = nodes.Length - 1;
 
             for (int i = 0; i <= n; i++) {
                 double binomialCoefficient = CalculateBinomialCoefficient(n, i);
-                double term = binomialCoefficient * MathF.Pow(1 - t, n - i) * Mathf.Pow(t, i);
-
-                // Access the coordinates using getX(), getY(), and getZ()
+                double term = binomialCoefficient * MathF.Pow(1 - t, n - i) * System.Math.Pow(t, i);
 
                 result += term;
             }
 
-            return (float) result;
+            return result;
         }
 
         public static double CalculateBinomialCoefficient(int n, int k) {
@@ -65,11 +63,11 @@ namespace Fase1
             return n * Factorial(n - 1);
         }
 
-        public static Vector3 DeCasteljau(List<Vector3> controlPoints, float t) {
-            List<Vector3> points = new List<Vector3>(controlPoints);
+        public static Vector2 DeCasteljau(List<Vector2> controlPoints, float t) {
+            List<Vector2> points = new List<Vector2>(controlPoints);
 
             while (points.Count > 1) {
-                List<Vector3> newPoints = new();
+                List<Vector2> newPoints = new();
 
                 for (int i = 0; i < points.Count - 1; i++)
                 {

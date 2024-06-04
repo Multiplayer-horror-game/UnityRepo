@@ -105,37 +105,19 @@ namespace Fase1
             _roadComponent = new RoadComponent(mainObject, _noiseGenerator);
             MeshBuilder.AddMeshComponent(_roadComponent);
             
-            OperatableVector2 chunkCorner0 = new Vector2(0,0);
-            OperatableVector2 chunkCorner1 = new Vector2(physicalSize,physicalSize);
-            
-            OperatableVector2 random = new Vector2(2000,1000);
-            
-            if(chunkCorner0 <= random && chunkCorner1 >= random)
-            {
-                Debug.Log("true");
-            }
 
             NatureComponent natureComponent = new NatureComponent(_noiseGenerator,natureObjects);
             MeshBuilder.AddChildren(natureComponent);
-
-        }
-        
-        void OnDrawGizmos()
-        {
-            if(_roadComponent == null) return;
-            
-            Gizmos.color = Color.green;
-            new List<Vector2>(_roadComponent.RenderedNodes.Keys).ForEach(point => Gizmos.DrawSphere(new Vector3(point.x,0,point.y), 0.1f));
-            
-            
-            Gizmos.color = Color.red;
-            new List<Vector2>(_roadComponent.Nodes.Keys).ForEach(point => Gizmos.DrawSphere(new Vector3(point.x,0,point.y), 0.5f));
-            
-            
         }
 
         private void Update()
         {
+        }
+
+        // Update is called once per frame
+        void FixedUpdate()
+        {
+            
             natureThreadCount = _natureThreads.Count;
             
             //if there are any objects in the object list, instantiate them
@@ -143,11 +125,6 @@ namespace Fase1
             {
                 _objectList.Dequeue().Value.Instantiate(this);
             }
-        }
-
-        // Update is called once per frame
-        void FixedUpdate()
-        {
             
             //execute threads
             int smallPercentage = _natureThreads.Count / 300;
@@ -181,18 +158,12 @@ namespace Fase1
             _threads.RemoveAll(thread => !thread.IsAlive);
 
             //if there are any unitialized chunks, start a new thread to generate them
-            ThreadStart threadStart = () =>
-            {
                 while (_threads.Count < multithreading && _unInitialized.Count > 0)
                 {
                     var position = _unInitialized.Dequeue();
                     GenerateChunkThread(position);
                 }
-            };
-            
-            Thread thread = new Thread(threadStart);
-            thread.Start();
-            
+                
             UpdateRenderList();
             
             DestroyNextChunk();
@@ -299,6 +270,7 @@ namespace Fase1
             
             GameObject meshObj = Instantiate(chunkPrefab, new Vector3(position.x * physicalSize ,0,position.y * physicalSize), new Quaternion(0,0,0,0));
             meshObj.AddComponent<MeshFilter>().mesh = mesh;
+            meshObj.GetComponent<MeshCollider>().sharedMesh = mesh;
             meshObj.name = "Chunk (" + position.x + "," + position.y + ")";
             
             //last meshbuilder operation to add children to the gameobject (trees,stones,etc)

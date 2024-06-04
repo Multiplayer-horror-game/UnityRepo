@@ -137,18 +137,13 @@ namespace Fase1.MeshComponents
             
             for (float t = 0; t <= 1f; t += 0.01f) {
                 Vector2 point = BezierCurve.CalculateBezierPoint(t, nodes.ToArray());
-                float rotation = BezierCurve.CalculateCoordinate1D(t, new []{a.Value,b.Value});
+                float rotation = (float) BezierCurve.CalculateCoordinate1D(t, new []{a.Value,b.Value});
                 
                 if (!_renderedPositions.ContainsKey(point))
                 {
                     _renderedPositions.Add(point,rotation);
-                    
-                    AddControlPoint(new Vector3(point.x, _noiseGenerator.GetNoiseValue(point.x,point.y), point.y),rotation);
-                    
                 }
             }
-            
-            
         }
         
         //translate to renderable spline positions
@@ -292,13 +287,20 @@ namespace Fase1.MeshComponents
                 lastPos.x + _nodeDistance * Mathf.Cos(_lastRotation),
                 lastPos.y + _nodeDistance * Mathf.Sin(_lastRotation)
             );
-                
+            
             _mainPositions.Add(newPos,_lastRotation);
+            
+            AddControlPoint(new Vector3(newPos.x, _noiseGenerator.GetNoiseValue(newPos.x,newPos.y) + 1, newPos.y),_lastRotation);
         }
         
         private void AddControlPoint(Vector3 position, float rotation)
         {
             _controlPoints.Add(position, rotation);
+        }
+
+        public Dictionary<Vector3,float> GetControlPoints()
+        {
+            return _controlPoints;
         }
         
         public KeyValuePair<Vector3,float> GetControlPoint(int index)
