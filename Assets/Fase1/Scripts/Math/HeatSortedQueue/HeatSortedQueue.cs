@@ -41,7 +41,7 @@ namespace Fase1.Scripts.Math
         
         public void Enqueue(int heat, T value)
         {
-            if(heat > 94) return;
+            if(heat > 92) return;
             
             _values.Add(new HeatValue<T>(heat, value));
         }

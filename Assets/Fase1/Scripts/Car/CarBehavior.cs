@@ -65,7 +65,7 @@ namespace Fase1.Car
             }
             
             Vector2 position = BezierCurve.DeCasteljau(_controlPoints, t);
-            transform.position = new Vector3(position.x,transform.position.y,position.y);
+            transform.position = new Vector3(position.x,transform.position.y,position.y - 4f);
             
             transform.rotation = Quaternion.Euler(0,GetRotation(position,BezierCurve.DeCasteljau(_controlPoints, t + 0.01f)),0);
             
