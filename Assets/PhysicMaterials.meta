@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/PhysicMaterials.meta
 guid: 769e0b222c1ed52478039e64b65707dc
+========
+guid: 5d299198a792a964e9d443aa47506e2c
+>>>>>>>> RoomGenerator:Packages/com.unity.render-pipelines.high-definition-config/Runtime.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

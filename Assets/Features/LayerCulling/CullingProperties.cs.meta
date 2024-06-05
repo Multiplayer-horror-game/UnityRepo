@@ -1,7 +1,12 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Features/LayerCulling/CullingProperties.cs.meta
 guid: 18f0e6cbf0e506941a19fadaa71f906f
+========
+guid: 488b9213a64c77540bca3fe167edbe6c
+timeCreated: 1475742183
+licenseType: Pro
+>>>>>>>> RoomGenerator:Packages/com.unity.render-pipelines.high-definition-config/Runtime/ShaderConfig.cs.meta
 MonoImporter:
-  externalObjects: {}
   serializedVersion: 2
   defaultReferences: []
   executionOrder: 0
