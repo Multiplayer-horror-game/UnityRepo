@@ -113,9 +113,15 @@
       }
     },
     "com.unity.render-pipelines.high-definition-config": {
+<<<<<<< HEAD
       "version": "14.0.10",
       "depth": 1,
       "source": "builtin",
+=======
+      "version": "file:com.unity.render-pipelines.high-definition-config",
+      "depth": 0,
+      "source": "embedded",
+>>>>>>> Fase1WorldGen
       "dependencies": {
         "com.unity.render-pipelines.core": "14.0.10"
       }
