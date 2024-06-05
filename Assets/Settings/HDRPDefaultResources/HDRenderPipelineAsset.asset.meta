@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<<< HEAD:Assets/Settings/HDRPDefaultResources/HDRenderPipelineAsset.asset.meta
-guid: b9f3086da92434da0bc1518f19f0ce86
-========
-guid: d6ed082a5550f354eacd829d9e8e905f
->>>>>>>> Fase1WorldGen:Assets/Keep/LensFlarePresets/17-270mm.asset.meta
+guid: e6b44ff697a559949bb69a6bf7ddf634
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 11400000
