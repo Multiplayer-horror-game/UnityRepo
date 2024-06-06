@@ -5,12 +5,821 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="27cd5f9d-8e39-41c9-a720-9ee5603f8a3c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.UnityRepo/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.UnityRepo/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RoomGenerator/Prefabs/MainRooms/Cafetaria.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/RoomGenerator/Prefabs/MainRooms/Cafetaria.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RoomGenerator/Prefabs/MainRooms/Reception.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/RoomGenerator/Prefabs/MainRooms/Reception.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RoomGenerator/RoomGenerator.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/RoomGenerator/RoomGenerator.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RoomGenerator/scripts/HallwayGen/MazeGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/RoomGenerator/scripts/HallwayGen/MazeGenerator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RoomGenerator/scripts/RoomManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/RoomGenerator/scripts/RoomManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Character.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Character/Ch49_nonPBR.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Character/Ch49_nonPBR.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Character/Idle.anim" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Character/Idle.anim.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Character/Left Strafe Walking.anim" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Character/Left Strafe Walking.anim.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Character/PlayerInput.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Character/PlayerInput.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Character/PlayerInput.inputactions" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Character/PlayerInput.inputactions.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Character/Right Strafe Walking.anim" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Character/Right Strafe Walking.anim.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Character/Walking Backwards.anim" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Character/Walking Backwards.anim.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Character/Walking.anim" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Character/Walking.anim.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Character/movementController.controller" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Character/movementController.controller.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/DefaultNetworkPrefabs.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/DefaultNetworkPrefabs.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Discord_Controller.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Discord_Controller.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/Ch_49_body1.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/Ch_49_body1.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/Ch_49_body2.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/Ch_49_body2.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/Ch_49_eyelashes.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/Ch_49_eyelashes.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Terrain.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Terrain.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ParrelSync.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ParrelSync/Editor.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ParrelSync/Editor/AssetModBlock.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ParrelSync/Editor/AssetModBlock/EditorQuit.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ParrelSync/Editor/AssetModBlock/EditorQuit.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ParrelSync/Editor/AssetModBlock/ParrelSyncAssetModificationProcessor.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ParrelSync/Editor/AssetModBlock/ParrelSyncAssetModificationProcessor.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ParrelSync/Editor/ClonesManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ParrelSync/Editor/ClonesManager.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ParrelSync/Editor/ClonesManagerWindow.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ParrelSync/Editor/ClonesManagerWindow.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ParrelSync/Editor/ExternalLinks.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ParrelSync/Editor/ExternalLinks.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ParrelSync/Editor/FileUtilities.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ParrelSync/Editor/FileUtilities.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ParrelSync/Editor/NonCore.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ParrelSync/Editor/NonCore/AskFeedbackDialog.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ParrelSync/Editor/NonCore/AskFeedbackDialog.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ParrelSync/Editor/NonCore/OtherMenuItem.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ParrelSync/Editor/NonCore/OtherMenuItem.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ParrelSync/Editor/ParrelSyncProjectSettings.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ParrelSync/Editor/ParrelSyncProjectSettings.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ParrelSync/Editor/Preferences.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ParrelSync/Editor/Preferences.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ParrelSync/Editor/Project.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ParrelSync/Editor/Project.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ParrelSync/Editor/UpdateChecker.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ParrelSync/Editor/UpdateChecker.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ParrelSync/Editor/ValidateCopiedFoldersIntegrity.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ParrelSync/Editor/ValidateCopiedFoldersIntegrity.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ParrelSync/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ParrelSync/package.json.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ParrelSync/projectCloner.asmdef" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ParrelSync/projectCloner.asmdef.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/DiscordGameSDK.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/DiscordGameSDK/ActivityManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/DiscordGameSDK/ActivityManager.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/DiscordGameSDK/Constants.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/DiscordGameSDK/Constants.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/DiscordGameSDK/Core.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/DiscordGameSDK/Core.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/DiscordGameSDK/ImageManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/DiscordGameSDK/ImageManager.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/DiscordGameSDK/LobbyManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/DiscordGameSDK/LobbyManager.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/DiscordGameSDK/StorageManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/DiscordGameSDK/StorageManager.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/DiscordGameSDK/StoreManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/DiscordGameSDK/StoreManager.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/ParrelSync.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/ParrelSync/ScriptableObjects.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/ParrelSync/ScriptableObjects/ParrelSyncProjectSettings.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/ParrelSync/ScriptableObjects/ParrelSyncProjectSettings.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/x86.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/x86/discord_game_sdk.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/x86/discord_game_sdk.dll.lib" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/x86/discord_game_sdk.dll.lib.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/x86/discord_game_sdk.dll.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/x86_64.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/x86_64/discord_game_sdk.bundle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/x86_64/discord_game_sdk.bundle.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/x86_64/discord_game_sdk.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/x86_64/discord_game_sdk.dll.lib" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/x86_64/discord_game_sdk.dll.lib.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/x86_64/discord_game_sdk.dll.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/x86_64/discord_game_sdk.dylib" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/x86_64/discord_game_sdk.dylib.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/x86_64/discord_game_sdk.so" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/x86_64/discord_game_sdk.so.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Player.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Player.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProceduralTerrainPainter.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProceduralTerrainPainter/CHANGELOG.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProceduralTerrainPainter/CHANGELOG.md.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProceduralTerrainPainter/Documentation.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProceduralTerrainPainter/Documentation.pdf.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProceduralTerrainPainter/Editor.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProceduralTerrainPainter/Editor/Heatmap.shader" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProceduralTerrainPainter/Editor/Heatmap.shader.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProceduralTerrainPainter/Editor/HeatmapPreview.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProceduralTerrainPainter/Editor/HeatmapPreview.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProceduralTerrainPainter/Editor/ModifierEditor.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProceduralTerrainPainter/Editor/ModifierEditor.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProceduralTerrainPainter/Editor/PropertyDrawers.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProceduralTerrainPainter/Editor/PropertyDrawers.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProceduralTerrainPainter/Editor/TerrainPainterInspector.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProceduralTerrainPainter/Editor/TerrainPainterInspector.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProceduralTerrainPainter/Editor/sc.terrain.painter.editor.asmdef" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProceduralTerrainPainter/Editor/sc.terrain.painter.editor.asmdef.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProceduralTerrainPainter/Runtime.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProceduralTerrainPainter/Runtime/Attributes.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProceduralTerrainPainter/Runtime/Attributes.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProceduralTerrainPainter/Runtime/LayerSettings.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProceduralTerrainPainter/Runtime/LayerSettings.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProceduralTerrainPainter/Runtime/ModifierStack.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProceduralTerrainPainter/Runtime/ModifierStack.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProceduralTerrainPainter/Runtime/Modifiers.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProceduralTerrainPainter/Runtime/Modifiers/Curvature.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProceduralTerrainPainter/Runtime/Modifiers/Curvature.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProceduralTerrainPainter/Runtime/Modifiers/Height.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProceduralTerrainPainter/Runtime/Modifiers/Height.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProceduralTerrainPainter/Runtime/Modifiers/Modifier.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProceduralTerrainPainter/Runtime/Modifiers/Modifier.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProceduralTerrainPainter/Runtime/Modifiers/Noise.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProceduralTerrainPainter/Runtime/Modifiers/Noise.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProceduralTerrainPainter/Runtime/Modifiers/Slope.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProceduralTerrainPainter/Runtime/Modifiers/Slope.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProceduralTerrainPainter/Runtime/Modifiers/TextureMask.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProceduralTerrainPainter/Runtime/Modifiers/TextureMask.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProceduralTerrainPainter/Runtime/TerrainChangeListener.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProceduralTerrainPainter/Runtime/TerrainChangeListener.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProceduralTerrainPainter/Runtime/TerrainPainter.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProceduralTerrainPainter/Runtime/TerrainPainter.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProceduralTerrainPainter/Runtime/Utilities.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProceduralTerrainPainter/Runtime/Utilities.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProceduralTerrainPainter/Runtime/sc.terrain.painter.runtime.asmdef" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProceduralTerrainPainter/Runtime/sc.terrain.painter.runtime.asmdef.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProceduralTerrainPainter/Shaders.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProceduralTerrainPainter/Shaders/Filters.hlsl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProceduralTerrainPainter/Shaders/Filters.hlsl.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProceduralTerrainPainter/Shaders/Modifier.shader" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProceduralTerrainPainter/Shaders/Modifier.shader.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProceduralTerrainPainter/Shaders/Noise.hlsl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProceduralTerrainPainter/Shaders/Noise.hlsl.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProceduralTerrainPainter/_Demo.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProceduralTerrainPainter/_Demo/DemoScene.unity" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProceduralTerrainPainter/_Demo/DemoScene.unity.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProceduralTerrainPainter/_Demo/Layers.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProceduralTerrainPainter/_Demo/Layers/Cliffs.terrainlayer" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProceduralTerrainPainter/_Demo/Layers/Cliffs.terrainlayer.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProceduralTerrainPainter/_Demo/Layers/Dirt.terrainlayer" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProceduralTerrainPainter/_Demo/Layers/Dirt.terrainlayer.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProceduralTerrainPainter/_Demo/Layers/Grass.terrainlayer" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProceduralTerrainPainter/_Demo/Layers/Grass.terrainlayer.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProceduralTerrainPainter/_Demo/Layers/Gravel.terrainlayer" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProceduralTerrainPainter/_Demo/Layers/Gravel.terrainlayer.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProceduralTerrainPainter/_Demo/Layers/Puddles.terrainlayer" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProceduralTerrainPainter/_Demo/Layers/Puddles.terrainlayer.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProceduralTerrainPainter/_Demo/Layers/Sand.terrainlayer" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProceduralTerrainPainter/_Demo/Layers/Sand.terrainlayer.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProceduralTerrainPainter/_Demo/Layers/Snow.terrainlayer" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProceduralTerrainPainter/_Demo/Layers/Snow.terrainlayer.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProceduralTerrainPainter/_Demo/PTP_TerrainMat.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProceduralTerrainPainter/_Demo/PTP_TerrainMat.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProceduralTerrainPainter/_Demo/TerrainData.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProceduralTerrainPainter/_Demo/TerrainData/TerrainChunk_0.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProceduralTerrainPainter/_Demo/TerrainData/TerrainChunk_0.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProceduralTerrainPainter/_Demo/TerrainData/TerrainChunk_1.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProceduralTerrainPainter/_Demo/TerrainData/TerrainChunk_1.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProceduralTerrainPainter/_Demo/TerrainData/TerrainChunk_2.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProceduralTerrainPainter/_Demo/TerrainData/TerrainChunk_2.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProceduralTerrainPainter/_Demo/TerrainData/TerrainChunk_3.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProceduralTerrainPainter/_Demo/TerrainData/TerrainChunk_3.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProceduralTerrainPainter/_Demo/Textures.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProceduralTerrainPainter/_Demo/Textures/Gravel_020_Albedo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProceduralTerrainPainter/_Demo/Textures/Gravel_020_Albedo.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProceduralTerrainPainter/_Demo/Textures/Gravel_020_Normals.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProceduralTerrainPainter/_Demo/Textures/Gravel_020_Normals.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProceduralTerrainPainter/_Demo/Textures/Ground_008_Albedo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProceduralTerrainPainter/_Demo/Textures/Ground_008_Albedo.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProceduralTerrainPainter/_Demo/Textures/Ground_008_Normals.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProceduralTerrainPainter/_Demo/Textures/Ground_008_Normals.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProceduralTerrainPainter/_Demo/Textures/Ground_037_Albedo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProceduralTerrainPainter/_Demo/Textures/Ground_037_Albedo.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProceduralTerrainPainter/_Demo/Textures/Ground_037_Normals.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProceduralTerrainPainter/_Demo/Textures/Ground_037_Normals.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProceduralTerrainPainter/_Demo/Textures/Rock_003_Albedo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProceduralTerrainPainter/_Demo/Textures/Rock_003_Albedo.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProceduralTerrainPainter/_Demo/Textures/Rock_003_Normals.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProceduralTerrainPainter/_Demo/Textures/Rock_003_Normals.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProceduralTerrainPainter/_Demo/Textures/Sand_034_Albedo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProceduralTerrainPainter/_Demo/Textures/Sand_034_Albedo.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProceduralTerrainPainter/_Demo/Textures/Sand_034_Normals.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProceduralTerrainPainter/_Demo/Textures/Sand_034_Normals.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProceduralTerrainPainter/_Demo/Textures/Snow_006_Albedo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProceduralTerrainPainter/_Demo/Textures/Snow_006_Albedo.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProceduralTerrainPainter/_Demo/Textures/Snow_006_Normals.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProceduralTerrainPainter/_Demo/Textures/Snow_006_Normals.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProceduralTerrainPainter/_Demo/Textures/_LICENSE.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProceduralTerrainPainter/_Demo/Textures/_LICENSE.txt.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProceduralTerrainPainter/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProceduralTerrainPainter/package.json.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/.sample.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Editor.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Editor/ChatChannelSample.Editor.asmdef" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Editor/ChatChannelSample.Editor.asmdef.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Editor/Helpers.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Editor/Helpers/PackageImporter.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Editor/Helpers/PackageImporter.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Prefabs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Prefabs/EvilMixerGroup.mixer" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Prefabs/EvilMixerGroup.mixer.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Prefabs/MainMenuOptions.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Prefabs/MainMenuOptions.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Prefabs/MessageObject.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Prefabs/MessageObject.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Prefabs/RosterItem.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Prefabs/RosterItem.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Scenes.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Scenes/AudioTapsTest.unity" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Scenes/AudioTapsTest.unity.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Scenes/EchoTest.unity" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Scenes/EchoTest.unity.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Scenes/MainScene.unity" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Scenes/MainScene.unity.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Scenes/MainSceneSettings.lighting" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Scenes/MainSceneSettings.lighting.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Scripts.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Scripts/ChatChannelSample.asmdef" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Scripts/ChatChannelSample.asmdef.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Scripts/EchoTest.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Scripts/EchoTest/JoinEchoChannel.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Scripts/EchoTest/JoinEchoChannel.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Scripts/Managers.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Scripts/Managers/AudioTapsManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Scripts/Managers/AudioTapsManager.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Scripts/Managers/VivoxVoiceManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Scripts/Managers/VivoxVoiceManager.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Scripts/UI.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Scripts/UI/AudioDeviceSettings.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Scripts/UI/AudioDeviceSettings.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Scripts/UI/LobbyScreenUI.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Scripts/UI/LobbyScreenUI.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Scripts/UI/LoginScreenUI.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Scripts/UI/LoginScreenUI.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Scripts/UI/MainMenuOptions.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Scripts/UI/MainMenuOptions.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Scripts/UI/MessageObjectUI.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Scripts/UI/MessageObjectUI.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Scripts/UI/RosterItem.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Scripts/UI/RosterItem.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Scripts/UI/RosterManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Scripts/UI/RosterManager.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Scripts/UI/TextChatUI.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Scripts/UI/TextChatUI.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Sprites.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Sprites/AimArrow.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Sprites/AimArrow.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Sprites/Button.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Sprites/Button.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Sprites/Field.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Sprites/Field.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Sprites/HealthWheel.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Sprites/HealthWheel.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Sprites/MeterSprite.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Sprites/MeterSprite.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Sprites/Smoke.tif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Sprites/Smoke.tif.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Sprites/SpeakerIconMuted.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Sprites/SpeakerIconMuted.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Sprites/SpeakerIconNotSpeaking.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Sprites/SpeakerIconNotSpeaking.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Sprites/SpeakerIconSpeaking.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Sprites/SpeakerIconSpeaking.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Sprites/SpeakerIconVector.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Sprites/SpeakerIconVector.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Sprites/SpeakerIconWhite.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Sprites/SpeakerIconWhite.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/DecorationButtons.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/DecorationButtons/AnimalBalloonsIcon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/DecorationButtons/AnimalBalloonsIcon.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/DecorationButtons/BalloonsIcon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/DecorationButtons/BalloonsIcon.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/DecorationButtons/CarrotIcon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/DecorationButtons/CarrotIcon.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/DecorationButtons/CigarIcon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/DecorationButtons/CigarIcon.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/DecorationButtons/EyeBrowsIcon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/DecorationButtons/EyeBrowsIcon.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/DecorationButtons/GogglesIcon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/DecorationButtons/GogglesIcon.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/DecorationButtons/HeartBalloonsIcon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/DecorationButtons/HeartBalloonsIcon.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/DecorationButtons/HelmetIcon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/DecorationButtons/HelmetIcon.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/DecorationButtons/MohawkIcon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/DecorationButtons/MohawkIcon.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/DecorationButtons/MoustacheIcon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/DecorationButtons/MoustacheIcon.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/DecorationButtons/PropCapIcon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/DecorationButtons/PropCapIcon.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/DecorationButtons/SpoilerIcon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/DecorationButtons/SpoilerIcon.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/DecorationButtons/StarBalloonsIcon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/DecorationButtons/StarBalloonsIcon.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/DecorationButtons/TusksIcon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/DecorationButtons/TusksIcon.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/DecorationButtons/UnicornHornIcon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/DecorationButtons/UnicornHornIcon.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/DecorationButtons/VikingHatIcon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/DecorationButtons/VikingHatIcon.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/Game.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/Game/AimArrow.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/Game/AimArrow.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/Game/BouncyBombWhite.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/Game/BouncyBombWhite.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/Game/ClusterBombWhite.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/Game/ClusterBombWhite.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/Game/ControlsInside.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/Game/ControlsInside.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/Game/ControlsOutside.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/Game/ControlsOutside.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/Game/GappedOutlineWhite.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/Game/GappedOutlineWhite.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/Game/Hand.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/Game/Hand.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/Game/MovementArrow.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/Game/MovementArrow.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/Game/NitroWhite.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/Game/NitroWhite.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/Game/PauseButton.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/Game/PauseButton.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/Game/Target.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/Game/Target.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/Game/WhiteCircle.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/Game/WhiteCircle.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/Menu.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/Menu/24BitGames.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/Menu/24BitGames.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/Menu/Radio_Button_ON.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/Menu/Radio_Button_ON.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/Menu/connectionIndicator.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/Menu/connectionIndicator.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/Menu/iconDecorate.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/Menu/iconDecorate.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/Menu/iconInfo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/Menu/iconInfo.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/Menu/iconMedals.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/Menu/iconMedals.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/Menu/iconSpeed.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/Menu/iconSpeed.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/Menu/iconTopsecret.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/Menu/iconTopsecret.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/Menu/iconTurn.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/Menu/iconTurn.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/Menu/locked.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/Menu/locked.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/Menu/lockedClean.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/Menu/lockedClean.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/Menu/medalInactive.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/Menu/medalInactive.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/Menu/slider.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/Menu/slider.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/Menu/unity-logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/Menu/unity-logo.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/Shared.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/Shared/Coin.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/Shared/Coin.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/Shared/X.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/Shared/X.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/Shared/background.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/Shared/background.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/Shared/button.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/Shared/button.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/Shared/buttonNext.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/Shared/buttonNext.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/Shared/buttonNext_pressed.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/Shared/buttonNext_pressed.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/Shared/buttonTeamColour.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/Shared/buttonTeamColour.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/Shared/button_disabled.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/Shared/button_disabled.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/Shared/button_pressed.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/Shared/button_pressed.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/Shared/heart.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/Shared/heart.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/Shared/iconPlayertag.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/Shared/iconPlayertag.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/Shared/iconStar.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/Shared/iconStar.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/Shared/iconTank.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/Shared/iconTank.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/Shared/largeButton.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/Shared/largeButton.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/Shared/largeButton_square.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/Shared/largeButton_square.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/Shared/largeButton_white.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/Shared/largeButton_white.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/Shared/largeButton_white_square.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/Shared/largeButton_white_square.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/Shared/medalActive.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/Shared/medalActive.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/Shared/panelClean.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/Shared/panelClean.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/Shared/panelEmpty.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/Shared/panelEmpty.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/Shared/panelFloating.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/Shared/panelFloating.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/Shared/panelHeading.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/Shared/panelHeading.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/Shared/panelMain.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/Shared/panelMain.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/Shared/panelSmall.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/Shared/panelSmall.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/Shared/panelSmallHeading.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/Shared/panelSmallHeading.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/Shared/starActive.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/Shared/starActive.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/Shared/starInactive.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/ChatChannelSample/Textures/UI/Shared/starInactive.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/WSATestCertificate.pfx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Vivox/16.3.0/Chat Channel Sample/Assets/WSATestCertificate.pfx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Multiplayer.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Multiplayer.unity" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Multiplayer.unity.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Multiplayer/Global Volume Profile 1.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Multiplayer/Global Volume Profile 1.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Multiplayer/Global Volume Profile 2.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Multiplayer/Global Volume Profile 2.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Multiplayer/Global Volume Profile 3.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Multiplayer/Global Volume Profile 3.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Multiplayer/Global Volume Profile.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Multiplayer/Global Volume Profile.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Multiplayer/LightingData.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Multiplayer/LightingData.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Multiplayer/Lightmap-0_comp_dir.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Multiplayer/Lightmap-0_comp_dir.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Multiplayer/Lightmap-0_comp_light.exr" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Multiplayer/Lightmap-0_comp_light.exr.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Multiplayer/Multiplayer Baking Set.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Multiplayer/Multiplayer Baking Set.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Multiplayer/Sky and Fog Settings 1.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Multiplayer/Sky and Fog Settings 1.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Multiplayer/Sky and Fog Settings 2.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Multiplayer/Sky and Fog Settings 2.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Multiplayer/Sky and Fog Settings.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Multiplayer/Sky and Fog Settings.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/CharacterMovement.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/CharacterMovement.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Flashlight.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Flashlight.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/NetworkManagerUI.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/NetworkManagerUI.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/OwnerNetworkAnimator.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/OwnerNetworkAnimator.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/RelayManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/RelayManager.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/VivoxManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/VivoxManager.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Ch49_1001_Diffuse.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Ch49_1001_Diffuse.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Ch49_1001_Glossiness.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Ch49_1001_Glossiness.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Ch49_1001_Normal.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Ch49_1001_Normal.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Ch49_1001_Specular.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Ch49_1001_Specular.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Ch49_1002_Diffuse.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Ch49_1002_Diffuse.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Ch49_1002_Glossiness.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Ch49_1002_Glossiness.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Ch49_1002_Normal.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Ch49_1002_Normal.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Ch49_1002_Specular.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Ch49_1002_Specular.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/logo.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/logo/objective zero text 1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/logo/objective zero text 1.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/logo/objective zero text 2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/logo/objective zero text 2.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/logo/zero.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/logo/zero.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/logo/zero_1024x1024.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/logo/zero_1024x1024.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/logo/zero_128x128.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/logo/zero_128x128.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/logo/zero_16x16.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/logo/zero_16x16.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/logo/zero_256x256.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/logo/zero_256x256.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/logo/zero_32x32.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/logo/zero_32x32.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/logo/zero_48x48.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/logo/zero_48x48.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/logo/zero_512x512.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/logo/zero_512x512.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/logo/zero_64x64.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/logo/zero_64x64.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/HDRP.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/HDRP/Prototype_512x512_Blue1.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/HDRP/Prototype_512x512_Blue1.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/HDRP/Prototype_512x512_Blue2.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/HDRP/Prototype_512x512_Blue2.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/HDRP/Prototype_512x512_Blue3.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/HDRP/Prototype_512x512_Blue3.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/HDRP/Prototype_512x512_Brown.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/HDRP/Prototype_512x512_Brown.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/HDRP/Prototype_512x512_Cyan.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/HDRP/Prototype_512x512_Cyan.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/HDRP/Prototype_512x512_Green1.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/HDRP/Prototype_512x512_Green1.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/HDRP/Prototype_512x512_Green2.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/HDRP/Prototype_512x512_Green2.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/HDRP/Prototype_512x512_Green3.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/HDRP/Prototype_512x512_Green3.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/HDRP/Prototype_512x512_Grey1.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/HDRP/Prototype_512x512_Grey1.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/HDRP/Prototype_512x512_Grey2.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/HDRP/Prototype_512x512_Grey2.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/HDRP/Prototype_512x512_Grey3.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/HDRP/Prototype_512x512_Grey3.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/HDRP/Prototype_512x512_Grey4.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/HDRP/Prototype_512x512_Grey4.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/HDRP/Prototype_512x512_Magenta.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/HDRP/Prototype_512x512_Magenta.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/HDRP/Prototype_512x512_Olive.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/HDRP/Prototype_512x512_Olive.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/HDRP/Prototype_512x512_Orange.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/HDRP/Prototype_512x512_Orange.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/HDRP/Prototype_512x512_Pink.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/HDRP/Prototype_512x512_Pink.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/HDRP/Prototype_512x512_Purple.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/HDRP/Prototype_512x512_Purple.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/HDRP/Prototype_512x512_Red.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/HDRP/Prototype_512x512_Red.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/HDRP/Prototype_512x512_White.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/HDRP/Prototype_512x512_White.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/HDRP/Prototype_512x512_Yellow.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/HDRP/Prototype_512x512_Yellow.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/Standard.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/Standard/Prototype_512x512_Blue1.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/Standard/Prototype_512x512_Blue1.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/Standard/Prototype_512x512_Blue2.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/Standard/Prototype_512x512_Blue2.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/Standard/Prototype_512x512_Blue3.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/Standard/Prototype_512x512_Blue3.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/Standard/Prototype_512x512_Brown.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/Standard/Prototype_512x512_Brown.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/Standard/Prototype_512x512_Cyan.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/Standard/Prototype_512x512_Cyan.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/Standard/Prototype_512x512_Green1.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/Standard/Prototype_512x512_Green1.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/Standard/Prototype_512x512_Green2.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/Standard/Prototype_512x512_Green2.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/Standard/Prototype_512x512_Green3.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/Standard/Prototype_512x512_Green3.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/Standard/Prototype_512x512_Grey1.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/Standard/Prototype_512x512_Grey1.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/Standard/Prototype_512x512_Grey2.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/Standard/Prototype_512x512_Grey2.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/Standard/Prototype_512x512_Grey3.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/Standard/Prototype_512x512_Grey3.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/Standard/Prototype_512x512_Grey4.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/Standard/Prototype_512x512_Grey4.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/Standard/Prototype_512x512_Magenta.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/Standard/Prototype_512x512_Magenta.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/Standard/Prototype_512x512_Olive.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/Standard/Prototype_512x512_Olive.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/Standard/Prototype_512x512_Orange.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/Standard/Prototype_512x512_Orange.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/Standard/Prototype_512x512_Pink.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/Standard/Prototype_512x512_Pink.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/Standard/Prototype_512x512_Purple.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/Standard/Prototype_512x512_Purple.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/Standard/Prototype_512x512_Red.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/Standard/Prototype_512x512_Red.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/Standard/Prototype_512x512_White.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/Standard/Prototype_512x512_White.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/Standard/Prototype_512x512_Yellow.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/Standard/Prototype_512x512_Yellow.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/URP.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/URP/Prototype_512x512_Blue1.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/URP/Prototype_512x512_Blue1.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/URP/Prototype_512x512_Blue2.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/URP/Prototype_512x512_Blue2.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/URP/Prototype_512x512_Blue3.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/URP/Prototype_512x512_Blue3.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/URP/Prototype_512x512_Brown.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/URP/Prototype_512x512_Brown.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/URP/Prototype_512x512_Cyan.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/URP/Prototype_512x512_Cyan.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/URP/Prototype_512x512_Green1.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/URP/Prototype_512x512_Green1.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/URP/Prototype_512x512_Green2.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/URP/Prototype_512x512_Green2.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/URP/Prototype_512x512_Green3.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/URP/Prototype_512x512_Green3.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/URP/Prototype_512x512_Grey1.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/URP/Prototype_512x512_Grey1.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/URP/Prototype_512x512_Grey2.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/URP/Prototype_512x512_Grey2.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/URP/Prototype_512x512_Grey3.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/URP/Prototype_512x512_Grey3.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/URP/Prototype_512x512_Grey4.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/URP/Prototype_512x512_Grey4.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/URP/Prototype_512x512_Magenta.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/URP/Prototype_512x512_Magenta.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/URP/Prototype_512x512_Olive.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/URP/Prototype_512x512_Olive.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/URP/Prototype_512x512_Orange.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/URP/Prototype_512x512_Orange.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/URP/Prototype_512x512_Pink.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/URP/Prototype_512x512_Pink.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/URP/Prototype_512x512_Purple.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/URP/Prototype_512x512_Purple.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/URP/Prototype_512x512_Red.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/URP/Prototype_512x512_Red.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/URP/Prototype_512x512_White.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/URP/Prototype_512x512_White.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/URP/Prototype_512x512_Yellow.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/URP/Prototype_512x512_Yellow.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Template.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Template/prototype_texture_512x512.psd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Template/prototype_texture_512x512.psd.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Textures.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Textures/prototype_512x512_blue1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Textures/prototype_512x512_blue1.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Textures/prototype_512x512_blue2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Textures/prototype_512x512_blue2.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Textures/prototype_512x512_blue3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Textures/prototype_512x512_blue3.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Textures/prototype_512x512_brown.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Textures/prototype_512x512_brown.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Textures/prototype_512x512_cyan.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Textures/prototype_512x512_cyan.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Textures/prototype_512x512_green1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Textures/prototype_512x512_green1.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Textures/prototype_512x512_green2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Textures/prototype_512x512_green2.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Textures/prototype_512x512_green3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Textures/prototype_512x512_green3.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Textures/prototype_512x512_grey1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Textures/prototype_512x512_grey1.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Textures/prototype_512x512_grey2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Textures/prototype_512x512_grey2.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Textures/prototype_512x512_grey3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Textures/prototype_512x512_grey3.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Textures/prototype_512x512_grey4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Textures/prototype_512x512_grey4.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Textures/prototype_512x512_magenta.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Textures/prototype_512x512_magenta.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Textures/prototype_512x512_normal.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Textures/prototype_512x512_normal.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Textures/prototype_512x512_olive.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Textures/prototype_512x512_olive.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Textures/prototype_512x512_orange.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Textures/prototype_512x512_orange.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Textures/prototype_512x512_pink.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Textures/prototype_512x512_pink.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Textures/prototype_512x512_purple.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Textures/prototype_512x512_purple.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Textures/prototype_512x512_red.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Textures/prototype_512x512_red.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Textures/prototype_512x512_white.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Textures/prototype_512x512_white.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Textures/prototype_512x512_yellow.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Textures/prototype_512x512_yellow.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/TutorialInfo/Icons.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/TutorialInfo/Icons/HDRP.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/TutorialInfo/Icons/HDRP.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/TutorialInfo/Icons/Help_Icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/TutorialInfo/Icons/Help_Icon.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/TutorialInfo/Layout.wlt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/TutorialInfo/Layout.wlt.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/TutorialInfo/Scripts/Editor/ReadmeEditor.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/TutorialInfo/Scripts/Editor/ReadmeEditor.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/TutorialInfo/Scripts/Readme.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/TutorialInfo/Scripts/Readme.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectSettings/BurstAotSettings_StandaloneWindows.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectSettings/BurstAotSettings_WebGL.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectSettings/CommonBurstAotSettings.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.learn.iet-framework/Settings.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.services.core/Settings.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.services.vivox/Settings.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectSettings/VisualScriptingSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/3D Laboratory Environment with Appratus/Materials/Liquid 1.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/3D Laboratory Environment with Appratus/Materials/Liquid 1.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/3D Laboratory Environment with Appratus/Materials/Liquid 2.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/3D Laboratory Environment with Appratus/Materials/Liquid 2.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/3D Laboratory Environment with Appratus/Materials/Liquid 3.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/3D Laboratory Environment with Appratus/Materials/Liquid 3.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/3D Laboratory Environment with Appratus/Materials/New Material.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/3D Laboratory Environment with Appratus/Materials/New Material.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/3D Laboratory Environment with Appratus/Materials/water.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/3D Laboratory Environment with Appratus/Materials/water.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Asset pack for horror game/Models/dirty curtain/Materials/dirty curtain_Roughness.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Asset pack for horror game/Models/dirty curtain/Materials/dirty curtain_Roughness.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BookOfTheDeath.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BookOfTheDeath.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BookOfTheDeath/LensFlarePresets/50mm.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BookOfTheDeath/LensFlarePresets/50mm.asset.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BookOfTheDeath/Models/Environment/Cliffs/FlatRock_01/Materials/FlatRock_01Mat_Var02.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BookOfTheDeath/Models/Environment/Cliffs/FlatRock_01/Materials/FlatRock_01Mat_Var02.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BookOfTheDeath/Models/Environment/Cliffs/FlatRock_01/Materials/FlatRock_01Mat_Var04.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BookOfTheDeath/Models/Environment/Cliffs/FlatRock_01/Materials/FlatRock_01Mat_Var04.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BookOfTheDeath/Models/Environment/Cliffs/Rock_06/Materials/Rock_06.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BookOfTheDeath/Models/Environment/Cliffs/Rock_06/Materials/Rock_06.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BookOfTheDeath/Models/Environment/Cliffs/Rock_31/Materials/Rock_31_B_Darker.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BookOfTheDeath/Models/Environment/Cliffs/Rock_31/Materials/Rock_31_B_Darker.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BookOfTheDeath/Models/Environment/Cliffs/Rock_31/Materials/Rock_31_Darker.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BookOfTheDeath/Models/Environment/Cliffs/Rock_31/Materials/Rock_31_Darker.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BookOfTheDeath/Models/Environment/Cliffs/Yosemite_01/Materials/Cliff_01.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BookOfTheDeath/Models/Environment/Cliffs/Yosemite_01/Materials/Cliff_01.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BookOfTheDeath/Models/Environment/Cliffs/Yosemite_01/Materials/Cliff_01_grass.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BookOfTheDeath/Models/Environment/Cliffs/Yosemite_01/Materials/Cliff_01_grass.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BookOfTheDeath/Models/Environment/Ground/Roots/Materials/Roots_System_01.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BookOfTheDeath/Models/Environment/Ground/Roots/Materials/Roots_System_01.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BookOfTheDeath/Models/Environment/Ground/Roots/Materials/Roots_System_02.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BookOfTheDeath/Models/Environment/Ground/Roots/Materials/Roots_System_02.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BookOfTheDeath/Models/Environment/Vegetation/Trees/Backdrop/Materials/ForestBackdrop_A.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BookOfTheDeath/Models/Environment/Vegetation/Trees/Backdrop/Materials/ForestBackdrop_A.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BookOfTheDeath/Models/Environment/Vegetation/Trees/Backdrop/Materials/ForestBackdrop_B.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BookOfTheDeath/Models/Environment/Vegetation/Trees/Backdrop/Materials/ForestBackdrop_B.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BookOfTheDeath/Models/Environment/Vegetation/Trees/DeadStump_02/Materials/Splinters_cap.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BookOfTheDeath/Models/Environment/Vegetation/Trees/DeadStump_02/Materials/Splinters_cap.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BookOfTheDeath/Models/Environment/Vegetation/Trees/DeadStump_02/Materials/Splinters_cap_darker.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BookOfTheDeath/Models/Environment/Vegetation/Trees/DeadStump_02/Materials/Splinters_cap_darker.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BookOfTheDeath/Models/Environment/Vegetation/Trees/Generic_Stump/Stump_04/Materials/Stump_04.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BookOfTheDeath/Models/Environment/Vegetation/Trees/Generic_Stump/Stump_04/Materials/Stump_04.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BookOfTheDeath/Models/Environment/Vegetation/Trees/Generic_Stump/Stump_04/Materials/Stump_04_colder.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BookOfTheDeath/Models/Environment/Vegetation/Trees/Generic_Stump/Stump_04/Materials/Stump_04_colder.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BookOfTheDeath/Models/Environment/Vegetation/Trees/Generic_Stump/Stump_04/Materials/Stump_04_colder_darker.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BookOfTheDeath/Models/Environment/Vegetation/Trees/Generic_Stump/Stump_04/Materials/Stump_04_colder_darker.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BookOfTheDeath/Models/Environment/Vegetation/Trees/Pines/PineDead_001/Materials/stump_Broken.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BookOfTheDeath/Models/Environment/Vegetation/Trees/Pines/PineDead_001/Materials/stump_Broken.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BookOfTheDeath/Models/Environment/Vegetation/Trees/Pines/PineDead_001/Materials/stump_v2.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BookOfTheDeath/Models/Environment/Vegetation/Trees/Pines/PineDead_001/Materials/stump_v2.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BookOfTheDeath/Models/Environment/Vegetation/Trees/Pines/PineDead_001/Materials/trunk.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BookOfTheDeath/Models/Environment/Vegetation/Trees/Pines/PineDead_001/Materials/trunk.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BookOfTheDeath/Models/Environment/Vegetation/Trees/Pines/Pine_002_new/Materials 1/stump_brighter.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BookOfTheDeath/Models/Environment/Vegetation/Trees/Pines/Pine_002_new/Materials 1/stump_brighter.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BookOfTheDeath/Models/Environment/Vegetation/Trees/Pines/Pine_002_new/Materials/stump_brighter.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BookOfTheDeath/Models/Environment/Vegetation/Trees/Pines/Pine_002_new/Materials/stump_brighter.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BookOfTheDeath/Models/Environment/Vegetation/Trees/Pines/Pine_005/Materials/trunk.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BookOfTheDeath/Models/Environment/Vegetation/Trees/Pines/Pine_005/Materials/trunk.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BookOfTheDeath/Models/Environment/Vegetation/Trees/Pines/Pine_005/Materials/trunk_BakedWind.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BookOfTheDeath/Models/Environment/Vegetation/Trees/Pines/Pine_005/Materials/trunk_BakedWind.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BookOfTheDeath/Models/Environment/Vegetation/Trees/Pines/Pine_005/Materials/trunk_noDisplacement.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BookOfTheDeath/Models/Environment/Vegetation/Trees/Pines/Pine_005/Materials/trunk_noDisplacement.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BookOfTheDeath/Models/Environment/Vegetation/Trees/Pines/Pine_005/Materials/trunk_noDisplacement_BakedWind.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BookOfTheDeath/Models/Environment/Vegetation/Trees/Pines/Pine_005/Materials/trunk_noDisplacement_BakedWind.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BookOfTheDeath/Models/Environment/Vegetation/Trees/Pines/Pine_007/Materials/stump_BakedWind.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BookOfTheDeath/Models/Environment/Vegetation/Trees/Pines/Pine_007/Materials/stump_BakedWind.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BookOfTheDeath/Models/Quixel/Forest-quixel/BushTwig_01/Materials/Bush_Twig_01.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BookOfTheDeath/Models/Quixel/Forest-quixel/BushTwig_01/Materials/Bush_Twig_01.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BookOfTheDeath/Models/Quixel/Forest-quixel/BushTwig_01/Materials/Bush_Twig_01_BakedWind.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BookOfTheDeath/Models/Quixel/Forest-quixel/BushTwig_01/Materials/Bush_Twig_01_BakedWind.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BookOfTheDeath/Models/Quixel/Forest-quixel/Clover_01/Materials/Clover_01_mat.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BookOfTheDeath/Models/Quixel/Forest-quixel/Clover_01/Materials/Clover_01_mat.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BookOfTheDeath/Models/Quixel/Forest-quixel/Clover_01/Materials/Clover_01_mat_BakedWind.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BookOfTheDeath/Models/Quixel/Forest-quixel/Clover_01/Materials/Clover_01_mat_BakedWind.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BookOfTheDeath/Models/Quixel/Forest-quixel/Ferns/Materials/Ferns_Glossy_BakedWind.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BookOfTheDeath/Models/Quixel/Forest-quixel/Ferns/Materials/Ferns_Glossy_BakedWind.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BookOfTheDeath/Models/Quixel/Forest-quixel/Juniper_Bush_01/Materials/Juniper_Bush_01_Trunk.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BookOfTheDeath/Models/Quixel/Forest-quixel/Juniper_Bush_01/Materials/Juniper_Bush_01_Trunk.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BookOfTheDeath/Models/Quixel/Forest-quixel/Juniper_Bush_01/Materials/Juniper_Bush_01_Trunk_BakedWind.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BookOfTheDeath/Models/Quixel/Forest-quixel/Juniper_Bush_01/Materials/Juniper_Bush_01_Trunk_BakedWind.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BookOfTheDeath/Models/Quixel/Megascans/Plants/GrassGreen_qheqG2/Materials/Billboard_Albedo_green_BakedWind.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BookOfTheDeath/Models/Quixel/Megascans/Plants/GrassGreen_qheqG2/Materials/Billboard_Albedo_green_BakedWind.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BookOfTheDeath/Models/Quixel/Megascans/Plants/GrassGreen_qheqG2/Materials/GrassGreen_qheqG2_BakedWind.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BookOfTheDeath/Models/Quixel/Megascans/Plants/GrassGreen_qheqG2/Materials/GrassGreen_qheqG2_BakedWind.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BookOfTheDeath/Models/Quixel/Megascans/Plants/GrassGreen_qheqG2/Materials/GrassGreen_qheqG2_BakedWind_lessAO.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BookOfTheDeath/Models/Quixel/Megascans/Plants/GrassGreen_qheqG2/Materials/GrassGreen_qheqG2_BakedWind_lessAO.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BookOfTheDeath/Models/Quixel/Megascans/Rocks/Rock_Sandstone_plras/Materials/Rock_Sandstone_plras.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BookOfTheDeath/Models/Quixel/Megascans/Rocks/Rock_Sandstone_plras/Materials/Rock_Sandstone_plras.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BookOfTheDeath/Models/Quixel/Megascans/Wood/Wood_Log_rfgxx/Materials/Wood_Log_M_rfgxx.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BookOfTheDeath/Models/Quixel/Megascans/Wood/Wood_Log_rfgxx/Materials/Wood_Log_M_rfgxx.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BookOfTheDeath/Models/Quixel/Megascans/Wood/Wood_Root_rkswd/Materials/Wood_Root_rkswd_Mat.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BookOfTheDeath/Models/Quixel/Megascans/Wood/Wood_Root_rkswd/Materials/Wood_Root_rkswd_Mat.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BookOfTheDeath/Wind/Wind.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BookOfTheDeath/Wind/Wind.prefab.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Fase1/Fase1.unity.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Fase1/Fase1.unity.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Fase1/Scripts/MeshComponents/RoadComponent/RoadComponent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Fase1/Scripts/MeshComponents/RoadComponent/RoadComponent.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Fase1/Scripts/WorldGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Fase1/Scripts/WorldGenerator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Fase1/prefabs/Chunk.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Fase1/prefabs/Chunk.prefab.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Fase1/prefabs/Environment/cube.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Fase1/prefabs/Environment/cube.prefab.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Features/DepthOfFieldAutoFocus/AutoFocusProperties.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Features/DepthOfFieldAutoFocus/AutoFocusProperties.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/RoomGenerator.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/RoomGenerator.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/RoomGenerator/Prefabs/Hallways/Ending Hallway.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/RoomGenerator/Prefabs/Hallways/Ending Hallway.prefab.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/RoomGenerator/Prefabs/Hallways/Intersection hallway.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/RoomGenerator/Prefabs/Hallways/Intersection hallway.prefab.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/RoomGenerator/Prefabs/Hallways/Straight Hallway.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/RoomGenerator/Prefabs/Hallways/Straight Hallway.prefab.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/RoomGenerator/Prefabs/Hallways/T Split hallway.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/RoomGenerator/Prefabs/Hallways/T Split hallway.prefab.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/RoomGenerator/RoomGenerator.unity.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/RoomGenerator/RoomGenerator.unity.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/RoomGenerator/scripts/HallwayGen/MazeGenerator.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/RoomGenerator/scripts/HallwayGen/MazeGenerator.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Settings/HDRP Balanced.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/HDRP Balanced.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Settings/HDRPDefaultResources/DefaultSettingsVolumeProfile.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/HDRPDefaultResources/DefaultSettingsVolumeProfile.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Settings/HDRPDefaultResources/HDRenderPipelineGlobalSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/HDRPDefaultResources/HDRenderPipelineGlobalSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SkySeries Freebie.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SkySeries Freebie.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TileableBricksWall/Materials/Bricks_specular.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TileableBricksWall/Materials/Bricks_specular.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/lightbody-utility-truck-90-low-poly-model/source/CarPrefab.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/lightbody-utility-truck-90-low-poly-model/source/CarPrefab.prefab.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/com.unity.render-pipelines.high-definition-config/.npmignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/com.unity.render-pipelines.high-definition-config/CHANGELOG.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/com.unity.render-pipelines.high-definition-config/CHANGELOG.md.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/com.unity.render-pipelines.high-definition-config/Documentation~/index.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/com.unity.render-pipelines.high-definition-config/LICENSE.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/com.unity.render-pipelines.high-definition-config/LICENSE.md.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/com.unity.render-pipelines.high-definition-config/Runtime.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/com.unity.render-pipelines.high-definition-config/Runtime/ShaderConfig.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/com.unity.render-pipelines.high-definition-config/Runtime/ShaderConfig.cs.hlsl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/com.unity.render-pipelines.high-definition-config/Runtime/ShaderConfig.cs.hlsl.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/com.unity.render-pipelines.high-definition-config/Runtime/ShaderConfig.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/com.unity.render-pipelines.high-definition-config/Runtime/Unity.RenderPipelines.HighDefinition.Config.Runtime.asmdef" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/com.unity.render-pipelines.high-definition-config/Runtime/Unity.RenderPipelines.HighDefinition.Config.Runtime.asmdef.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/com.unity.render-pipelines.high-definition-config/Tests.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/com.unity.render-pipelines.high-definition-config/Tests/.tests.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/com.unity.render-pipelines.high-definition-config/Tests/Editor.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/com.unity.render-pipelines.high-definition-config/Tests/Editor/ConfigurationTest.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/com.unity.render-pipelines.high-definition-config/Tests/Editor/ConfigurationTest.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/com.unity.render-pipelines.high-definition-config/Tests/Editor/Unity.RenderPipelines.HighDefinitionConfig.Editor.Tests.asmdef" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/com.unity.render-pipelines.high-definition-config/Tests/Editor/Unity.RenderPipelines.HighDefinitionConfig.Editor.Tests.asmdef.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/com.unity.render-pipelines.high-definition-config/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/com.unity.render-pipelines.high-definition-config/package.json.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/MultiplayerManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/MultiplayerManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/PackageManagerSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/PackageManagerSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.polybrush/Settings.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/VFXManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/VFXManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,27 +841,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;RoomGenerator&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "ImportMultiPlayerPackage",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;rider.external.source.directories&quot;: [
-      &quot;C:\\Users\\damia\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\DecompilerCache&quot;,
-      &quot;C:\\Users\\damia\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\SourcesCache&quot;,
-      &quot;C:\\Users\\damia\\AppData\\Local\\Symbols\\src&quot;
+  "keyToStringList": {
+    "rider.external.source.directories": [
+      "C:\\Users\\jetty\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\DecompilerCache",
+      "C:\\Users\\jetty\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\SourcesCache",
+      "C:\\Users\\jetty\\AppData\\Local\\Symbols\\src"
     ]
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="D:\dami\Unity\2023.2.11f1\Editor\Unity.exe" />
@@ -113,6 +922,7 @@
       <workItem from="1713880111854" duration="2458000" />
       <workItem from="1713910140840" duration="2899000" />
       <workItem from="1713945146803" duration="2288000" />
+      <workItem from="1717621487943" duration="317000" />
     </task>
     <servers />
   </component>

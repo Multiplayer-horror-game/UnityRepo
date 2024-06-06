@@ -348,7 +348,7 @@ Material:
     m_Colors:
     - _BaseColor: {r: 0.9528302, g: 0.9528302, b: 0.9528302, a: 1}
     - _BaseColorMap_MipInfo: {r: 0, g: 0, b: 0, a: 0}
-    - _Color: {r: 0.9528302, g: 0.9528302, b: 0.9528302, a: 1}
+    - _Color: {r: 0.95283014, g: 0.95283014, b: 0.95283014, a: 1}
     - _DiffusionProfileAsset: {r: -8.695931e+30, g: -5.0949594e+31, b: -0.010710085,
         a: -0.0000000055696536}
     - _DiffusionProfile_Asset: {r: 8.373602e+11, g: 0.00000038962725, b: 4.0925955e-14,
