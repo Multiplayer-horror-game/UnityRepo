@@ -34,7 +34,6 @@ public class CharacterMovement : NetworkBehaviour
     //FlashLight
     private GameObject flashlight;
     private NetworkVariable<bool> flashlightState = new NetworkVariable<bool>(true, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
-    public bool fState = false;
 
     public override void OnNetworkSpawn()
     {
@@ -89,7 +88,6 @@ public class CharacterMovement : NetworkBehaviour
     
     private void HandleFlashlight()
     {
-        fState = flashlightState.Value;
         if(flashlightState.Value != flashlight.activeSelf)
         {
             flashlight.SetActive(flashlightState.Value);
@@ -124,6 +122,7 @@ public class CharacterMovement : NetworkBehaviour
 
         // Directly apply the clamped rotation to the camera
         playerCamera.transform.localEulerAngles = new Vector3(targetRotation, playerCamera.transform.localEulerAngles.y, 0);
+        flashlight.transform.localEulerAngles = new Vector3(targetRotation, flashlight.transform.localEulerAngles.y, 0);
     }
 
 
