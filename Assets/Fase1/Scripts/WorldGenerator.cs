@@ -149,6 +149,11 @@ namespace Fase1
                     {
                         BuildMesh(_meshBuilders.Dequeue().Value);
                     }
+                    
+                    if(meshBuilderKvp.Value.State == MeshState.Failed)
+                    {
+                        _meshBuilders.Dequeue();
+                    }
                 }
             }
             

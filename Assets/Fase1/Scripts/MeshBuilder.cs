@@ -68,8 +68,12 @@ namespace Fase1
                     {
                         triangleList.Add(triangleIndex + totalTriangles);
                     }
-                    
-                    _triangles.Add(triangle.Key,triangleList);
+
+                    if (!_triangles.TryAdd(triangle.Key, triangleList))
+                    {
+                        State = MeshState.Failed;
+                        return;
+                    }
                 }
             }
             
@@ -128,6 +132,7 @@ namespace Fase1
     {
         NotGenerated,
         Generating,
-        Generated
+        Generated,
+        Failed
     }
 }
