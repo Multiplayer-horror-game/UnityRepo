@@ -1,8 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using Unity.Netcode;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class CharacterMovement : NetworkBehaviour
 {
@@ -33,9 +30,17 @@ public class CharacterMovement : NetworkBehaviour
     // Camera
     [SerializeField] private float cameraYOffset = 1.0f; // Vertical offset for the camera position
     private Camera playerCamera; // Reference to the main camera
+    
+    //FlashLight
+    private GameObject flashlight;
+    private NetworkVariable<bool> flashlightState = new NetworkVariable<bool>(true, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
+    public bool fState = false;
 
     public override void OnNetworkSpawn()
     {
+        
+        flashlight = transform.Find("FlashLight").gameObject;
+        
         if (!IsOwner) return; // Only execute on the client that owns this object
 
         // Set up the camera
@@ -72,11 +77,31 @@ public class CharacterMovement : NetworkBehaviour
 
     void Update()
     {
+        HandleFlashlight(); // Handle flashlight state
+        
         if (!IsOwner) return; // Only execute on the client that owns this object
 
         HandleMovement(); // Calculate movement values
         HandleRotation(); // Calculate and apply rotation values
         ApplyMovement(); // Apply movement to the character
+        HandleFlashlightInput(); //handle flashlight input
+    }
+    
+    private void HandleFlashlight()
+    {
+        fState = flashlightState.Value;
+        if(flashlightState.Value != flashlight.activeSelf)
+        {
+            flashlight.SetActive(flashlightState.Value);
+        }
+    }
+
+    private void HandleFlashlightInput()
+    {
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            flashlightState.Value = !flashlightState.Value;
+        }
     }
 
     void HandleRotation()
