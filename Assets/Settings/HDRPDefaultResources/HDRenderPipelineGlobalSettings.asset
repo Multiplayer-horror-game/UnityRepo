@@ -15,13 +15,12 @@ MonoBehaviour:
   m_Settings:
     m_SettingsList: []
     m_RuntimeSettings: []
-  m_DefaultVolumeProfile: {fileID: 11400000, guid: f6998d59123a02049b24f8e268f095df,
-    type: 2}
+  m_DefaultVolumeProfile: {fileID: 0}
   m_LookDevVolumeProfile: {fileID: 0}
   m_ObsoleteRenderingPathDefaultCameraFrameSettings:
     bitDatas:
-      data1: 140666587840333
-      data2: 13799031440106553368
+      data1: 72198260625768269
+      data2: 13799031439032811544
     lodBias: 1
     lodBiasMode: 0
     lodBiasQualityLevel: 0
@@ -37,7 +36,7 @@ MonoBehaviour:
   m_ObsoleteRenderingPathDefaultBakedOrCustomReflectionFrameSettings:
     bitDatas:
       data1: 135310754214733
-      data2: 13763000499898974232
+      data2: 4539628428684460056
     lodBias: 1
     lodBiasMode: 0
     lodBiasQualityLevel: 0
@@ -70,8 +69,8 @@ MonoBehaviour:
     m_Version: 0
     m_Camera:
       bitDatas:
-        data1: 140666587840333
-        data2: 13799031440106553368
+        data1: 72198260625768269
+        data2: 13799031439032811544
       lodBias: 1
       lodBiasMode: 0
       lodBiasQualityLevel: 0
@@ -87,7 +86,7 @@ MonoBehaviour:
     m_CustomOrBakedReflection:
       bitDatas:
         data1: 135310754214733
-        data2: 13763000499898974232
+        data2: 4539628428684460056
       lodBias: 1
       lodBiasMode: 0
       lodBiasQualityLevel: 0
@@ -118,8 +117,7 @@ MonoBehaviour:
       materialQuality: 0
   m_RenderPipelineResources: {fileID: 11400000, guid: 3ce144cff5783da45aa5d4fdc2da14b7,
     type: 2}
-  m_RenderPipelineRayTracingResources: {fileID: 11400000, guid: ba6e7f30e5cffc249a8bf7ee5756c196,
-    type: 2}
+  m_RenderPipelineRayTracingResources: {fileID: 0}
   beforeTransparentCustomPostProcesses: []
   beforePostProcessCustomPostProcesses: []
   afterPostProcessBlursCustomPostProcesses: []
@@ -161,13 +159,15 @@ MonoBehaviour:
   decalLayerName7: Decal Layer 7
   lensAttenuationMode: 0
   colorGradingSpace: 0
-  m_ObsoleteDiffusionProfileSettingsList: []
+  m_ObsoleteDiffusionProfileSettingsList:
+  - {fileID: 11400000, guid: 48e911a1e337b44e2b85dbc65b47a594, type: 2}
+  - {fileID: 11400000, guid: 879ffae44eefa4412bb327928f1a96dd, type: 2}
   specularFade: 0
   rendererListCulling: 0
   DLSSProjectId: 000000
   useDLSSCustomProjectId: 0
   supportProbeVolumes: 0
-  autoRegisterDiffusionProfiles: 1
+  autoRegisterDiffusionProfiles: 0
   analyticDerivativeEmulation: 0
   analyticDerivativeDebugOutput: 0
   apvScenesData:
@@ -186,9 +186,8 @@ MonoBehaviour:
       m_Keys: []
       m_Values: []
     hasProbeVolumes:
-      m_Keys:
-      - 7bbc942d50a2f4efbb46e25cb9fc6dce
-      m_Values: 00
+      m_Keys: []
+      m_Values: 
   m_Version: 10
   m_ShaderStrippingSetting:
     m_Version: 0

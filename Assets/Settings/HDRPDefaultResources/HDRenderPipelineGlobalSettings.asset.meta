@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<<< HEAD:Assets/Settings/HDRPDefaultResources/HDRenderPipelineGlobalSettings.asset.meta
 guid: ac0316ca287ba459492b669ff1317a6f
-========
-guid: 23b3558d43ac307448484a66b1986572
->>>>>>>> Fase1WorldGen:Assets/Keep/LensFlarePresets/50mm.asset.meta
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 11400000
