@@ -180,14 +180,14 @@ MonoBehaviour:
       type: 3}
     isStatic: 0
     staticPosition: {x: 0, y: 0}
-  - mandatory: 1
-    maxAmount: 1
+  - mandatory: 0
+    maxAmount: 3
     gameObject: {fileID: 9178747845944950088, guid: 1695ac45131b3f248b2f2ccbaa03bd9b,
       type: 3}
     isStatic: 0
     staticPosition: {x: 0, y: 0}
-  - mandatory: 1
-    maxAmount: 1
+  - mandatory: 0
+    maxAmount: 3
     gameObject: {fileID: 5422239950376082217, guid: f8ecf6ab0e8cd6d45828f86fdf01497e,
       type: 3}
     isStatic: 0
