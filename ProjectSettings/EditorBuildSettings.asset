@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Damaged Road Materials/Demo/Damaged Road Demo.unity
     guid: 8124e5870f4fd4c779e7a5f994e84ad1
   - enabled: 1
-    path: Assets/Front-End/Scenes/SampleScene.unity
+    path: Assets/Prefabs/MainUI/Scenes/SampleScene.unity
     guid: 1a340f2d30f8fbb4e8b3066edad9a20d
   - enabled: 1
     path: Assets/Scenes/PersistantData.unity
