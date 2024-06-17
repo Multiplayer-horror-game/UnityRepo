@@ -5,6 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="27cd5f9d-8e39-41c9-a720-9ee5603f8a3c" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Front-End/Prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Front-End/Prefab/ExtraInfoCards.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Front-End/Prefab/ExtraInfoCards/LobbyOptions.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Front-End/Prefab/ExtraInfoCards/LobbyOptions.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Front-End/Prefab/ExtraInfoCards/RoomCode.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Front-End/Prefab/ExtraInfoCards/RoomCode.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Front-End/Prefab/PlayerCard.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Front-End/Prefab/PlayerCard.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/PersistantData.unity" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/PersistantData.unity.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Lobby.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Lobby/LobbyUIManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Lobby/LobbyUIManager.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Lobby/UI.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Lobby/UI/GetPlayerCard.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Lobby/UI/GetPlayerCard.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Lobby/UI/GetRoomCode.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Lobby/UI/GetRoomCode.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Scenes.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.UnityRepo/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.UnityRepo/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/RoomGenerator/RoomGenerator.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/RoomGenerator/RoomGenerator.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/RoomGenerator/scripts/Room.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/RoomGenerator/scripts/Room.cs" afterDir="false" />
