@@ -40,6 +40,8 @@ namespace RoomGenerator.scripts
             RoomProperties[] staticRooms = Array.FindAll(rooms, room => room.isStatic);
 
             RoomProperties[] mandatoryRooms = Array.FindAll(rooms, room => room.mandatory && !room.isStatic);
+            
+            RoomProperties[] randomRooms = Array.FindAll(rooms, room => !room.mandatory && !room.isStatic);
 
             foreach (var room in staticRooms)
             {
@@ -50,8 +52,10 @@ namespace RoomGenerator.scripts
                 }
                 
                 SetGridPositions(room.gameObject.GetComponent<Room>(), room.staticPosition);
+                
+                Vector3 offset = room.gameObject.GetComponent<Room>().placementOffset;
 
-                GameObject instantiatedRoom = Instantiate(room.gameObject, new Vector3(room.staticPosition.x, 0, room.staticPosition.y), new Quaternion());
+                GameObject instantiatedRoom = Instantiate(room.gameObject, new Vector3(room.staticPosition.x * scale + offset.x, 0 + offset.y, room.staticPosition.y * scale + offset.z), new Quaternion());
                 Room roomClass = instantiatedRoom.GetComponent<Room>();
                 
                 List<Vector2Int> realizedPositions = new List<Vector2Int>();
@@ -88,8 +92,10 @@ namespace RoomGenerator.scripts
                 }
                 
                 SetGridPositions(room.gameObject.GetComponent<Room>(), new Vector2Int(x, y));
+
+                Vector3 offset = room.gameObject.GetComponent<Room>().placementOffset;
                 
-                GameObject instantiatedRoom = Instantiate(room.gameObject, new Vector3(x,0,y),new Quaternion());
+                GameObject instantiatedRoom = Instantiate(room.gameObject, new Vector3((x * scale) + offset.x,0 + offset.y,(y * scale) + offset.z),new Quaternion());
                 Room roomClass = instantiatedRoom.GetComponent<Room>();
                 
                 List<Vector2Int> realizedPositions = new List<Vector2Int>();
@@ -103,6 +109,52 @@ namespace RoomGenerator.scripts
                 
                 usedRooms.Add(roomClass, new Vector2Int(x, y));
             }
+
+            foreach (var room in randomRooms)
+            {
+                int count = Random.Range(1, room.maxAmount);
+                
+                int x = Random.Range(0, gridSize.x);
+                int y = Random.Range(0, gridSize.y);
+
+                int failsafe = 0;
+
+                for (int i = 0; i < count; i++)
+                {
+                    while (!CheckPositions(room.gameObject.GetComponent<Room>(), new Vector2Int(x, y)) && failsafe < 100)
+                    {
+                        x = Random.Range(0, gridSize.x);
+                        y = Random.Range(0, gridSize.y);
+                        failsafe++;
+                    }
+                
+                    if (failsafe >= 100)
+                    {
+                        Debug.LogError("Could not place random room in 100 tries. Exiting.");
+                        break;
+                    }
+                
+                    SetGridPositions(room.gameObject.GetComponent<Room>(), new Vector2Int(x, y));
+
+                    Vector3 offset = room.gameObject.GetComponent<Room>().placementOffset;
+                
+                    GameObject instantiatedRoom = Instantiate(room.gameObject, new Vector3((x * scale) + offset.x,0 + offset.y,(y * scale) + offset.z),new Quaternion());
+                    Room roomClass = instantiatedRoom.GetComponent<Room>();
+                
+                    List<Vector2Int> realizedPositions = new List<Vector2Int>();
+                
+                    foreach (Vector2Int roomClassPosition in roomClass.positions)
+                    {
+                        realizedPositions.Add(new Vector2Int(roomClassPosition.x + x, roomClassPosition.y + y));
+                    }
+                
+                    roomClass.positions = realizedPositions;
+                
+                    usedRooms.Add(roomClass, new Vector2Int(x, y));
+                    
+                    failsafe = 0;
+                }
+            }
             
             
             for (int x = 0; x < gridSize.x; x++)
@@ -111,7 +163,7 @@ namespace RoomGenerator.scripts
                 {
                     if (bakedGrid[x,y] == 0)
                     {
-                        bakedGrid[x, y] = 2;
+                       bakedGrid[x, y] = 2;
                     }
                 }
             }
@@ -136,6 +188,10 @@ namespace RoomGenerator.scripts
                     if(door.directions.north)
                     {
                         Debug.Log("north" + position);
+                        
+                        Vector3 doorpos = new Vector3((position.x + door.position.x) * scale, 0, (position.y + door.position.y) * scale);
+                        Debug.DrawLine(doorpos, doorpos + new Vector3(0,0,1 * scale), Color.red, 1000f);
+                        
                         Directions dir = _mazeGenerator.GetHallway(position + new Vector2Int(door.position.x, door.position.y) + new Vector2Int(0,1));
                         
                         dir.south = true;
@@ -146,6 +202,10 @@ namespace RoomGenerator.scripts
                     if(door.directions.east)
                     {
                         Debug.Log("east" + position);
+                        
+                        Vector3 doorpos = new Vector3((position.x + door.position.x) * scale, 0, (position.y + door.position.y) * scale);
+                        Debug.DrawLine(doorpos, doorpos + new Vector3(1 * scale,0,0), Color.red, 1000f);
+                        
                         Directions dir = _mazeGenerator.GetHallway(position + new Vector2Int(door.position.x, door.position.y) + new Vector2Int(1,0));
                         
                         dir.west = true;
@@ -156,6 +216,10 @@ namespace RoomGenerator.scripts
                     if(door.directions.south)
                     {
                         Debug.Log("south" + position);
+                        
+                        Vector3 doorpos = new Vector3((position.x + door.position.x) * scale, 0, (position.y + door.position.y) * scale);
+                        Debug.DrawLine(doorpos, doorpos + new Vector3(0,0,-1 * scale), Color.red, 1000f);
+                        
                         Directions dir = _mazeGenerator.GetHallway(position + new Vector2Int(door.position.x, door.position.y) + new Vector2Int(0,-1));
                         
                         dir.north = true;
@@ -166,6 +230,10 @@ namespace RoomGenerator.scripts
                     if(door.directions.west)
                     {
                         Debug.Log("west" + position);
+                        
+                        Vector3 doorpos = new Vector3((position.x + door.position.x) * scale, 0, (position.y + door.position.y) * scale);
+                        Debug.DrawLine(doorpos, doorpos + new Vector3(-1 * scale,0,0), Color.red, 1000f);
+                        
                         Directions dir = _mazeGenerator.GetHallway(position + new Vector2Int(door.position.x, door.position.y) + new Vector2Int(-1,0));
                         
                         dir.east = true;
@@ -267,7 +335,8 @@ namespace RoomGenerator.scripts
 
         public void AddHallway(GameObject hallwayObject, Vector2Int pos, Quaternion dir)
         {
-            GameObject hallway = Instantiate(hallwayObject, new Vector3(pos.x, 0, pos.y), dir);
+            GameObject hallway = Instantiate(hallwayObject, new Vector3(pos.x * scale, 0, pos.y * scale), dir);
+            hallway.transform.localScale = new Vector3(scale, scale, scale);
         }
 
     }

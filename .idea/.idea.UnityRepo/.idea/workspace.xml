@@ -6,15 +6,18 @@
   <component name="ChangeListManager">
     <list default="true" id="27cd5f9d-8e39-41c9-a720-9ee5603f8a3c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.UnityRepo/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.UnityRepo/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Character/Ch49_nonPBR.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Fase1/Scripts/MeshBuilder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Fase1/Scripts/MeshBuilder.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Fase1/Scripts/WorldGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Fase1/Scripts/WorldGenerator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/RoomGenerator/RoomGenerator.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/RoomGenerator/RoomGenerator.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/RoomGenerator/scripts/Room.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/RoomGenerator/scripts/Room.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/RoomGenerator/scripts/RoomManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/RoomGenerator/scripts/RoomManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Rooms/Infirmary.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Rooms/Infirmary.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Rooms/MainHall.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Rooms/MainHall.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Rooms/Watertanks.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Rooms/Watertanks.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Rooms/bathroom.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Rooms/bathroom.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Rooms/generator.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Rooms/generator.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Rooms/research.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Rooms/research.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Rooms/toilet.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Rooms/toilet.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Settings/HDRPDefaultResources/DefaultSettingsVolumeProfile.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/HDRPDefaultResources/DefaultSettingsVolumeProfile.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Settings/HDRPDefaultResources/HDRenderPipelineGlobalSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/HDRPDefaultResources/HDRenderPipelineGlobalSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TileableBricksWall/Materials/Bricks_specular.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TileableBricksWall/Materials/Bricks_specular.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.learn.iet-framework/Settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.learn.iet-framework/Settings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.services.vivox/Settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.services.vivox/Settings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,7 +48,7 @@
     &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Sprint-8&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;RoomGen-Rooms&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -131,6 +134,10 @@
       <workItem from="1713945146803" duration="2288000" />
       <workItem from="1717621487943" duration="317000" />
       <workItem from="1717709230555" duration="624000" />
+      <workItem from="1718112099501" duration="1708000" />
+      <workItem from="1718123839894" duration="996000" />
+      <workItem from="1718124928176" duration="217000" />
+      <workItem from="1718181219298" duration="4772000" />
     </task>
     <servers />
   </component>

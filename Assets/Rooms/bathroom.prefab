@@ -1310,6 +1310,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4107283089173139554}
+  - component: {fileID: 927323520992982010}
   m_Layer: 0
   m_Name: bathroom
   m_TagString: Untagged
@@ -1344,6 +1345,37 @@ Transform:
   - {fileID: 6975234282030900596}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &927323520992982010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3737633621122929880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9af29c508a9019843b28a8b8758266b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  positions:
+  - {x: 0, y: 0}
+  doors:
+  - position: {x: 0, y: 0}
+    directions:
+      north: 1
+      east: 0
+      south: 0
+      west: 0
+  - position: {x: 0, y: 0}
+    directions:
+      north: 0
+      east: 0
+      south: 1
+      west: 0
+  hallwayPositions:
+  - {x: 0, y: 1}
+  - {x: 0, y: -1}
+  placementOffset: {x: 0, y: 0, z: 0}
 --- !u!1001 &1501139768940701948
 PrefabInstance:
   m_ObjectHideFlags: 0

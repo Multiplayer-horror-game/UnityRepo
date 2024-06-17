@@ -10,6 +10,7 @@ namespace RoomGenerator.scripts
         public List<Door> doors;
         public List<Vector2Int> hallwayPositions;
     
+        public Vector3 placementOffset = new Vector3(0, 0);
     }
     
 }
