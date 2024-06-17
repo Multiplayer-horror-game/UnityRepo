@@ -8,7 +8,6 @@ using Fase1.MeshComponents;
 using UnityEditor.Rendering;
 using Fase1.ScriptableObjects;
 using Fase1.Scripts.Math;
-using Unity.VisualScripting;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -149,6 +148,11 @@ namespace Fase1
                     if (meshBuilderKvp.Value.State == MeshState.Generated)
                     {
                         BuildMesh(_meshBuilders.Dequeue().Value);
+                    }
+                    
+                    if(meshBuilderKvp.Value.State == MeshState.Failed)
+                    {
+                        _meshBuilders.Dequeue();
                     }
                 }
             }
