@@ -1,14 +1,26 @@
-﻿using UnityEngine;
+﻿using Gui;
+using Gui.SubTitles;
+using UnityEngine;
 
 namespace InteractableItems.Items
 {
     public class Radio : MonoBehaviour, IInteractable
     {
+        private AudioSubTitleExecutor _audioSubTitleExecutor;
+        private AudioSource _audioSource;
         
+        public SubTitle subtitle;
         
-        public void Interact()
+        private void Start()
         {
-            throw new System.NotImplementedException();
+            _audioSubTitleExecutor = AudioSubTitleExecutor.GetInstance();
+            _audioSource = GetComponent<AudioSource>();
+        }
+        
+        public void Interact(Transform transform)
+        {
+            _audioSubTitleExecutor.ExecuteSubTitles(subtitle);
+            _audioSource.Play();
         }
     }
 }

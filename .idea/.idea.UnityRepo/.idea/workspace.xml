@@ -5,51 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="27cd5f9d-8e39-41c9-a720-9ee5603f8a3c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/AK STUDIO ART.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/AK STUDIO ART/Radio.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/AK STUDIO ART/Radio/Environment.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/AK STUDIO ART/Radio/Environment/Interior.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/AK STUDIO ART/Radio/Environment/Interior.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/AK STUDIO ART/Radio/Materials.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/AK STUDIO ART/Radio/Materials/Radio.mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/AK STUDIO ART/Radio/Materials/Radio.mat.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/AK STUDIO ART/Radio/Models.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/AK STUDIO ART/Radio/Models/Radio.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/AK STUDIO ART/Radio/Models/Radio/Materials.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/AK STUDIO ART/Radio/Models/Radio/Materials/Radio Albedo.mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/AK STUDIO ART/Radio/Models/Radio/Materials/Radio Albedo.mat.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/AK STUDIO ART/Radio/Models/Radio/Materials/Radio.mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/AK STUDIO ART/Radio/Models/Radio/Materials/Radio.mat.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/AK STUDIO ART/Radio/Models/Radio/Radio Albedo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/AK STUDIO ART/Radio/Models/Radio/Radio Albedo.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/AK STUDIO ART/Radio/Models/Radio/Radio Emission.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/AK STUDIO ART/Radio/Models/Radio/Radio Emission.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/AK STUDIO ART/Radio/Models/Radio/Radio MetallicSmoothness.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/AK STUDIO ART/Radio/Models/Radio/Radio MetallicSmoothness.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/AK STUDIO ART/Radio/Models/Radio/Radio Normal.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/AK STUDIO ART/Radio/Models/Radio/Radio Normal.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/AK STUDIO ART/Radio/Models/Radio/Radio.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/AK STUDIO ART/Radio/Models/Radio/Radio.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/AK STUDIO ART/Radio/Models/Radio/Radio.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/AK STUDIO ART/Radio/Models/Radio/Radio.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/AK STUDIO ART/Radio/Prefabs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/AK STUDIO ART/Radio/Prefabs/Radio.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/AK STUDIO ART/Radio/Prefabs/Radio.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/AK STUDIO ART/Radio/Scenes.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/AK STUDIO ART/Radio/Scenes/Example.unity" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/AK STUDIO ART/Radio/Scenes/Example.unity.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/InteractableItems.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/InteractableItems/IInteractable.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/InteractableItems/IInteractable.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/InteractableItems/InteractManager.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/InteractableItems/InteractManager.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/InteractableItems/Items.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/InteractableItems/Items/Radio.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/InteractableItems/Items/Radio.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.UnityRepo/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.UnityRepo/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Gui/AudioSubTitleExecutor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Gui/AudioSubTitleExecutor.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/lightbody-utility-truck-90-low-poly-model/source/CarPrefab.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/lightbody-utility-truck-90-low-poly-model/source/CarPrefab.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InteractableItems/IInteractable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InteractableItems/IInteractable.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InteractableItems/Items/Radio.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InteractableItems/Items/Radio.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -168,6 +127,7 @@
       <workItem from="1717621487943" duration="317000" />
       <workItem from="1717709230555" duration="624000" />
       <workItem from="1718352219632" duration="10710000" />
+      <workItem from="1718610047543" duration="725000" />
     </task>
     <servers />
   </component>
