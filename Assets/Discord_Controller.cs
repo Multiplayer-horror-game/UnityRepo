@@ -8,7 +8,7 @@ public class Discord_Controller : MonoBehaviour
     public string details = "Playing the real Horror";
     [Space]
     public string largeImage = "zero_logo";
-    public string largeText = "Discord Tutorial";
+    public string largeText = "Soon on steam!";
 
     private long time;
 
