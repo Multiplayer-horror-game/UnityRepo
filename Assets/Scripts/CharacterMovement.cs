@@ -1,4 +1,7 @@
+using System.Collections;
+using Network;
 using Unity.Netcode;
+using Unity.Netcode.Components;
 using UnityEngine;
 
 public class CharacterMovement : NetworkBehaviour
@@ -27,6 +30,8 @@ public class CharacterMovement : NetworkBehaviour
     private CharacterController controller; // Reference to the CharacterController component
     private Vector3 playerVelocity; // Velocity of the player
 
+    private bool isInCar;
+
     // Camera
     [SerializeField] private float cameraYOffset = 1.0f; // Vertical offset for the camera position
     private Camera playerCamera; // Reference to the main camera
@@ -38,6 +43,9 @@ public class CharacterMovement : NetworkBehaviour
     public override void OnNetworkSpawn()
     {
         flashlight = transform.Find("FlashLight").gameObject;
+        
+        //attach player to car
+        StartCoroutine(WaitAndGetCar());
 
         if (!IsOwner) return; // Only execute on the client that owns this object
 
@@ -74,6 +82,35 @@ public class CharacterMovement : NetworkBehaviour
         // Lock cursor
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        
+    }
+
+    private IEnumerator WaitAndGetCar()
+    {
+        yield return new WaitForSeconds(0.5f);
+                //attach player to car
+        NetworkCar networkCar = NetworkCar.Instance;
+        
+        if (networkCar != null)
+        {
+            CapsuleCollider collider = GetComponent<CapsuleCollider>();
+            collider.enabled = false;
+            
+            NetworkTransform networkTransform = GetComponent<NetworkTransform>();
+            networkTransform.enabled = false;
+            
+            networkCar.AttachPlayerToCarServerRpc(NetworkManager.LocalClientId);
+            isInCar = true;
+            
+            
+            animator.SetBool("SittingTrigger", true);
+            
+        }
+        else
+        {
+            isInCar = false;
+            animator.SetBool("SittingTrigger", false);
+        }
     }
 
 
@@ -115,19 +152,37 @@ public class CharacterMovement : NetworkBehaviour
     {
         // Get the look input from the player input
         Vector2 lookInput = input.Player.Look.ReadValue<Vector2>();
+        
+        // Rotate the camera vertically
+        float targetRotation = playerCamera.transform.localEulerAngles.x - lookInput.y * mouseSensitivity * Time.deltaTime;
+        
+        // Clamp the target rotation within the desired range
+        targetRotation = Mathf.Clamp(targetRotation, -lookXLimit, lookXLimit);
+        
+        
+        if (isInCar)
+        {
+            // Wrap the target rotation around 360 degrees
+            if (targetRotation > 180f) targetRotation -= 360f;
+            else if (targetRotation < -180f) targetRotation += 360f;
+            
+            // Rotate the character horizontally (left/right)
+            playerCamera.transform.Rotate(Vector3.up * lookInput.x * mouseSensitivity * Time.deltaTime, Space.Self);
+            
+
+            // Directly apply the clamped rotation to the camera
+            playerCamera.transform.localEulerAngles = new Vector3(targetRotation, playerCamera.transform.localEulerAngles.y, 0);
+            flashlight.transform.localEulerAngles = new Vector3(targetRotation, flashlight.transform.localEulerAngles.y, 0);
+            return;
+        }
+        
 
         // Rotate the character horizontally (left/right)
         transform.Rotate(Vector3.up * lookInput.x * mouseSensitivity * Time.deltaTime, Space.Self);
 
-        // Rotate the camera vertically
-        float targetRotation = playerCamera.transform.localEulerAngles.x - lookInput.y * mouseSensitivity * Time.deltaTime;
-
         // Wrap the target rotation around 360 degrees
         if (targetRotation > 180f) targetRotation -= 360f;
         else if (targetRotation < -180f) targetRotation += 360f;
-
-        // Clamp the target rotation within the desired range
-        targetRotation = Mathf.Clamp(targetRotation, -lookXLimit, lookXLimit);
 
         // Directly apply the clamped rotation to the camera
         playerCamera.transform.localEulerAngles = new Vector3(targetRotation, playerCamera.transform.localEulerAngles.y, 0);
@@ -137,6 +192,8 @@ public class CharacterMovement : NetworkBehaviour
 
     void HandleMovement()
     {
+        if(isInCar) return;
+        
         // Get the current speed values from the Animator
         float speedX = animator.GetFloat(speedXHash);
         float speedY = animator.GetFloat(speedYHash);
@@ -157,6 +214,9 @@ public class CharacterMovement : NetworkBehaviour
 
     void ApplyMovement()
     {
+        
+        if(isInCar) return;
+        
         // Calculate the intended movement direction based on input
         Vector3 moveInput = new Vector3(currentMovement.x, 0f, currentMovement.y);
         moveInput = moveInput.normalized;

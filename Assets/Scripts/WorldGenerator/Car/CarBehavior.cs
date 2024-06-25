@@ -28,12 +28,18 @@ namespace Fase1.Car
         
         private List<Vector2> _controlPoints;
         
+        private NoiseGenerator _noiseGenerator;
+        
+        Transform transform1;
+        
         public void Start()
         {
             
             StartCoroutine(Waiting());
 
             rb = GetComponent<Rigidbody>();
+            
+            transform1 = transform;
         }
 
         IEnumerator Waiting()
@@ -65,7 +71,16 @@ namespace Fase1.Car
             }
             
             Vector2 position = BezierCurve.DeCasteljau(_controlPoints, t);
-            transform.position = new Vector3(position.x,transform.position.y,position.y - 4f);
+            
+            if (_noiseGenerator != null)
+            {
+                transform1.position = new Vector3(position.x,_noiseGenerator.GetNoiseValue(position.x,position.y) + 1,position.y - 4f);
+            }
+            else
+            {
+                transform1.position = new Vector3(position.x,transform.position.y,position.y - 4f);
+            }
+            
             
             transform.rotation = Quaternion.Euler(0,GetRotation(position,BezierCurve.DeCasteljau(_controlPoints, t + 0.01f)),0);
             
@@ -128,6 +143,11 @@ namespace Fase1.Car
             {
                 Gizmos.DrawLine(new Vector3(_controlPoints[i].x,0,_controlPoints[i].y),new Vector3(_controlPoints[i + 1].x,0,_controlPoints[i + 1].y));
             }
+        }
+
+        public void GiftNoiseGenerator(NoiseGenerator noiseGenerator)
+        {
+            _noiseGenerator = noiseGenerator;
         }
     }
 }

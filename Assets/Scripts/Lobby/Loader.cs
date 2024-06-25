@@ -10,5 +10,10 @@ namespace Kart
         {
             NetworkManager.Singleton.SceneManager.LoadScene(scene.Name, LoadSceneMode.Single);
         }
+        
+        public static void LoadAdditive(SceneReference scene)
+        {
+            NetworkManager.Singleton.SceneManager.LoadScene(scene.Name, LoadSceneMode.Additive);
+        }
     }
 }

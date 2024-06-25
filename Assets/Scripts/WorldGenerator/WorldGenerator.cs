@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using Fase1.Car;
 using Fase1.MeshComponents;
 using UnityEditor.Rendering;
 using Fase1.ScriptableObjects;
@@ -98,6 +99,8 @@ namespace Fase1
             //initialize noise and meshcomponents for the world mesh
             _noiseGenerator = new NoiseGenerator(scale, _xOffset, _yOffset, verticesPerChunk, heightMultiplier, heightOffset, physicalSize);
             
+            mainObject.GetComponent<CarBehavior>().GiftNoiseGenerator(_noiseGenerator);
+            
             FloorComponent floorComponent = new FloorComponent(_noiseGenerator);
             MeshBuilder.AddMeshComponent(floorComponent);
             
@@ -162,11 +165,13 @@ namespace Fase1
             _threads.RemoveAll(thread => !thread.IsAlive);
 
             //if there are any unitialized chunks, start a new thread to generate them
-                while (_threads.Count < multithreading && _unInitialized.Count > 0)
-                {
-                    var position = _unInitialized.Dequeue();
-                    GenerateChunkThread(position);
-                }
+            for (int i = 0; i < _unInitialized.Count; i++)
+            {
+                if (!(_threads.Count < multithreading)) break;
+                
+                var position = _unInitialized.Dequeue();
+                GenerateChunkThread(position);
+            }
                 
             UpdateRenderList();
             
@@ -193,7 +198,6 @@ namespace Fase1
         //generate a chunk in a new thread
         void GenerateChunkThread(Vector2Int position)
         {
-            Debug.Log("Generating Chunk");
             
             MeshBuilder meshBuilder = new MeshBuilder(verticesPerChunk, physicalSize, position);
             
@@ -270,8 +274,6 @@ namespace Fase1
         //cus we are using threads, we need to use the main thread to instantiate the gameobject and create meshes
         private void BuildMesh(MeshBuilder meshBuilder)
         {
-            Debug.Log("Building Mesh");
-            
             Vector2Int position = meshBuilder.GetChunkPosition();
             
             Mesh mesh = meshBuilder.BuildMesh();
