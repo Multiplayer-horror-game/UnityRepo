@@ -6,15 +6,21 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Lobby.unity
+    guid: 07fc93c34fe1b6447a3971e22859fc3f
+  - enabled: 1
     path: Assets/Scenes/Multiplayer.unity
     guid: 7bbc942d50a2f4efbb46e25cb9fc6dce
+  - enabled: 1
+    path: Assets/Scenes/Fase1.unity
+    guid: 6c4f4b22de4617749ad1b34bc0dfc42b
   - enabled: 0
     path: Assets/Damaged Road Materials/Demo/Damaged Road Demo.unity
     guid: 8124e5870f4fd4c779e7a5f994e84ad1
-  - enabled: 1
-    path: Assets/Prefabs/MainUI/Scenes/SampleScene.unity
+  - enabled: 0
+    path: Assets/Front-End/Scenes/SampleScene.unity
     guid: 1a340f2d30f8fbb4e8b3066edad9a20d
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/PersistantData.unity
     guid: 5ad7fbb27935fe2498d496a4d4c184f6
   m_configObjects: {}

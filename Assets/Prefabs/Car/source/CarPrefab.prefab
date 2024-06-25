@@ -98,11 +98,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 7905389032120719766}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c4e501fc14b448e922f285e8ab954b5, type: 3}
+  m_Script: {fileID: 11500000, guid: a50a6b281647eb54baebf7dc97f83bef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
-  loops: 2000
+  speed: 1
+  loops: 1000
   worldGenerator: {fileID: 0}
 --- !u!65 &2311503251131200101
 BoxCollider:

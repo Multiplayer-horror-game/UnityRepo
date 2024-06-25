@@ -37,13 +37,21 @@ public class CharacterMovement : NetworkBehaviour
 
     public override void OnNetworkSpawn()
     {
-        
         flashlight = transform.Find("FlashLight").gameObject;
-        
+
         if (!IsOwner) return; // Only execute on the client that owns this object
 
         // Set up the camera
         playerCamera = Camera.main;
+
+        if (playerCamera == null)
+        {
+            // No main camera found, create a new one
+            GameObject cameraGameObject = new GameObject("PlayerCamera");
+            playerCamera = cameraGameObject.AddComponent<Camera>();
+            cameraGameObject.AddComponent<AudioListener>(); // Optionally add an AudioListener if needed
+        }
+
         playerCamera.transform.position = new Vector3(transform.position.x, transform.position.y + cameraYOffset, transform.position.z);
         playerCamera.transform.SetParent(transform);
 
@@ -67,6 +75,7 @@ public class CharacterMovement : NetworkBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
+
 
     private void OnDisable()
     {
