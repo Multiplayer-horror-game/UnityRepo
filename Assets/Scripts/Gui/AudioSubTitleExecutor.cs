@@ -29,14 +29,15 @@ namespace Gui
         
         public void ExecuteSubTitles(SubTitle subtitle)
         {
-            if(subtitle.audioClip != null)
+            if(subtitle != null && subtitle.audioClip != null)
             {
                 Debug.Log("Playing audio");
                 _audioSource.clip = subtitle.audioClip;
                 _audioSource.Play();
+                
+                StartCoroutine(playAudio(subtitle));
             }
-
-            StartCoroutine(playAudio(subtitle));
+            
         }
 
         IEnumerator playAudio(SubTitle subtitle)

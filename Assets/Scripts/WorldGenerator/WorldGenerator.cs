@@ -140,7 +140,6 @@ namespace Fase1
             //if there are any meshbuilders in the queue, build them
             if(_meshBuilders.Count != 0)
             {
-                
                 KeyValuePair<Vector2Int, MeshBuilder> meshBuilderKvp = _meshBuilders.Peek();
                 
                 if (meshBuilderKvp.Value != null)
@@ -152,7 +151,8 @@ namespace Fase1
                     
                     if(meshBuilderKvp.Value.State == MeshState.Failed)
                     {
-                        _meshBuilders.Dequeue();
+                        KeyValuePair<Vector2Int,MeshBuilder> failedBuilder = _meshBuilders.Dequeue();
+                        _unInitialized.Enqueue(failedBuilder.Key);
                     }
                 }
             }
@@ -193,6 +193,8 @@ namespace Fase1
         //generate a chunk in a new thread
         void GenerateChunkThread(Vector2Int position)
         {
+            Debug.Log("Generating Chunk");
+            
             MeshBuilder meshBuilder = new MeshBuilder(verticesPerChunk, physicalSize, position);
             
             _meshBuilders.Enqueue(new KeyValuePair<Vector2Int, MeshBuilder>(meshBuilder.GetChunkPosition(),meshBuilder));
@@ -268,6 +270,8 @@ namespace Fase1
         //cus we are using threads, we need to use the main thread to instantiate the gameobject and create meshes
         private void BuildMesh(MeshBuilder meshBuilder)
         {
+            Debug.Log("Building Mesh");
+            
             Vector2Int position = meshBuilder.GetChunkPosition();
             
             Mesh mesh = meshBuilder.BuildMesh();
