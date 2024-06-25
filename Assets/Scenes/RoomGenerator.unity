@@ -207,21 +207,21 @@ MonoBehaviour:
       east: 1
       south: 1
       west: 1
-  - hallway: {fileID: 5239228406373521330, guid: 5e1983e1a420cab4e8064aa60089e477,
+  - hallway: {fileID: 790658288719830417, guid: c6b2f92ec01d6534eae0eb9e0774499a,
       type: 3}
     directions:
       north: 1
       east: 0
       south: 1
       west: 0
-  - hallway: {fileID: 1232488872479379525, guid: c4c9114ee33c717448aa7a3f1382362a,
+  - hallway: {fileID: 790658288719830417, guid: db0e5f077947650468e67d810cb283c6,
       type: 3}
     directions:
-      north: 0
+      north: 1
       east: 1
       south: 1
-      west: 1
-  - hallway: {fileID: 1232488872479379525, guid: 93e4c907e5be34645ade46b4978d8f12,
+      west: 0
+  - hallway: {fileID: 790658288719830417, guid: 493887f5aae7a184c97669068f85e241,
       type: 3}
     directions:
       north: 0
