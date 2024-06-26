@@ -156,6 +156,9 @@ public class CharacterMovement : NetworkBehaviour
         // Calculate and clamp the target vertical rotation
         float targetVerticalRotation = playerCamera.transform.localEulerAngles.x - lookInput.y * mouseSensitivity * Time.deltaTime;
         targetVerticalRotation = Mathf.Clamp(targetVerticalRotation, -lookXLimit, lookXLimit);
+        
+        if (targetVerticalRotation > 180f) targetVerticalRotation -= 360f;
+        else if (targetVerticalRotation < -180f) targetVerticalRotation += 360f;
 
         // Horizontal rotation input
         float horizontalRotation = lookInput.x * mouseSensitivity * Time.deltaTime;

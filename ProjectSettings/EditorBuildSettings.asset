@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/PersistantData.unity
+    guid: 5ad7fbb27935fe2498d496a4d4c184f6
+  - enabled: 1
     path: Assets/Scenes/Lobby.unity
     guid: 07fc93c34fe1b6447a3971e22859fc3f
   - enabled: 1
@@ -20,9 +23,6 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Front-End/Scenes/SampleScene.unity
     guid: 1a340f2d30f8fbb4e8b3066edad9a20d
-  - enabled: 1
-    path: Assets/Scenes/PersistantData.unity
-    guid: 5ad7fbb27935fe2498d496a4d4c184f6
   - enabled: 1
     path: Assets/Scenes/RoomGenerator.unity
     guid: 3cd0b86deaaaa214fa979f2f3d925c3d

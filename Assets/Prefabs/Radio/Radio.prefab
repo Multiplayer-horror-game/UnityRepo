@@ -57,7 +57,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 3518060530
+  GlobalObjectIdHash: 2104652904
   InScenePlacedSourceGlobalObjectIdHash: 0
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
@@ -78,7 +78,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adece1489ae04992805f5aa4538d1f63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  subtitle: {fileID: 11400000, guid: c77116144bc88e04eb0a7e237cf31414, type: 2}
+  subtitle: {fileID: 11400000, guid: 24a311fe6b0d9da4a9ec82c74cdc5013, type: 2}
   roomgen:
     asset: {fileID: 102900000, guid: 3cd0b86deaaaa214fa979f2f3d925c3d, type: 3}
     guid: 3cd0b86deaaaa214fa979f2f3d925c3d
