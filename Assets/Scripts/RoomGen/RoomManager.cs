@@ -336,7 +336,6 @@ namespace RoomGenerator.scripts
         public void AddHallway(GameObject hallwayObject, Vector2Int pos, Quaternion dir)
         {
             GameObject hallway = Instantiate(hallwayObject, new Vector3(pos.x * scale, 0, pos.y * scale), dir);
-            hallway.transform.localScale = new Vector3(scale, scale, scale);
         }
 
     }
