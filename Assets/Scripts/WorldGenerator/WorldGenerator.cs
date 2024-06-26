@@ -4,12 +4,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using Eflatun.SceneReference;
 using Fase1.Car;
 using Fase1.MeshComponents;
 using UnityEditor.Rendering;
 using Fase1.ScriptableObjects;
 using Fase1.Scripts.Math;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
 namespace Fase1
@@ -17,6 +19,9 @@ namespace Fase1
 {
     public class WorldGenerator : MonoBehaviour
     {
+        [Header("scene")] 
+        public SceneReference sceneRef;
+        private Scene scene;
         [Header("Seed")]
         public string textBasedSeed;
 
@@ -87,6 +92,8 @@ namespace Fase1
         
         void Start()
         {
+
+            scene = SceneManager.GetSceneByName(sceneRef.Name);
             
             seed = textBasedSeed.GetHashCode();
             
@@ -108,8 +115,8 @@ namespace Fase1
             MeshBuilder.AddMeshComponent(_roadComponent);
             
 
-            NatureComponent natureComponent = new NatureComponent(_noiseGenerator,natureObjects);
-            MeshBuilder.AddChildren(natureComponent);
+            //NatureComponent natureComponent = new NatureComponent(_noiseGenerator,natureObjects);
+            //MeshBuilder.AddChildren(natureComponent);
         }
 
         private void Update()
@@ -282,6 +289,8 @@ namespace Fase1
             meshObj.AddComponent<MeshFilter>().mesh = mesh;
             meshObj.GetComponent<MeshCollider>().sharedMesh = mesh;
             meshObj.name = "Chunk (" + position.x + "," + position.y + ")";
+            
+            SceneManager.MoveGameObjectToScene(meshObj,scene);
             
             //last meshbuilder operation to add children to the gameobject (trees,stones,etc)
             meshBuilder.ChildOperation(this,meshObj);

@@ -148,6 +148,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f8aaa16c45cd514dbb303c02935e3d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneRef:
+    asset: {fileID: 102900000, guid: 6c4f4b22de4617749ad1b34bc0dfc42b, type: 3}
+    guid: 6c4f4b22de4617749ad1b34bc0dfc42b
   textBasedSeed: gijs
   seed: 0
   heightMultiplier: 50

@@ -5,14 +5,31 @@ namespace InteractableItems
 {
     public class InteractManager : MonoBehaviour
     {
+        private Camera _camera;
+        
+        private void Start()
+        {
+            _camera = Camera.main;
+        }
+        
+        
         public void Update()
         {
-            throw new NotImplementedException();
+            if (Input.GetMouseButtonDown(0))
+            {
+                Debug.Log("Mouse button down");
+                OnInteractButtonDown();
+            }
         }
 
         public void OnInteractButtonDown()
         {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            if (_camera == null)
+            {
+                _camera = Camera.main;
+            }
+            
+            Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit, 5))
             {

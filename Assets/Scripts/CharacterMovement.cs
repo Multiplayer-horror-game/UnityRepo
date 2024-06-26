@@ -152,41 +152,32 @@ public class CharacterMovement : NetworkBehaviour
     {
         // Get the look input from the player input
         Vector2 lookInput = input.Player.Look.ReadValue<Vector2>();
-        
-        // Rotate the camera vertically
-        float targetRotation = playerCamera.transform.localEulerAngles.x - lookInput.y * mouseSensitivity * Time.deltaTime;
-        
-        // Clamp the target rotation within the desired range
-        targetRotation = Mathf.Clamp(targetRotation, -lookXLimit, lookXLimit);
-        
-        
+    
+        // Calculate and clamp the target vertical rotation
+        float targetVerticalRotation = playerCamera.transform.localEulerAngles.x - lookInput.y * mouseSensitivity * Time.deltaTime;
+        targetVerticalRotation = Mathf.Clamp(targetVerticalRotation, -lookXLimit, lookXLimit);
+
+        // Horizontal rotation input
+        float horizontalRotation = lookInput.x * mouseSensitivity * Time.deltaTime;
+
         if (isInCar)
         {
-            // Wrap the target rotation around 360 degrees
-            if (targetRotation > 180f) targetRotation -= 360f;
-            else if (targetRotation < -180f) targetRotation += 360f;
-            
-            // Rotate the character horizontally (left/right)
-            playerCamera.transform.Rotate(Vector3.up * lookInput.x * mouseSensitivity * Time.deltaTime, Space.Self);
-            
+            // Rotate the character horizontally (left/right) around the car
+            playerCamera.transform.Rotate(Vector3.up * horizontalRotation, Space.Self);
 
-            // Directly apply the clamped rotation to the camera
-            playerCamera.transform.localEulerAngles = new Vector3(targetRotation, playerCamera.transform.localEulerAngles.y, 0);
-            flashlight.transform.localEulerAngles = new Vector3(targetRotation, flashlight.transform.localEulerAngles.y, 0);
-            return;
+            // Directly apply the clamped vertical rotation to the camera
+            playerCamera.transform.localEulerAngles = new Vector3(targetVerticalRotation, playerCamera.transform.localEulerAngles.y, 0);
+            flashlight.transform.localEulerAngles = new Vector3(targetVerticalRotation, flashlight.transform.localEulerAngles.y, 0);
         }
-        
+        else
+        {
+            // Rotate the character horizontally (left/right)
+            transform.Rotate(Vector3.up * horizontalRotation, Space.Self);
 
-        // Rotate the character horizontally (left/right)
-        transform.Rotate(Vector3.up * lookInput.x * mouseSensitivity * Time.deltaTime, Space.Self);
-
-        // Wrap the target rotation around 360 degrees
-        if (targetRotation > 180f) targetRotation -= 360f;
-        else if (targetRotation < -180f) targetRotation += 360f;
-
-        // Directly apply the clamped rotation to the camera
-        playerCamera.transform.localEulerAngles = new Vector3(targetRotation, playerCamera.transform.localEulerAngles.y, 0);
-        flashlight.transform.localEulerAngles = new Vector3(targetRotation, flashlight.transform.localEulerAngles.y, 0);
+            // Directly apply the clamped vertical rotation to the camera
+            playerCamera.transform.localEulerAngles = new Vector3(targetVerticalRotation, playerCamera.transform.localEulerAngles.y, 0);
+            flashlight.transform.localEulerAngles = new Vector3(targetVerticalRotation, flashlight.transform.localEulerAngles.y, 0);
+        }
     }
 
 
@@ -251,6 +242,19 @@ public class CharacterMovement : NetworkBehaviour
 
         // Apply movement to the character
         controller.Move(move * Time.deltaTime);
+    }
+    
+    public void LeaveCar()
+    {
+        CapsuleCollider collider = GetComponent<CapsuleCollider>();
+        collider.enabled = true;
+        
+        NetworkTransform networkTransform = GetComponent<NetworkTransform>();
+        networkTransform.enabled = true;
+        
+        transform.SetParent(null);
+        isInCar = false;
+        animator.SetBool("SittingTrigger", false);
     }
 
 }

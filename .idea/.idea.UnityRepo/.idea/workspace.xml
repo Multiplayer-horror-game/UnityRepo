@@ -5,54 +5,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="27cd5f9d-8e39-41c9-a720-9ee5603f8a3c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/AK STUDIO ART.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/AK STUDIO ART/Radio.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/AK STUDIO ART/Radio/Materials.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/AK STUDIO ART/Radio/Materials/Radio.mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/AK STUDIO ART/Radio/Materials/Radio.mat.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/AK STUDIO ART/Radio/Models.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/AK STUDIO ART/Radio/Models/Radio.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/AK STUDIO ART/Radio/Models/Radio/Radio Albedo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/AK STUDIO ART/Radio/Models/Radio/Radio Albedo.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/AK STUDIO ART/Radio/Models/Radio/Radio Emission.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/AK STUDIO ART/Radio/Models/Radio/Radio Emission.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/AK STUDIO ART/Radio/Models/Radio/Radio MetallicSmoothness.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/AK STUDIO ART/Radio/Models/Radio/Radio MetallicSmoothness.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/AK STUDIO ART/Radio/Models/Radio/Radio Normal.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/AK STUDIO ART/Radio/Models/Radio/Radio Normal.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/AK STUDIO ART/Radio/Models/Radio/Radio.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/AK STUDIO ART/Radio/Models/Radio/Radio.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/AK STUDIO ART/Radio/Models/Radio/Radio.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/AK STUDIO ART/Radio/Models/Radio/Radio.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Character/Sitting.anim" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Character/Sitting.anim.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Network.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Network/NetworkCar.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Network/NetworkCar.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Network/Seat.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Network/Seat.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/AudioFragment.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/AudioFragment/Intro.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/AudioFragment/Intro.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/AudioFragment/Short.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/AudioFragment/Short.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/StartGame.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/StartGame.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.UnityRepo/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.UnityRepo/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Character/movementController.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Character/movementController.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Radio/Radio 1.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Radio/Radio 1.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Radio/Radio Albedo.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Radio/Radio Albedo.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Radio/Radio.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Radio/Radio.mat.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Car/source/CarPrefab.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Car/source/CarPrefab.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Player.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Radio/Interior.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Radio/Interior.png.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Radio/Radio.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Radio/Radio.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Radio/Radio.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Radio/Radio.prefab.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Fase1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Fase1.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Lobby.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Lobby.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/PersistantData.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/PersistantData.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/RoomGenerator.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/RoomGenerator.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/CharacterMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CharacterMovement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Gui/AudioSubTitleExecutor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Gui/AudioSubTitleExecutor.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InteractableItems/InteractManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InteractableItems/InteractManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InteractableItems/Items/Radio.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InteractableItems/Items/Radio.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Lobby/Loader.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Lobby/Loader.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Lobby/LobbyUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Lobby/LobbyUI.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/WorldGenerator/Car/CarBehavior.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/WorldGenerator/Car/CarBehavior.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/WorldGenerator/WorldGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/WorldGenerator/WorldGenerator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/Packages/com.eflatun.scenereference/Settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Packages/com.eflatun.scenereference/Settings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Textures/Radio/Radio Albedo.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Textures/Radio/Radio Albedo.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,8 +41,8 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Gui/AudioSubTitleExecutor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Gui/SubTitles/SubTitle.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/InteractableItems/IInteractable.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Network/ICanMount.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Network/NetworkCar.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/StartGame.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.burst@1.8.12/Tests/Editor/BurstDisassemblerTests.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.burst@1.8.12/Tests/Runtime/Shared/060-TestEnums.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.7.0/InputSystem/Plugins/PlayerInput/PlayerInput.cs" root0="SKIP_HIGHLIGHTING" />
@@ -186,7 +161,7 @@
       <workItem from="1718124928176" duration="217000" />
       <workItem from="1718181219298" duration="4772000" />
       <workItem from="1719310275102" duration="5845000" />
-      <workItem from="1719328885780" duration="15411000" />
+      <workItem from="1719328885780" duration="25495000" />
     </task>
     <servers />
   </component>

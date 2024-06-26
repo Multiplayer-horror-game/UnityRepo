@@ -1668,6 +1668,9 @@ MonoBehaviour:
   gameScene:
     asset: {fileID: 102900000, guid: 6c4f4b22de4617749ad1b34bc0dfc42b, type: 3}
     guid: 6c4f4b22de4617749ad1b34bc0dfc42b
+  persistantData:
+    asset: {fileID: 102900000, guid: 5ad7fbb27935fe2498d496a4d4c184f6, type: 3}
+    guid: 5ad7fbb27935fe2498d496a4d4c184f6
 --- !u!1 &1165401255
 GameObject:
   m_ObjectHideFlags: 0
