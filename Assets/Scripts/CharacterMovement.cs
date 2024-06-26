@@ -255,6 +255,13 @@ public class CharacterMovement : NetworkBehaviour
         transform.SetParent(null);
         isInCar = false;
         animator.SetBool("SittingTrigger", false);
+        
+        playerCamera.transform.rotation = Quaternion.EulerAngles(0, 0, 0);
+    }
+
+    public void ResetCameraRotation()
+    {
+        playerCamera.transform.rotation = Quaternion.EulerAngles(0, 0, 0);
     }
 
 }

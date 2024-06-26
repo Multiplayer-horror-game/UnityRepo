@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
+using Eflatun.SceneReference;
 using RoomGenerator.scripts.Structs;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
 namespace RoomGenerator.scripts
@@ -9,6 +11,10 @@ namespace RoomGenerator.scripts
     public class RoomManager : MonoBehaviour
     {
         private MazeGenerator _mazeGenerator;
+        
+        public SceneReference hallwayScene;
+
+        private Scene scene;
 
         //_size of the world grid
         public Vector2Int gridSize = new Vector2Int(10, 10);
@@ -32,6 +38,8 @@ namespace RoomGenerator.scripts
         
         void Start()
         {
+            scene = SceneManager.GetSceneByName(hallwayScene.Name);
+            
             _mazeGenerator = new MazeGenerator(hallways,this);
                 
                 
@@ -57,6 +65,7 @@ namespace RoomGenerator.scripts
 
                 GameObject instantiatedRoom = Instantiate(room.gameObject, new Vector3(room.staticPosition.x * scale + offset.x, 0 + offset.y, room.staticPosition.y * scale + offset.z), new Quaternion());
                 Room roomClass = instantiatedRoom.GetComponent<Room>();
+                SceneManager.MoveGameObjectToScene(instantiatedRoom,scene);
                 
                 List<Vector2Int> realizedPositions = new List<Vector2Int>();
                 
@@ -97,6 +106,7 @@ namespace RoomGenerator.scripts
                 
                 GameObject instantiatedRoom = Instantiate(room.gameObject, new Vector3((x * scale) + offset.x,0 + offset.y,(y * scale) + offset.z),new Quaternion());
                 Room roomClass = instantiatedRoom.GetComponent<Room>();
+                SceneManager.MoveGameObjectToScene(instantiatedRoom,scene);
                 
                 List<Vector2Int> realizedPositions = new List<Vector2Int>();
                 
@@ -140,6 +150,7 @@ namespace RoomGenerator.scripts
                 
                     GameObject instantiatedRoom = Instantiate(room.gameObject, new Vector3((x * scale) + offset.x,0 + offset.y,(y * scale) + offset.z),new Quaternion());
                     Room roomClass = instantiatedRoom.GetComponent<Room>();
+                    SceneManager.MoveGameObjectToScene(instantiatedRoom,scene);
                 
                     List<Vector2Int> realizedPositions = new List<Vector2Int>();
                 
@@ -336,6 +347,7 @@ namespace RoomGenerator.scripts
         public void AddHallway(GameObject hallwayObject, Vector2Int pos, Quaternion dir)
         {
             GameObject hallway = Instantiate(hallwayObject, new Vector3(pos.x * scale, 0, pos.y * scale), dir);
+            SceneManager.MoveGameObjectToScene(hallway,scene);
         }
 
     }
