@@ -23,7 +23,7 @@ public class CharacterMovement : NetworkBehaviour
     [SerializeField] private float backwardsSpeed = 1.0f; // Speed modifier for backward movement
     [SerializeField] private float runSpeed = 8f; // Speed modifier for running
     [SerializeField] private float mouseSensitivity = 10f; // Mouse sensitivity
-    [SerializeField] private float lookXLimit = 40.0f; // Mouse sensitivity
+    [SerializeField] private float lookXLimit = 40f; // Mouse sensitivity
     private float speedDampTime = 0.1f; // Time it takes for the character to reach the desired speed
     private float speedThreshold = 0.01f; // Threshold for stopping the character's movement
     private Vector2 speedValue; // Current speed value used for animation
@@ -32,10 +32,13 @@ public class CharacterMovement : NetworkBehaviour
 
     private bool isInCar;
 
+    //Footsteps
+    [SerializeField] public AudioSource footstepSound;
+
     // Camera
     [SerializeField] private float cameraYOffset = 1.0f; // Vertical offset for the camera position
     private Camera playerCamera; // Reference to the main camera
-    
+
     //FlashLight
     private GameObject flashlight;
     private NetworkVariable<bool> flashlightState = new NetworkVariable<bool>(true, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
@@ -43,7 +46,7 @@ public class CharacterMovement : NetworkBehaviour
     public override void OnNetworkSpawn()
     {
         flashlight = transform.Find("FlashLight").gameObject;
-        
+
         //attach player to car
         StartCoroutine(WaitAndGetCar());
 
@@ -82,29 +85,29 @@ public class CharacterMovement : NetworkBehaviour
         // Lock cursor
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-        
+
     }
 
     private IEnumerator WaitAndGetCar()
     {
         yield return new WaitForSeconds(0.5f);
-                //attach player to car
+        //attach player to car
         NetworkCar networkCar = NetworkCar.Instance;
-        
+
         if (networkCar != null)
         {
             CapsuleCollider collider = GetComponent<CapsuleCollider>();
             collider.enabled = false;
-            
+
             NetworkTransform networkTransform = GetComponent<NetworkTransform>();
             networkTransform.enabled = false;
-            
+
             networkCar.AttachPlayerToCarServerRpc(NetworkManager.LocalClientId);
             isInCar = true;
-            
-            
+
+
             animator.SetBool("SittingTrigger", true);
-            
+
         }
         else
         {
@@ -123,7 +126,7 @@ public class CharacterMovement : NetworkBehaviour
     void Update()
     {
         HandleFlashlight(); // Handle flashlight state
-        
+
         if (!IsOwner) return; // Only execute on the client that owns this object
 
         HandleMovement(); // Calculate movement values
@@ -131,10 +134,10 @@ public class CharacterMovement : NetworkBehaviour
         ApplyMovement(); // Apply movement to the character
         HandleFlashlightInput(); //handle flashlight input
     }
-    
+
     private void HandleFlashlight()
     {
-        if(flashlightState.Value != flashlight.activeSelf)
+        if (flashlightState.Value != flashlight.activeSelf)
         {
             flashlight.SetActive(flashlightState.Value);
         }
@@ -152,11 +155,11 @@ public class CharacterMovement : NetworkBehaviour
     {
         // Get the look input from the player input
         Vector2 lookInput = input.Player.Look.ReadValue<Vector2>();
-    
+
         // Calculate and clamp the target vertical rotation
         float targetVerticalRotation = playerCamera.transform.localEulerAngles.x - lookInput.y * mouseSensitivity * Time.deltaTime;
         targetVerticalRotation = Mathf.Clamp(targetVerticalRotation, -lookXLimit, lookXLimit);
-        
+
         if (targetVerticalRotation > 180f) targetVerticalRotation -= 360f;
         else if (targetVerticalRotation < -180f) targetVerticalRotation += 360f;
 
@@ -186,8 +189,8 @@ public class CharacterMovement : NetworkBehaviour
 
     void HandleMovement()
     {
-        if(isInCar) return;
-        
+        if (isInCar) return;
+
         // Get the current speed values from the Animator
         float speedX = animator.GetFloat(speedXHash);
         float speedY = animator.GetFloat(speedYHash);
@@ -208,9 +211,9 @@ public class CharacterMovement : NetworkBehaviour
 
     void ApplyMovement()
     {
-        
-        if(isInCar) return;
-        
+
+        if (isInCar) return;
+
         // Calculate the intended movement direction based on input
         Vector3 moveInput = new Vector3(currentMovement.x, 0f, currentMovement.y);
         moveInput = moveInput.normalized;
@@ -237,6 +240,15 @@ public class CharacterMovement : NetworkBehaviour
         if (moveInput.x != 0 && moveInput.z != 0)
         {
             targetSpeed *= 0.7071f; // Approximation of 1/sqrt(2) for diagonal movement
+        }
+
+        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
+        {
+            footstepSound.enabled = true;
+        }
+        else
+        {
+            footstepSound.enabled = false;
         }
 
         // Apply rotation to the intended movement direction

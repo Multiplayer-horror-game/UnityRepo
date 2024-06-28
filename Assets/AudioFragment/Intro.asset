@@ -14,44 +14,42 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioClip: {fileID: 0}
   subTitles:
-  - time: 4
+  - time: 3.38
     text: kkrrggggg.........
   - time: 7
     text: 'Good day researcher we have pin pointed your next location. Its an laboratory
       where the supernatural goes to a next level. '
-  - time: 4
+  - time: 5.2
     text: KRGG......KRGG.....
-  - time: 7
+  - time: 6.5
     text: Experiments were done on various animals. And the results were almost demonic.
       Recently they have switched to using human beings.
-  - time: 7
+  - time: 8.1
     text: Sinds then they have gone radio silent with us and we are not able to reach
       them anymore. No other contacts from anything connected to the laboratory have
       replied to any of our calls.
-  - time: 7
+  - time: 2.34
     text: KRGGGGGGGGGGGGGGGGGGGGGGGGGGG.....
-  - time: 10
+  - time: 4.16
     text: Anyway we are sending you to the laboratory to investigate what exactly
       happend to the place.
-  - time: 10
+  - time: 4.34
     text: We need some documents so we have solid proof of what has happend to everyone
       and why.
-  - time: 10
+  - time: 5.22
     text: Just know these documents are Insanely important so make sure you find
       them. Secure them and don't let go of them
-  - time: 5
-    text: 
-  - time: 5
-    text: voice more in the background
-  - time: 5
+  - time: 4
+    text: KRGG......KRGG.....
+  - time: 3.1
     text: fred i think we have fucked up man this is not good.
-  - time: 5
+  - time: 3.4
     text: We are sending researchers to what is to believed a terrorist active location.
-  - time: 6
-    text: We are sending researchers to what is to believed a terrorist active location.
-  - time: 4
-    text: Uhm dude my mic is still open.
-  - time: 4
+  - time: 2.5
+    text: Uhm dude my mic is open.
+  - time: 2
     text: 'I hope they didnt hear it. '
-  - time: 7
+  - time: 2.4
     text: Goodluck crew!. we are counting on you.
+  - time: 4.44
+    text: 
