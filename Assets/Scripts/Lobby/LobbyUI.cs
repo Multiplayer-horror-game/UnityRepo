@@ -31,7 +31,13 @@ namespace Kart
         async void JoinGame()
         {
             Debug.Log("Joining Game");
-            await Multiplayer.Instance.QuickJoinLobby();
+            bool result = await Multiplayer.Instance.QuickJoinLobby();
+
+            if (result)
+            {
+                Scene scene = SceneManager.GetSceneByName("Lobby");
+                SceneManager.UnloadSceneAsync(scene);
+            }
         }
     }
 }

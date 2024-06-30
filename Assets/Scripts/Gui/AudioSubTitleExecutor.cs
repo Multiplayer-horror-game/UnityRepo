@@ -30,7 +30,6 @@ namespace Gui
         {
             if(subtitle != null)
             {
-                Debug.Log("Playing audio");
                 if (subtitle.audioClip != null)
                 {
                     _audioSource.clip = subtitle.audioClip;
@@ -58,7 +57,6 @@ namespace Gui
         IEnumerator PlayFragment(SubTitleFragments fragment)
         {
             subTitlesText.text = fragment.text;
-            Debug.Log(fragment.text);
             yield return new WaitForSeconds(fragment.time);
         }
         
@@ -69,7 +67,7 @@ namespace Gui
         
         private void OnCoroutineComplete()
         {
-            Debug.Log("Coroutine is complete!");
+            subTitlesText.text = "";
             _isPlaying = false;
         }
         

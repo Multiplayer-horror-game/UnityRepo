@@ -64,6 +64,7 @@ public class CharacterMovement : NetworkBehaviour
         }
 
         playerCamera.transform.position = new Vector3(transform.position.x, transform.position.y + cameraYOffset, transform.position.z);
+        
         playerCamera.transform.SetParent(transform);
 
         // Set up input handling
@@ -158,7 +159,10 @@ public class CharacterMovement : NetworkBehaviour
 
         // Calculate and clamp the target vertical rotation
         float targetVerticalRotation = playerCamera.transform.localEulerAngles.x - lookInput.y * mouseSensitivity * Time.deltaTime;
-        targetVerticalRotation = Mathf.Clamp(targetVerticalRotation, -lookXLimit, lookXLimit);
+
+        //fixed rotation
+        if (targetVerticalRotation is > 40 and < 180) targetVerticalRotation = 40;
+        else if (targetVerticalRotation is < 320 and > 180 ) targetVerticalRotation = 320;
 
         if (targetVerticalRotation > 180f) targetVerticalRotation -= 360f;
         else if (targetVerticalRotation < -180f) targetVerticalRotation += 360f;
@@ -269,14 +273,20 @@ public class CharacterMovement : NetworkBehaviour
         
         transform.SetParent(null);
         isInCar = false;
-        animator.SetBool("SittingTrigger", false);
+        if (IsOwner)
+        {
+            animator.SetBool("SittingTrigger", false);
         
-        playerCamera.transform.rotation = Quaternion.EulerAngles(0, 0, 0);
+            playerCamera.transform.rotation = Quaternion.EulerAngles(0, 0, 0);
+        }
     }
 
     public void ResetCameraRotation()
     {
-        playerCamera.transform.rotation = Quaternion.EulerAngles(0, 0, 0);
+        if (IsOwner)
+        {
+            playerCamera.transform.rotation = Quaternion.EulerAngles(0, 0, 0);
+            playerCamera.transform.localPosition = new Vector3(0, 2f, 0);
+        }
     }
-
 }

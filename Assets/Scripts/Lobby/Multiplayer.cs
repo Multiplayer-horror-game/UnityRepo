@@ -128,7 +128,7 @@ namespace Kart
             }
         }
 
-        public async Task QuickJoinLobby()
+        public async Task<bool> QuickJoinLobby()
         {
             try
             {
@@ -142,11 +142,13 @@ namespace Kart
                     joinAllocation, connectionType));
 
                 NetworkManager.Singleton.StartClient();
+                return true;
 
             }
             catch (LobbyServiceException e)
             {
                 Debug.LogError("Failed to quick join lobby: " + e.Message);
+                return false;
             }
         }
 

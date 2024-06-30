@@ -9,20 +9,17 @@ namespace Network
     
         public override void OnNetworkSpawn()
         {
-            if (IsHost)
-            {
-                StartCoroutine(teleportPlayers());
-            }
+            StartCoroutine(teleportPlayer());
         }
         
-        private IEnumerator teleportPlayers()
+        private IEnumerator teleportPlayer()
         {
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(2f);
             Debug.Log("Teleporting players");
             
             foreach (var networkObject in NetworkManager.Singleton.SpawnManager.SpawnedObjectsList)
             {
-                if(networkObject.gameObject.TryGetComponent<CharacterMovement>(out var player))
+                if(networkObject.gameObject.TryGetComponent<CharacterMovement>(out var player) && player.IsLocalPlayer)
                 {
                     Debug.Log("Teleporting player");
                     player.transform.position = transform.position;

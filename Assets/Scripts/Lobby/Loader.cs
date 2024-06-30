@@ -47,8 +47,6 @@ namespace Kart
                     
                     player.LeaveCar();
                 }
-                
-                
             }
         }
     }

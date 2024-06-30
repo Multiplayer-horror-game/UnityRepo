@@ -43,9 +43,10 @@ namespace InteractableItems.Items
         [ClientRpc]
         private void InteractClientRpc()
         {
+            Debug.Log("InteractClientRpc");
             if (!IsHost)
             {
-                _audioSubTitleExecutor.ExecuteSubTitles(subtitle, null);
+                _audioSubTitleExecutor.ExecuteSubTitles(subtitle, AudioDone);
                 _audioSource.Play();
             }
         }
@@ -53,6 +54,7 @@ namespace InteractableItems.Items
         [ServerRpc(RequireOwnership = false)]
         private void InteractServerRpc()
         {
+            Debug.Log("InteractServerRpc");
             _audioSubTitleExecutor.ExecuteSubTitles(subtitle, AudioDone);
             _audioSource.Play();
             InteractClientRpc();
@@ -64,8 +66,9 @@ namespace InteractableItems.Items
             
             if (IsHost)
             {
+                Loader.LoadAdditive(roomgen);
                 //set all players to persistant data
-                LoadAdditiveServerRpc();
+               // LoadAdditiveServerRpc();
             }
 
             SceneManager.UnloadSceneAsync(SceneManager.GetSceneByName("Fase1"));

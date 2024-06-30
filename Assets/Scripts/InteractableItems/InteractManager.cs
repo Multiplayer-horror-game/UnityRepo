@@ -17,7 +17,6 @@ namespace InteractableItems
         {
             if (Input.GetMouseButtonDown(0))
             {
-                Debug.Log("Mouse button down");
                 OnInteractButtonDown();
             }
         }
@@ -26,7 +25,7 @@ namespace InteractableItems
         {
             if (_camera == null)
             {
-                _camera = Camera.main;
+                _camera = GameObject.Find("PlayerCamera").GetComponent<Camera>();
             }
             
             Ray ray = _camera.ScreenPointToRay(Input.mousePosition);

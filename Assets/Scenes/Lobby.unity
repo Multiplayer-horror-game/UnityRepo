@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 261.80035, g: 324.32297, b: 429.24155, a: 1}
+  m_IndirectSpecularColor: {r: 262.38358, g: 325.10843, b: 430.30963, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3572,7 +3572,7 @@ GameObject:
   - component: {fileID: 1978544798}
   - component: {fileID: 1978544801}
   m_Layer: 0
-  m_Name: Main Camera
+  m_Name: PlayerCamera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3812,11 +3812,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: MainHall
       objectReference: {fileID: 0}
+    - target: {fileID: 3379822878999026352, guid: fddcb7c4ab2c72d4884db9f28db0538b,
+        type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 997145768
+      objectReference: {fileID: 0}
     - target: {fileID: 4143984375886736973, guid: fddcb7c4ab2c72d4884db9f28db0538b,
         type: 3}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 911787590}
+    - target: {fileID: 4176736856020635459, guid: fddcb7c4ab2c72d4884db9f28db0538b,
+        type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 541058433
+      objectReference: {fileID: 0}
+    - target: {fileID: 4312053049056881987, guid: fddcb7c4ab2c72d4884db9f28db0538b,
+        type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 703182631
+      objectReference: {fileID: 0}
     - target: {fileID: 4850215201084071637, guid: fddcb7c4ab2c72d4884db9f28db0538b,
         type: 3}
       propertyPath: m_Mesh
