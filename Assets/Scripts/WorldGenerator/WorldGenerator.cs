@@ -63,6 +63,8 @@ namespace Fase1
         
         public int TreeDistance = 200;
         
+        public int TreeCount = 2000;
+        
         
         private int _xOffset;
         private int _yOffset;
@@ -90,6 +92,10 @@ namespace Fase1
         
         private List<Thread> _natureThreads = new();
         
+        private List<GameObject> _activeTrees = new();
+        private List<GameObject> _inactiveTrees = new();
+        private int AllTrees => _inactiveTrees.Count + _activeTrees.Count;
+        
         void Start()
         {
 
@@ -115,12 +121,8 @@ namespace Fase1
             MeshBuilder.AddMeshComponent(_roadComponent);
             
 
-            //NatureComponent natureComponent = new NatureComponent(_noiseGenerator,natureObjects);
-            //MeshBuilder.AddChildren(natureComponent);
-        }
-
-        private void Update()
-        {
+            NatureComponent natureComponent = new NatureComponent(_noiseGenerator,natureObjects);
+            MeshBuilder.AddChildren(natureComponent);
         }
 
         // Update is called once per frame
@@ -132,13 +134,16 @@ namespace Fase1
             //if there are any objects in the object list, instantiate them
             if (_objectList.Count != 0)
             {
-                _objectList.Dequeue().Value.Instantiate(this);
+                GameObject obj = _objectList.GetHighestHeat().Value.Instantiate(this);
+                if (obj != null)
+                {
+                    _objectList.Dequeue();
+                } 
             }
             
             //execute threads
-            int smallPercentage = _natureThreads.Count / 300;
             
-            for (int i = 0; i < smallPercentage; i++)
+            for (int i = 0; i < _natureThreads.Count; i++)
             {
                 if(_natureThreads.Count != 0)
                 {
@@ -193,7 +198,19 @@ namespace Fase1
                 if (_destroyList.Count != 0)
                 {
                     RemoveNatureObjectsByParent(_destroyList.Peek());
-                    Destroy(_destroyList.Dequeue());
+                    GameObject toDestroy = _destroyList.Dequeue();
+
+                    for (int i = 0; i < toDestroy.transform.childCount; i++)
+                    {
+                        GameObject child = toDestroy.transform.GetChild(i).gameObject;
+                        child.transform.SetParent(null);
+                        child.SetActive(false);
+                        
+                        _activeTrees.Remove(child);
+                        _inactiveTrees.Add(child);
+                    }
+                    
+                    Destroy(toDestroy);
                 }
 
                 _destroyC = 0;
@@ -300,12 +317,39 @@ namespace Fase1
         }
         
 
-        public GameObject ForceInstantiate(GameObject parent, GameObject child, Vector3 position, Quaternion rotation)
+        public GameObject RequestTree(GameObject parent, GameObject child, Vector3 position, Quaternion rotation)
         {
-            GameObject obj = Instantiate(child, position, rotation, parent.transform);
-            obj.transform.localPosition = position;
+            if(_inactiveTrees.Count == 0 && AllTrees > TreeCount)
+            {
+                Debug.Log("no Trees to reuse");
+                return null;
+            }
             
-            return obj;
+            if(AllTrees > TreeCount || _inactiveTrees.Count != 0)
+            {
+                Debug.Log("reuse Tree");
+                
+                _inactiveTrees[0].SetActive(true);
+                
+                _inactiveTrees[0].transform.SetParent(parent.transform);
+                
+                Debug.Log(_inactiveTrees[0].transform.position);
+                _inactiveTrees[0].transform.localPosition = position;
+                _inactiveTrees[0].transform.rotation = rotation;
+                
+                _activeTrees.Add(_inactiveTrees[0]);
+                _inactiveTrees.RemoveAt(0);
+                
+                return _activeTrees[_activeTrees.Count - 1];
+            }
+            else
+            {
+                GameObject obj = Instantiate(child, position, rotation, parent.transform);
+                obj.transform.localPosition = position;
+                _activeTrees.Add(obj);
+                return obj;
+            }
+            
         }
         
         public void RequestNatureObject(NatureObject natureObject)

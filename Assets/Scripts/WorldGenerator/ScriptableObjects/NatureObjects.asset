@@ -13,6 +13,12 @@ MonoBehaviour:
   m_Name: NatureObjects
   m_EditorClassIdentifier: 
   objects:
-  - {fileID: 1146196242924998, guid: 088347e724bfadb4783e3af1fc3c72fd, type: 3}
-  chances: 64000000
+  - {fileID: 1159214300760524, guid: e453a1846101506409ee712358e1970a, type: 3}
+  - {fileID: 1425082334868056, guid: 625b33fe0f1b9cb4689755ea6498121d, type: 3}
+  - {fileID: 1265747328178262, guid: 9e109038305bafc4eb9e6e34683f26b4, type: 3}
+  - {fileID: 1788070169085310, guid: 087ad30db7694054f95269924ad2ec8e, type: 3}
+  - {fileID: 1470224856755654, guid: 2974dbfbef1a529408e4ae405f17a0e9, type: 3}
+  - {fileID: 1893189093207436, guid: ceab66c686be31844aee499441e3fbff, type: 3}
+  - {fileID: 1899548555671386, guid: 5f0ef1f2869f4454287c7206a2fa6664, type: 3}
+  chances: 64000000640000006400000064000000640000006400000064000000
   distance: 10

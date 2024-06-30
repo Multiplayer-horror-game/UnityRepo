@@ -21,7 +21,7 @@ namespace Fase1.MeshComponents
         
         public GameObject Instantiate(WorldGenerator generator)
         {
-            return generator.ForceInstantiate(_parent, _object, _position, Quaternion.Euler(0, _rotation, 0));
+            return generator.RequestTree(_parent, _object, _position, Quaternion.Euler(0, _rotation, 0));
         }
         
         public Vector2 CheckDistance(Vector3 position)

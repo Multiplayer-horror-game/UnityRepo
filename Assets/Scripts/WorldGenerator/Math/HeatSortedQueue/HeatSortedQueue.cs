@@ -38,6 +38,31 @@ namespace Fase1.Scripts.Math
             return highestHeatValue;
         }
         
+        public HeatValue<T> GetHighestHeat()
+        {
+            if(_values.Count == 0)
+                return default;
+            
+            int highestHeat = 0;
+            HeatValue<T> highestHeatValue = _values[0];
+            foreach (var heatValue in _values)
+            {
+                
+                if (heatValue.Heat > highestHeat)
+                {
+                    highestHeat = heatValue.Heat;
+                    highestHeatValue = heatValue;
+
+                    if (heatValue.Heat > 90)
+                    {
+                        return highestHeatValue;
+                    }
+                }
+            }
+            
+            return highestHeatValue;
+        }
+        
         
         public void Enqueue(int heat, T value)
         {
