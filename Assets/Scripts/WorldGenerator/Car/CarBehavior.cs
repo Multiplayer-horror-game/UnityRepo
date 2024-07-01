@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Fase1.MeshComponents;
 using UnityEngine;
+using UnityEngine.Profiling;
 
 namespace Fase1.Car
 {
@@ -80,7 +81,6 @@ namespace Fase1.Car
             {
                 transform1.position = new Vector3(position.x,transform.position.y,position.y - 4f);
             }
-            
             
             transform.rotation = Quaternion.Euler(0,GetRotation(position,BezierCurve.DeCasteljau(_controlPoints, t + 0.01f)),0);
             
