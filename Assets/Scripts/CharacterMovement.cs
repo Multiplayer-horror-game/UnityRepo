@@ -42,7 +42,6 @@ public class CharacterMovement : NetworkBehaviour
     //FlashLight
     private GameObject flashlight;
     private NetworkVariable<bool> flashlightState = new NetworkVariable<bool>(true, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
-
     public override void OnNetworkSpawn()
     {
         flashlight = transform.Find("FlashLight").gameObject;
