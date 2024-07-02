@@ -1,3 +1,4 @@
+using System;
 using Unity.Netcode;
 using UnityEngine;
 
@@ -5,22 +6,31 @@ namespace Network
 {
     public class NetworkSpawner : MonoBehaviour
     {
+        private static NetworkSpawnConnector _instance;
+        
+        public DoorPrefab[] prefabs;
         public void Start()
         {
-            int childCount = transform.childCount;
-
-            if (childCount == 0) return;
-            
-            for (int i = 0; i < childCount; i++)
+            if (_instance == null)
             {
-                GameObject child = transform.GetChild(0).gameObject;
-                NetworkObject networkObject = child.GetComponent<NetworkObject>();
-                if (networkObject != null)
-                {
-                    networkObject.Spawn();
-                }
+                _instance = NetworkSpawnConnector.GetInstance();
             }
             
+            if (!NetworkManager.Singleton.IsHost) return;
+
+            foreach (var obj in prefabs)
+            {
+                Debug.Log("Spawning " + obj.prefab.name);
+                
+                _instance.SpawnNetworkObject(obj.prefab, obj.transform);
+            }
         }
+    }
+    
+    [Serializable]
+    public struct DoorPrefab
+    {
+        public GameObject prefab;
+        public Transform transform;
     }
 }

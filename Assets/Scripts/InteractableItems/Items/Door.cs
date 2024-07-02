@@ -30,6 +30,7 @@ namespace InteractableItems.Items
         {
             if (!IsHost)
             {
+                Debug.Log("InteractClientRpc Trigger door");
                 _animator.SetTrigger("DoorState");
             }
         }

@@ -66,7 +66,8 @@ namespace InteractableItems.Items
             
             if (IsHost)
             {
-                Loader.LoadAdditive(roomgen);
+                if(!SceneManager.GetSceneByName(roomgen.Name).isLoaded) Loader.LoadAdditive(roomgen);
+                
                 //set all players to persistant data
                // LoadAdditiveServerRpc();
             }

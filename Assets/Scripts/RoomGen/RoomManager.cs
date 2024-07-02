@@ -195,10 +195,8 @@ namespace RoomGenerator.scripts
 
                 foreach (var door in room.doors)
                 {
-                    Debug.Log(door.directions);
                     if(door.directions.north)
                     {
-                        Debug.Log("north" + position);
                         
                         Vector3 doorpos = new Vector3((position.x + door.position.x) * scale, 0, (position.y + door.position.y) * scale);
                         Debug.DrawLine(doorpos, doorpos + new Vector3(0,0,1 * scale), Color.red, 1000f);
@@ -212,7 +210,6 @@ namespace RoomGenerator.scripts
                     
                     if(door.directions.east)
                     {
-                        Debug.Log("east" + position);
                         
                         Vector3 doorpos = new Vector3((position.x + door.position.x) * scale, 0, (position.y + door.position.y) * scale);
                         Debug.DrawLine(doorpos, doorpos + new Vector3(1 * scale,0,0), Color.red, 1000f);
@@ -226,7 +223,6 @@ namespace RoomGenerator.scripts
                     
                     if(door.directions.south)
                     {
-                        Debug.Log("south" + position);
                         
                         Vector3 doorpos = new Vector3((position.x + door.position.x) * scale, 0, (position.y + door.position.y) * scale);
                         Debug.DrawLine(doorpos, doorpos + new Vector3(0,0,-1 * scale), Color.red, 1000f);
@@ -240,7 +236,6 @@ namespace RoomGenerator.scripts
                     
                     if(door.directions.west)
                     {
-                        Debug.Log("west" + position);
                         
                         Vector3 doorpos = new Vector3((position.x + door.position.x) * scale, 0, (position.y + door.position.y) * scale);
                         Debug.DrawLine(doorpos, doorpos + new Vector3(-1 * scale,0,0), Color.red, 1000f);
@@ -261,7 +256,6 @@ namespace RoomGenerator.scripts
             {
                 if (!(pos.x + position.x < gridSize.x && pos.y + position.y < gridSize.y) || !(pos.x + position.x >= 0 && pos.y + position.y >= 0))
                 {
-                    Debug.Log("Room out of bounds at " + position);
                     return false;
                 }
                 
